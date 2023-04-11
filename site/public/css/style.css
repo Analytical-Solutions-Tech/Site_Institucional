@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Rubik:ital@1&display=swap');
+
+:root {
+    --peso: bold;
+    --branco: #fff;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-image: url('../assets/Rectangle\ 3.png');
+    height: 2922px;
+}
+
+/* HEADER */
+.navbar {
+    padding: 15px 60px 35px 14px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo_nav img {
+    width: 450px;
+}
+
+.lista_nav {
+    font-size: 30px;
+    font-weight: 600;
+    width: 600px;
+}
+
+.lista_nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    z-index: 100;
+}
+
+.lista_nav a {
+    transition: .2s ease;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--branco);
+}
+
+.lista_nav a:hover {
+    color: #40CBC3;
+}
+
+.botao_navbar button {
+    border: none;
+    transition: 0.5s ease;
+    cursor: pointer;
+    width: 200px;
+    height: 55px;
+    background: #40CBC3;
+    border-radius: 50px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 35px;
+}
+
+.botao_navbar button:hover {
+    transform: scale(1.1);
+}
+
+/* PRIMEIRA DIV */
+
+.PNG_1 img {
+    z-index: -1;
+    display: flex;
+    height: 800px;
+    padding-left: 900px;
+    margin-top: -700px;
+}
+
+.article_1 {
+    padding: 180px;
+    margin-top: 100px
+}
+
+.Texto_h1_1 {
+    z-index: 1;
+    font-size: 50px;
+    letter-spacing: 2px;
+    color: var(--branco);
+}
+
+.Texto_h2_1 {
+    font-size: 30px;
+    letter-spacing: 2px;
+    font-weight: lighter;
+    color: var(--branco);
+}
+
+.PNG_2 img {
+    z-index:-1;
+    display: flex;
+    height: 450px;
+    margin-top: -1000px;
+    padding-right: 2000px;
+    /* padding-left: 100px; */
+}
+
+.article_2 {
+    padding: 980px;
+    width: 1000px;
+    margin-top: -700px;
+}
+
+.Texto_h1_2 {
+    z-index: 1;
+    font-size: 50px;
+    letter-spacing: 2px;
+    color: var(--branco);
+}

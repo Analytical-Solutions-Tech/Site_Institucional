@@ -98,6 +98,7 @@ body {
     color: var(--branco);
 }
 
+/* SEGUNDA DIV */
 .PNG_2 img {
     display: flex;
     z-index: 1;
@@ -114,7 +115,7 @@ body {
     padding: 20px;
 }
 
-.div_article_2 {
+.article_2 div {
     width: 1000px;
     z-index: 1;
     display: flex;
@@ -131,8 +132,29 @@ body {
     color: var(--branco);
 }
 
-.Texto_h1_3 {
-    justify-self: center;
-    font-size: 40px;
-    color: #fff;
+/* TERCEIRA DIV */
+.article_3 {
+    z-index: 2;
+    display: flex;
+    margin-top: 150px;
+    padding-left: 100px ;
+    margin-left: 100px;
 }
+
+
+.Texto_h1_3 {
+    z-index: 2;
+    display: flex;
+    font-size: 50px;
+    color: #fff;
+    margin-left: 600px;
+}
+
+.PNG_3 img{
+    z-index: -1;
+    display: flex;
+    width: 1600px;
+    margin-left: 250px;
+}
+
+

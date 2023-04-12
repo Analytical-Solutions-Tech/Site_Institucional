@@ -109,6 +109,7 @@ body {
     text-indent: 25px;
     align-self: flex-start;
     margin-left: 125px;
+    letter-spacing: 3px;
 }
 
 .beneficios {
@@ -140,7 +141,7 @@ body {
     display: flex;
     flex-direction: column;
     width: 95%;
-    height: 2500px;
+    height: 1900px;
 }
 
 .beneficio01,
@@ -178,7 +179,7 @@ body {
     padding: 5px;
 }
 
-.beneficio-num-logo-container{
+.beneficio-num-logo-container {
     display: flex;
     justify-content: space-around;
     margin-top: -25px;
@@ -262,10 +263,82 @@ body {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.beneficio-num-logo-container-04{
+.beneficio-num-logo-container-04 {
     margin-top: 100px;
 }
 
-.right-content-beneficio-04{
+.right-content-beneficio-04 {
     margin-top: -125px;
+}
+
+.simulador-financeiro {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.simulador-financeiro hr {
+    width: 70%;
+}
+
+.simulador-logo {
+    width: 100px;
+    height: 100px;
+}
+
+.simulador-header {
+    color: #fff;
+    width: 30%;
+    font-weight: 900;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.text-calculadora {
+    color: #fff;
+    width: 40%;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-indent: 25px;
+    letter-spacing: 2px;
+}
+
+.btn_simulador {
+    background-color: #3DA673;
+    padding: 5px 40px 5px 40px;
+    border-radius: 25px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin-top: 20px;
+    border: 0;
+    cursor: pointer;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+footer hr {
+    width: 70%;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 30px 0 30px 0;
+    width: 30%;
+}
+
+.rede-social-icon {
+    width: 40px;
+    height: 40px;
 }

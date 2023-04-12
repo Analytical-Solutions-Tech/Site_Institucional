@@ -139,12 +139,14 @@ body {
 .beneficios-container {
     display: flex;
     flex-direction: column;
-    /* justify-content: space-e; */
     width: 95%;
-    height: 2000px;
+    height: 2500px;
 }
 
-.beneficio01 {
+.beneficio01,
+.beneficio02,
+.beneficio03,
+.beneficio04 {
     display: flex;
     justify-content: space-around;
     flex-direction: row;
@@ -153,17 +155,32 @@ body {
     margin-top: 60px;
 }
 
+.beneficio02 {
+    margin-top: 240px;
+}
+
+.beneficio03 {
+    margin-top: 150px;
+}
+
+.beneficio04 {
+    margin-top: 350px;
+}
+
+.right-content-beneficio-03 {
+    margin-top: 60px;
+}
+
 .left-content-beneficio {
     border: 6px solid #3DA673;
     border-radius: 45px;
-    width: 25%;
+    width: 27%;
+    padding: 5px;
 }
 
-.beneficio-num-logo-container {
+.beneficio-num-logo-container{
     display: flex;
-    align-items: flex-start;
     justify-content: space-around;
-    flex-direction: row;
     margin-top: -25px;
 }
 
@@ -174,18 +191,12 @@ body {
     line-height: 0px;
 }
 
-.beneficio-logo-01 {
-    width: 200px;
-    height: 150px;
-    margin-top: -5px;
-    margin-right: -20px;
-}
-
 .beneficio-text {
     color: #fff;
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1rem;
     text-align: center;
+    margin-top: -0px;
 }
 
 .right-content-beneficio {
@@ -193,17 +204,29 @@ body {
 
 }
 
-.img-beneficio {
+.img-beneficio-01,
+.img-beneficio-03 {
     width: 450px;
     height: 325px;
 }
 
-.background-square {
+.img-beneficio-02 {
+    width: 450px;
+    height: 400px;
+    margin-top: -80px;
+}
+
+.img-beneficio-04 {
+    width: 500px;
+    height: 350px
+}
+
+.background-square,
+.background-square-03 {
     position: absolute;
     z-index: -1;
-    right: 0;
-    margin-top: 55px;
-    margin-right: 150px;
+    right: 155px;
+    margin-top: 50px;
     width: 400px;
     height: 320px;
     border-radius: 30px;
@@ -211,42 +234,38 @@ body {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.beneficio02{
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
-    width: 95%;
-    height: 225px;
-    margin-top: 200px;
+.background-square-03 {
+    margin-top: -280px;
 }
 
-.right-content-beneficio img{
-    width: 450px;
-    height: 350px;
-}
-
-.beneficio-logo-02{
+.beneficio-logo-01,
+.beneficio-logo-02 {
     width: 200px;
     height: 150px;
     margin-left: 20px;
 }
 
-.beneficio-numero02 {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 4.5rem;
-    font-weight: 600;
-    line-height: 0px;
-    margin-left: 5px;
+.beneficio-logo-02 {
+    margin-left: -100px;
+    margin-right: 50px;
 }
 
-.beneficio-text02{
-    color: #fff;
-    font-weight: bold;
-    font-size: 1.1rem;
-    text-align: center;
-    margin-top: -0px;    
+.background-square-04 {
+    position: absolute;
+    z-index: -1;
+    left: 75px;
+    margin-top: 75px;
+    width: 455px;
+    height: 325px;
+    border-radius: 30px;
+    background-color: #3DA673;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.beneficio02-img{
-    margin-top: -50px;
+.beneficio-num-logo-container-04{
+    margin-top: 100px;
+}
+
+.right-content-beneficio-04{
+    margin-top: -125px;
 }

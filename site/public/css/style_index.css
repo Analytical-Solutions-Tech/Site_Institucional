@@ -13,31 +13,35 @@
 
 body {
     background-image: url('../assets/Rectangle\ 3.png');
-    height: 2922px;
+    width: 100%;
 }
 
 /* HEADER */
 .navbar {
-    padding: 15px 60px 35px 14px;
+    padding: 15px 15px 35px 14px;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
 .logo_nav img {
-    width: 450px;
+    width: 350px;
 }
 
 .lista_nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     font-size: 30px;
     font-weight: 600;
-    width: 600px;
+    width: 60%;
 }
 
 .lista_nav ul {
     list-style: none;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    width: 100%;
     z-index: 100;
 }
 
@@ -52,47 +56,50 @@ body {
     color: #40CBC3;
 }
 
-.botao_navbar button {
+.lista_nav button {
     border: none;
     transition: 0.5s ease;
     cursor: pointer;
-    width: 250px;
-    height: 65px;
+    padding: 0px 25px 0px 25px;
     background: #40CBC3;
     border-radius: 50px;
     color: black;
     font-weight: 600;
     font-size: 35px;
+
 }
 
-.botao_navbar button:hover {
+.lista_nav button:hover {
     transform: scale(1.1);
 }
 
 /* PRIMEIRA DIV */
 
 .PNG_1 img {
-    width: 900px;
-    display: flex;
-    height: 800px;
-    padding-left: 900px;
-    margin-top: -700px;
+    width: 550px;
+    height: auto;
+    margin-left: -300px;
 }
 
 .article_1 {
-    padding: 200px;
-    margin-top: 100px
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0px 15px 30px 0px;
+    
 }
 
 .Texto_h1_1 {
     z-index: 1;
-    font-size: 50px;
+    font-size: 2rem;
     letter-spacing: 2px;
     color: var(--branco);
+    width: 90%;
 }
 
 .Texto_h2_1 {
-    font-size: 30px;
+    font-size: 1.5rem;
     letter-spacing: 2px;
     font-weight: lighter;
     color: var(--branco);
@@ -120,7 +127,7 @@ body {
     z-index: 1;
     display: flex;
     margin-left: 900px;
-    height: 10px;   
+    height: 10px;
 }
 
 .Texto_h1_2 {
@@ -137,7 +144,7 @@ body {
     z-index: 1;
     display: flex;
     margin-top: 150px;
-    padding-left: 100px ;
+    padding-left: 100px;
     margin-left: 100px;
 }
 
@@ -155,7 +162,7 @@ body {
     width: 2000px;
 }
 
-.PNG_3 img{
+.PNG_3 img {
     display: flex;
     width: 1400px;
     margin-left: 250px;
@@ -208,7 +215,7 @@ body {
     margin-top: -300px;
 }
 
-.Texto_h1_4{
+.Texto_h1_4 {
     display: flex;
     color: var(--branco);
     font-weight: bold;

@@ -56,11 +56,11 @@ body {
     border: none;
     transition: 0.5s ease;
     cursor: pointer;
-    width: 200px;
-    height: 55px;
+    width: 250px;
+    height: 65px;
     background: #40CBC3;
     border-radius: 50px;
-    color: #fff;
+    color: black;
     font-weight: 600;
     font-size: 35px;
 }
@@ -72,7 +72,7 @@ body {
 /* PRIMEIRA DIV */
 
 .PNG_1 img {
-    z-index: -1;
+    width: 900px;
     display: flex;
     height: 800px;
     padding-left: 900px;
@@ -134,7 +134,7 @@ body {
 
 /* TERCEIRA DIV */
 .article_3 {
-    z-index: 2;
+    z-index: 1;
     display: flex;
     margin-top: 150px;
     padding-left: 100px ;
@@ -143,18 +143,116 @@ body {
 
 
 .Texto_h1_3 {
-    z-index: 2;
     display: flex;
+    text-align: center;
     font-size: 50px;
-    color: #fff;
-    margin-left: 600px;
+    color: var(--branco);
+    margin-left: 350px;
+}
+
+.PNG_3 {
+    display: flex;
+    width: 2000px;
 }
 
 .PNG_3 img{
-    z-index: -1;
     display: flex;
-    width: 1600px;
+    width: 1400px;
     margin-left: 250px;
+    margin-top: -200px;
 }
 
+/* QUARTA DIV */
 
+.Fundo_4 {
+    display: flex;
+    margin-top: -500px;
+    margin-left: 200px;
+    width: 3000px
+}
+
+.Fundo_4 img {
+    display: flex;
+    width: 3000px;
+    height: 500px;
+    margin-left: -400px;
+}
+
+.botao_saiba {
+    display: flex;
+    margin-left: 1000px;
+    margin-top: 10px;
+}
+
+.botao_saiba button {
+    border: none;
+    cursor: pointer;
+    width: 300px;
+    height: 80px;
+    background: #40CBC3;
+    border-radius: 50px;
+    color: black;
+    font-weight: 600;
+    font-size: 40px;
+    transition: .2s ease;
+}
+
+.botao_saiba button:hover {
+    transform: scale(1.1);
+    color: var(--branco);
+    background: #F2978B;
+}
+
+.article_4 {
+    display: flex;
+    margin-top: -300px;
+}
+
+.Texto_h1_4{
+    display: flex;
+    color: var(--branco);
+    font-weight: bold;
+    font-size: 50px;
+    margin-top: -150px;
+    margin-left: 100px;
+}
+
+.Texto_h2_4 {
+    display: flex;
+    margin-left: -500px;
+    margin-top: -20px;
+    color: var(--branco);
+    font-weight: lighter;
+    font-size: 50px;
+}
+
+.icon_HF {
+    display: flex;
+    margin-top: -170px;
+    margin-left: -30px;
+    width: 300px;
+    height: 100px;
+}
+
+/* FOOTER */
+
+.article_5 {
+    display: flex;
+    width: 4000px;
+    margin-left: 620px;
+    margin-top: 200px;
+}
+
+.Texto_h1_5 {
+    color: var(--branco);
+    font-weight: lighter;
+    font-size: 30px;
+}
+
+.redes_icon {
+    display: flex;
+    width: 600px;
+    margin-top: 100px;
+    height: 60px;
+    margin-left: -610px;
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Prosto+One&display=swap"
+        rel="stylesheet">
+    <script src="scripts.js"></script>
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Calculadora Financeira</title>
+</head>
+
+<body>
+    <nav>
+        <div class="navBar_container">
+            <div class="logo-name">
+                <img src="assets/logo.png" alt="logo" class="logo">
+                <p class="titulo_ast">Analytical Solutions Tech</p>
+            </div>
+            <div class="links-btns">
+                <a href="#" class="link-navbar">Home</a>
+                <a href="#" class="link-navbar">Contato</a>
+                <a href="#" class="link-navbar">Sobre Nós</a>
+                <a href="#" class="link-navbar-active">Área do Cliente</a>
+            </div>
+        </div>
+    </nav>
+    <main id="calculadora">
+        <div class="calculadora_left_content_container">
+            <span class="calculadora-title">Calcule o quanto você pode economizar!</span>
+            <p class="calculadora-text">Essa ferramenta é baseada na quantidade em KG transportada no mês, valor em R$
+                por cada KG e a quantidade
+                de Tilápias que foram perdidas no transporte, desenvolvida especialmente para ajudar nossos clientes a
+                avaliar suas
+                perdas e
+                analisar quanto a <span class="marked-text">AST (Analytical Solutions Tech)</span> pode economizar por
+                você! </p>
+            <div class="div_input_container">
+                <label for="input_peso" class="label_input">Peso Transportado por Mês</label>
+                <input type="number" name="input_peso" id="input_peso" class="input_peso" placeholder="Em KG">
+                <label for="input_preco" class="label_input">Valor por KG</label>
+                <input type="number" name="input_preco" id="input_preco" class="input_preco" placeholder="Em R$">
+                <label for="input_perda" class="label_input">Quantidade perdida em KG por Mês</label>
+                <input type="number" name="input_perda" id="input_perda" class="input_perda" placeholder="Em KG">
+                <button onclick="calcular_prejuizo()" class="btn_calculo">
+                    CALCULAR
+                </button>
+            </div>
+        </div>
+        <div class="calculadora_right_content_container" id="div_resultados">
+            <div class="topic_prejuizos">
+                <span class="calculadora-title">Prejuízos</span>
+                <img src="assets/money-loss.png" alt="prejuizos" class="icon-right-content">
+                <p class="calculadora-text-perdas">
+                    Sua empresa perde <span id="info_porcentagemPerdaPeso" class="porcentagem_perda"></span> de Tilápias
+                    no
+                    transporte todo mês, tendo o prejuízo de:
+                    <span id="info_qtdPerdaPeso" class="informacao_perda"></span>
+                    <span id="info_qtdPerdaDinheiro" class="informacao_perda"></span>
+                    Podendo em um ano esses valores chegar até:
+                    <span id="info_qtdPerdaPesoAno" class="informacao_perda"></span>
+                    <span id="info_qtdPerdaDinheiroAno" class="informacao_perda"></span>
+                </p>
+            </div>
+            <div class="vertical-break"></div>
+            <div class="topic_lucros">
+                <span class="calculadora-title">Possíveis Lucros</span>
+                <img src="assets/earning.png" alt="lucros" class="icon-right-content">
+                <p class="calculadora-text-lucros">
+                    Aplicando a nossa solução, você poderá ter os possíveis de lucros de <span
+                        class="porcentagem_lucro">25%</span> até <span class="porcentagem_lucro">50%</span>, sendo
+                    assim, você poderá economizar:
+                    <span id="info_qtdLucroPeso" class="informacao_lucro"></span>
+                    <span id="info_qtdLucroDinheiro" class="informacao_lucro"></span>
+                    Podendo em um ano esses valores chegar até:
+                    <span id="info_qtdLucroPesoAno" class="informacao_lucro"></span>
+                    <span id="info_qtdLucroDinheiroAno" class="informacao_lucro"></span>
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
+
+<script>
+    function calcular_prejuizo() {
+        var peso = Number(input_peso.value);
+        var valorKG = Number(input_preco.value);
+        var qtdPerda = Number(input_perda.value);
+
+        var porcentagemPerda = qtdPerda / peso * 100;
+        var valorPerda = qtdPerda * valorKG;
+        var qtdPerdaAno = qtdPerda * 12;
+        var valorPerdaAno = valorPerda * 12;
+
+        var pesoLucro25 = qtdPerda / 4;
+        var pesoLucro50 = qtdPerda / 2;
+        var valorLucro25 = valorPerda / 4;
+        var valorLucro50 = valorPerda / 2;
+
+        var pesoLucro25Ano = (qtdPerda / 4) * 12;
+        var pesoLucro50Ano = (qtdPerda / 2) * 12;
+        var valorLucro25Ano = (valorPerda / 4) * 12;
+        var valorLucro50Ano = (valorPerda / 2) * 12;
+
+        let brlFormatMoney = Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
+
+        div_resultados.style.display = "flex";
+
+        //prejuízos
+        info_porcentagemPerdaPeso.innerHTML = `${porcentagemPerda.toFixed(2)}%`;
+        info_qtdPerdaPeso.innerHTML = `${qtdPerda.toFixed(2)}KG`;
+        info_qtdPerdaDinheiro.innerHTML = `${brlFormatMoney.format(valorPerda)}`;
+        info_qtdPerdaPesoAno.innerHTML = `${qtdPerdaAno.toFixed(2)}KG`;
+        info_qtdPerdaDinheiroAno.innerHTML = `${brlFormatMoney.format(valorPerdaAno)}`;
+
+        //lucros
+        info_qtdLucroPeso.innerHTML = `${pesoLucro25.toFixed(2)}KG - ${pesoLucro50.toFixed(2)}KG`;
+        info_qtdLucroDinheiro.innerHTML = `${brlFormatMoney.format(valorLucro25)} - ${brlFormatMoney.format(valorLucro50)}`;
+        info_qtdLucroPesoAno.innerHTML = `${pesoLucro25Ano.toFixed(2)}KG - ${pesoLucro50Ano.toFixed(2)}KG`;
+        info_qtdLucroDinheiroAno.innerHTML = `${brlFormatMoney.format(valorLucro25Ano)} - ${brlFormatMoney.format(valorLucro50Ano)}`;
+    }
+</script>

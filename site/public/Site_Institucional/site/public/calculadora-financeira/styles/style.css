@@ -1,0 +1,250 @@
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: auto;
+    font-family: 'Poppins', sans-serif;
+    background-image: linear-gradient(to bottom, #f05053 , #f2978b );
+}
+
+main {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 100px;
+    position: relative;
+}
+
+.navBar_container {
+    background: linear-gradient(45deg, #3da673, #3da67390 );   
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    height: 85px;
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-top: 20px;
+    font-family: 'Poppins', sans-serif;
+    border: 2px;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.logo-name {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
+.logo-name>p {
+    color: white;
+    font-size: 0.7rem;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    margin-left: 10px;
+}
+
+.logo {
+    height: 70px;
+}
+
+.links-btns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.links-btns>a {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.3rem;
+    line-height: 54px;
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.link-navbar-active {
+    border: 5px;
+    border-radius: 10px;
+    background-color:  #3da673;
+}
+
+.calculadora_left_content_container {
+    background-color:antiquewhite;
+    width: 50%;
+    padding: 30px;
+    box-shadow: 5px 5px 2px 1px rgba(0, 0, 0, 0.2);
+    border: 1px solid #000;
+    border-radius: 15px;
+    margin-top: 100px;
+    
+}
+
+.calculadora-title {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #240960;
+    text-transform: uppercase;
+}
+
+.calculadora-text {
+    font-size: 0.9em;
+    width: 95%;
+    text-align: justify;
+}
+
+.calculadora-text-perdas,
+.calculadora-text-lucros {
+    font-size: 0.85em;
+    width: 100%;
+}
+
+
+.marked-text {
+    color: #240960;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.label_input {
+    font-size: 1.2em;
+    margin: 5px 0 10px 0px;
+    background: linear-gradient(45deg, #240960, #4500db);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+
+.input_peso,
+.input_preco,
+.input_perda {
+    width: 40%;
+    padding: 10px;
+    padding-left: 35px;
+    background: url("../assets/icon-peso.png") no-repeat left;
+    background-size: 25px;
+    background-position-x: 5px;
+    border: 1px solid #000000;
+    margin-bottom: 10px;
+}
+
+.input_preco {
+    background: url("../assets/icon-money.png") no-repeat left;
+    background-size: 25px;
+    background-position-x: 5px;
+}
+
+.input_perda {
+    background: url("../assets/icon-perda-peso.png") no-repeat left;
+    background-size: 25px;
+    background-position-x: 5px;
+}
+
+.input_peso:focus,
+.input_perda:focus,
+.input_preco:focus {
+    outline: none;
+    border: 1px solid #240960;
+    border-radius: 10px;
+    transition: 0.35s ease-in;
+}
+
+.calculadora_right_content_container {
+    display: none;
+    justify-content: space-around;
+    background-color:antiquewhite;
+    width: 35%;
+    padding: 30px;
+    box-shadow: 5px 5px 2px 1px rgba(0, 0, 0, 0.2);
+    border: 1px solid #000;
+    border-radius: 10px;
+    border-radius: 15px;
+    margin-top: 100px;
+}
+
+.icon-right-content {
+    width: 50px;
+    height: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.topic_prejuizos,
+.topic_lucros {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 15px;
+    width: 500px;
+}
+
+.informacao,
+.informacao_perda {
+    font-weight: bold;
+    color: #240960;
+}
+
+.porcentagem_perda {
+    font-weight: bold;
+    color: rgb(255, 25, 25);
+}
+
+.porcentagem_lucro {
+    font-weight: bold;
+    color: rgb(25, 255, 25);
+}
+
+.informacao_perda,
+.informacao_lucro {
+    display: block;
+    color: rgb(255, 25, 25);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.informacao_lucro {
+    color: rgb(25, 255, 25);
+}
+
+.vertical-break {
+    border-left: 3px solid #240960;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.div_input_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn_calculo {
+    width: 25%;
+    padding: 15px;
+    background-color: #240960;
+    border: 1px solid #240960;
+    border-radius: 15px;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    cursor: pointer
+}
+
+
+.btn_calculo:hover {
+    transition: 0.5s;
+    background-color: #fff;
+    color: #240960;
+    box-shadow: 6px 6px 2px 1px rgba(36, 9, 96, 0.9);
+}

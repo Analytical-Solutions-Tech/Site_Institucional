@@ -1,0 +1,344 @@
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: auto;
+    background-image: linear-gradient(to bottom, #F2978B, #F05053);
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar-container {
+    display: flex;
+    width: 95%;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    padding-top: 5px;
+}
+
+.navbar-logo-name {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.logo-navbar {
+    width: 20%;
+    height: 20%;
+}
+
+.ast_name {
+    font-size: 0.8rem;
+    color: white;
+    font-weight: 900;
+    margin-left: 15px;
+    margin-bottom: 5px;
+}
+
+.navbar-links a {
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: white;
+}
+
+.navbar-links-container {
+    width: 45%;
+}
+
+.navbar-links {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.active {
+    background-color: #3DA673;
+    padding: 10px 30px 10px 30px;
+    border-radius: 30px;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
+    height: 400px;
+}
+
+.name-project {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    background-color: #3DA673;
+    padding: 0px 30px 0px 30px;
+    border-radius: 20px;
+}
+
+.logo-project-home {
+    width: 135px;
+    margin-left: -25px;
+    margin-right: 25px;
+}
+
+.name-style {
+    font-size: 5rem;
+    font-weight: 500;
+    color: #fff;
+    font-style: italic;
+    text-shadow: 0px 1px 2px black;
+}
+
+.text-missao {
+    width: 50%;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 900;
+    text-align: left;
+    text-indent: 25px;
+    align-self: flex-start;
+    margin-left: 125px;
+    letter-spacing: 3px;
+}
+
+.beneficios {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 80px;
+}
+
+.header-beneficios {
+    background-color: #3DA673;
+    padding: 0px 30px 0px 30px;
+    border-radius: 20px;
+    text-align: center;
+    width: 20%;
+}
+
+.header-beneficios span {
+    color: #fff;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 2.8rem;
+    text-shadow: 0px 1px 2px black;
+}
+
+.beneficios-container {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    height: 1900px;
+}
+
+.beneficio01,
+.beneficio02,
+.beneficio03,
+.beneficio04 {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    width: 95%;
+    height: 225px;
+    margin-top: 60px;
+}
+
+.beneficio02 {
+    margin-top: 240px;
+}
+
+.beneficio03 {
+    margin-top: 150px;
+}
+
+.beneficio04 {
+    margin-top: 350px;
+}
+
+.right-content-beneficio-03 {
+    margin-top: 60px;
+}
+
+.left-content-beneficio {
+    border: 6px solid #3DA673;
+    border-radius: 45px;
+    width: 27%;
+    padding: 5px;
+}
+
+.beneficio-num-logo-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: -25px;
+}
+
+.beneficio-numero {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 4.5rem;
+    font-weight: 600;
+    line-height: 0px;
+}
+
+.beneficio-text {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: center;
+    margin-top: -0px;
+}
+
+.right-content-beneficio {
+    display: flex;
+
+}
+
+.img-beneficio-01,
+.img-beneficio-03 {
+    width: 450px;
+    height: 325px;
+}
+
+.img-beneficio-02 {
+    width: 450px;
+    height: 400px;
+    margin-top: -80px;
+}
+
+.img-beneficio-04 {
+    width: 500px;
+    height: 350px
+}
+
+.background-square,
+.background-square-03 {
+    position: absolute;
+    z-index: -1;
+    right: 155px;
+    margin-top: 50px;
+    width: 400px;
+    height: 320px;
+    border-radius: 30px;
+    background-color: #3DA673;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.background-square-03 {
+    margin-top: -280px;
+}
+
+.beneficio-logo-01,
+.beneficio-logo-02 {
+    width: 200px;
+    height: 150px;
+    margin-left: 20px;
+}
+
+.beneficio-logo-02 {
+    margin-left: -100px;
+    margin-right: 50px;
+}
+
+.background-square-04 {
+    position: absolute;
+    z-index: -1;
+    left: 75px;
+    margin-top: 75px;
+    width: 455px;
+    height: 325px;
+    border-radius: 30px;
+    background-color: #3DA673;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.beneficio-num-logo-container-04 {
+    margin-top: 100px;
+}
+
+.right-content-beneficio-04 {
+    margin-top: -125px;
+}
+
+.simulador-financeiro {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.simulador-financeiro hr {
+    width: 70%;
+}
+
+.simulador-logo {
+    width: 100px;
+    height: 100px;
+}
+
+.simulador-header {
+    color: #fff;
+    width: 30%;
+    font-weight: 900;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.text-calculadora {
+    color: #fff;
+    width: 40%;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-indent: 25px;
+    letter-spacing: 2px;
+}
+
+.btn_simulador {
+    background-color: #3DA673;
+    padding: 5px 40px 5px 40px;
+    border-radius: 25px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin-top: 20px;
+    border: 0;
+    cursor: pointer;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+footer hr {
+    width: 70%;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 30px 0 30px 0;
+    width: 30%;
+}
+
+.rede-social-icon {
+    width: 40px;
+    height: 40px;
+}

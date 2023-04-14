@@ -214,10 +214,36 @@ body {
 
 /* FOOTER */
 
+.article_sobrenos {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.hgroup_sobrenos {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+}
+
+.Texto_h1_sobrenos {
+    color: var(--branco);
+    font-size: 2.5rem;
+    margin-top: 150px;
+}
+
+.Texto_h2_sobrenos {
+    color: var(--branco);
+    text-align: center;
+    margin-top: 50px;
+    font-size: 1.8rem;
+    font-weight: lighter;
+}
+
 .article_5 {
     display: flex;
     justify-content: center;
-    margin-top: 240px;
+    margin-top: 180px;
     flex-direction: column;
 }
 

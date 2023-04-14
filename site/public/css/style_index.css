@@ -16,6 +16,9 @@ body {
     width: 100%;
 }
 
+html {
+    scroll-behavior: smooth;
+  }
 /* HEADER */
 .navbar {
     padding: 15px 15px 35px 14px;
@@ -71,6 +74,10 @@ body {
 
 .lista_nav button:hover {
     transform: scale(1.1);
+}
+
+.header_sobrenos:active{
+    transition: 1s ease;
 }
 
 /* PRIMEIRA DIV */

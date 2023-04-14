@@ -229,6 +229,10 @@ main {
     align-items: center;
 }
 
+.div_input_container button:active{
+    transition: 1.2s ease;
+}
+
 .btn_calculo {
     width: 25%;
     padding: 15px;

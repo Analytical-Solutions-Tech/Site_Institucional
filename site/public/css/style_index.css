@@ -167,6 +167,7 @@ html {
     display: flex;
     margin-top: -10px;
     justify-content: center;
+    padding: 20px;
 }
 
 .botao_saiba button {
@@ -180,6 +181,7 @@ html {
     font-weight: 600;
     font-size: 40px;
     transition: .2s ease;
+    padding: 10px;
 }
 
 .botao_saiba button:hover {

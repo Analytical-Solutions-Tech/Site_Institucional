@@ -9,36 +9,60 @@
     padding: 0;
     margin: 0;
     font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
 }
 
 body {
     background-image: url('../assets2/pagina_inicial/Rectangle\ 3.png');
     width: 100%;
+    overflow-x: hidden;
 }
 
-html {
-    scroll-behavior: smooth;
-  }
+::-webkit-scrollbar {
+    width: 8px;
+    background: #252525;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #40CBC3;
+}
+
 /* HEADER */
 .navbar {
-    padding: 15px 15px 35px 14px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
+    position: fixed;
+    width: 100%;
+    background: #25252511;
+    backdrop-filter: blur(100px);
+    height: 125px;
+    z-index: 1;
+}
+
+.bar{
+    width: 0;
+    height: 2px;
+    background: #40CBC3;
+    transition: .4s ease;
+}
+
+.lista_nav a:hover .bar {
+    width: 60%;
 }
 
 .logo_nav img {
-    width: 350px;
+    width: 400px;
 }
 
 .lista_nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    font-size: 30px;
-    font-weight: 600;
-    width: 60%;
-}
+    font-size: 1.6rem;
+    font-weight: 400;
+    width: 50rem;
+    }
 
 .lista_nav ul {
     list-style: none;
@@ -59,28 +83,32 @@ html {
     color: #40CBC3;
 }
 
-.lista_nav button {
+.botao_navbar button {
     border: none;
     transition: 0.5s ease;
     cursor: pointer;
     padding: 0px 25px 0px 25px;
     background: #40CBC3;
     border-radius: 50px;
-    color: black;
+    color: #252525;
     font-weight: 600;
-    font-size: 35px;
+    font-size: 30px;
 
 }
 
-.lista_nav button:hover {
+.botao_navbar button:hover {
     transform: scale(1.1);
 }
 
-.header_sobrenos:active{
+.header_sobrenos:active {
     transition: 1s ease;
 }
 
 /* PRIMEIRA DIV */
+
+.container_home {
+    transform: translateY(100px);
+}
 
 .PNG_1 img {
     width: 550px;
@@ -94,7 +122,7 @@ html {
     align-items: center;
     justify-content: space-around;
     padding: 0px 15px 30px 0px;
-    
+
 }
 
 .Texto_h1_1 {
@@ -231,7 +259,7 @@ html {
 
 .hgroup_sobrenos {
     display: flex;
-    width: 50%;
+    width: 65%;
     flex-direction: column;
 }
 
@@ -246,6 +274,7 @@ html {
     text-align: center;
     margin-top: 50px;
     font-size: 1.8rem;
+    line-height: 50px;
     font-weight: lighter;
 }
 
@@ -254,6 +283,9 @@ html {
     justify-content: center;
     margin-top: 180px;
     flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
 }
 
 .Texto_h1_5 {
@@ -267,4 +299,43 @@ html {
     margin-top: 100px;
     height: 40px;
     text-align: center;
+}
+
+.social {
+    background-color: #252525;
+    border-radius: 50px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 40px;
+    width: 300px;
+    height: 50px;
+}
+
+.social a{
+    text-decoration: none;
+    color: #f1f1f1;
+}
+
+#zap:hover {
+    transition: .5s ;
+    transform: scale(1.1);
+    color: #bebb0e;
+    cursor: pointer;
+}
+
+#insta:hover {
+    transition: .5s ;
+    transform: scale(1.1);
+    color: #f20356;
+    cursor: pointer;
+
+}
+
+#link:hover {
+    transition: .5s ;
+    transform: scale(1.1);
+    color: #026fab;
+    cursor: pointer;
 }

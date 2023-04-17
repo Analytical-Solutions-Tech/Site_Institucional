@@ -39,7 +39,7 @@ body {
 .navbar-links a {
     text-decoration: none;
     font-size: 1.1rem;
-    font-weight: bold;
+    font-weight: 500;
     color: white;
 }
 
@@ -56,7 +56,7 @@ body {
     align-items: center;
 }
 
-.navbar-links a:hover{
+.navbar-links a:hover {
     color: #3DA673;
 }
 
@@ -72,7 +72,7 @@ body {
     font-size: 1.1rem;
 }
 
-.active:hover{
+.active:hover {
     transform: scale(1.15);
     color: #fff;
 }
@@ -97,7 +97,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50%;
     background-color: #3DA673;
     padding: 0px 30px 0px 30px;
     border-radius: 20px;
@@ -112,9 +111,13 @@ body {
 .name-style {
     font-size: 5rem;
     font-weight: 500;
-    color: #fff;
+    background-image: linear-gradient(to bottom, #fff, #fff, rgba(255,255,255, 0.4));
     font-style: italic;
-    text-shadow: 0px 1px 2px black;
+    padding: 0px 15px 0px 15px;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;
 }
 
 .text-missao {
@@ -339,7 +342,7 @@ body {
     transition: 0.5s ease;
 }
 
-.btn_simulador:hover{
+.btn_simulador:hover {
     transform: scale(1.2);
 }
 

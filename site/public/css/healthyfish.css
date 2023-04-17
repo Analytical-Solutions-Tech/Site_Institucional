@@ -62,7 +62,7 @@ body {
 
 .active {
     background-color: #3DA673;
-    padding: 10px 30px 10px 30px;
+    padding: 10px 25px 10px 25px;
     border-radius: 30px;
     border: 0;
     transition: 0.5s ease;
@@ -73,7 +73,7 @@ body {
 }
 
 .active:hover{
-    transform: scale(1.2);
+    transform: scale(1.15);
     color: #fff;
 }
 
@@ -144,6 +144,7 @@ body {
     border-radius: 20px;
     text-align: center;
     width: 20%;
+    margin-top: 45px;
 }
 
 .header-beneficios span {
@@ -303,6 +304,7 @@ body {
 .simulador-logo {
     width: 100px;
     height: 100px;
+    margin-top: 45px;
 }
 
 .simulador-header {
@@ -325,7 +327,7 @@ body {
 
 .btn_simulador {
     background-color: #3DA673;
-    padding: 5px 40px 5px 40px;
+    padding: 10px 45px 10px 45px;
     border-radius: 25px;
     color: #fff;
     text-decoration: none;
@@ -334,6 +336,11 @@ body {
     margin-top: 20px;
     border: 0;
     cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.btn_simulador:hover{
+    transform: scale(1.2);
 }
 
 footer {

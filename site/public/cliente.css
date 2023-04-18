@@ -53,43 +53,36 @@ body{
     background-color: #40CBC3;
 
 }
+.section1{
+
+    
+}
+
 .title1{
-    margin-left:260px ;
-    margin-top:150px ;
-
-
-
-
-
+    margin-left:260px;
+    margin-top:150px;
     
 }
 .title1 input{
 border: none;
-background: transparent ;
+background: transparent;
 border-bottom:1px solid #ffffff9e;
 justify-content: center;
 display: flex;
 padding: 5px;
 width: 30%;
-
-
 }
+
+.title1 input::placeholder{
+color: #ffffff9e;
+}
+    
 #sugestao {
 
 }
 .sugerirSenha{
 
 }
-.title1 input::placeholder{
-color: #ffffff9e;
-
-
- 
-
-
-
-}
-    
 
 /* .title2 {
     display :flex;

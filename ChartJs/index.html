@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <link rel="shortcut icon" href="assets/logo_ast.png" type="image/x-icon">
+    <!-- Adicionar favicon -->
+</head>
+<body>
+    
+        <canvas id="dashboard_line" class="line"></canvas>
+      <canvas id="dashboard_column" class="column"></canvas>
+    <canvas id="dashboard_pizza" class="pizza"></canvas>
+    
+</body>
+</html>
+<script>
+    const grafico_coluna = document.getElementById('dashboard_column');
+    const grafico_linha = document.getElementById('dashboard_line');
+    const grafico_pizza = document.getElementById('dashboard_pizza');
+
+    new Chart(grafico_pizza, {
+      type: 'doughnut',
+      data: {
+        labels: [
+        'Ativos',
+        'Inativos',
+        ],
+        datasets: [{ 
+          data: [50, 50],
+          borderWidth: 2,
+          backgroundColor: [
+          '#add8e6',
+          '#ffff4d'
+        ],
+        }]
+      },
+      options: {
+        title: {
+        display: true,
+        fontSize: 20,
+        Text: "Status dos sensores LM35"
+        },
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+
+    new Chart(grafico_linha, {
+      
+      type: 'line',
+      label: 'Temperatura máxima e mínima',
+      data: {
+        labels: ['5', '5', '5', '5', '5', '5'],
+
+        datasets: [{
+          label: 'Temperatura Registrada - LM35',
+          data: [-25, -10, -20, -15, -17, - 25],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+    
+    new Chart(grafico_coluna, {
+      type: 'bar',
+    data: {
+      labels: ['LM35 - Temperatura Sábado, 2 de Dezembro de 2023', 'LM35 - Temperatura Domingo, 3 de Dezembro de 2023', 'LM35 - Temperatura Sábado, 9 de dezembro de 2023', 'LM35 - Temperatura Sexta-Feira, 15 de dezembro de 2023'],
+      datasets: [{
+        label: 'Sensores inativos',
+        data: [4, 4, 4, 4, 4, 4],
+        borderWidth: 1,
+        backgroundColor: '#ffff4d'
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+      </script>

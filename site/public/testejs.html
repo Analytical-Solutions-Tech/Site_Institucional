@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    dados<input id="input_dados"><br>
+
+    <button onclick="cadastro()">
+        Login
+    </button>
+</body>
+</html>
+
+<script>
+function cadastro(){
+    var dados = Number(input_dados.value);
+
+
+    if(dados.length == 11){
+        console.log("cpf")
+        //campos para cadastro de cpf
+    } else if(dados.length == 14){
+        console.log("cnpj")
+        //capos para cadastro de cnpj
+    } else {
+        console.log("erro")
+        // dados incorretos
+    }
+}
+</script>

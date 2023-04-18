@@ -1,0 +1,42 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+canvas {
+    display: inline-block;
+    width: 33%;
+    height: 300px;
+    box-sizing: border-box;
+    padding: 10px;
+  }
+  
+
+
+body {
+    background-color: #051B36;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    background: #252525;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #40CBC3;
+}
+
+.line {
+
+}
+
+.column {
+
+}
+
+.pizza {
+}

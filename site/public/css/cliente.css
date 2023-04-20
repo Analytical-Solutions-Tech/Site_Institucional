@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Rubik:ital@1&display=swap');
+
+*{
+    padding: 0px;
+    margin: 0px;
+font-family: Poppins,sans-serif;
+}
+body{
+    background-image: url('../assets2/pagina_inicial/Rectangle\ 3.png');
+    width: 100%;
+
+}
+
+.navbar{
+    display: flex;
+    
+    height: 80px;
+
+
+}
+.logo{
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: space-around;
+    margin-left: 20px;
+    margin-top: 15px;
+
+    
+}
+
+
+.lista{
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    justify-content: space-around;
+    width: 80%;
+    text-align: center;
+    list-style: none;
+}
+.lista li{
+    font-size: 25px;
+    color: white;
+}
+.botao{
+    border: none;
+    border-radius: 50px;
+    height: 45px;
+    width: 250px;
+    text-align: center;
+    font-size:25px;
+    background-color: #40CBC3;
+
+}
+.section1{
+
+    
+}
+
+.title1{
+    margin-left:260px;
+    margin-top:150px;
+    
+}
+.title1 input{
+border: none;
+background: transparent;
+border-bottom:1px solid #ffffff9e;
+justify-content: center;
+display: flex;
+padding: 5px;
+width: 30%;
+}
+
+.title1 input::placeholder{
+color: #ffffff9e;
+}
+    
+#sugestao {
+
+}
+.sugerirSenha{
+
+}
+
+/* .title2 {
+    display :flex;
+    align-items:center;
+    justify-content: center;
+    
+} */
+
+

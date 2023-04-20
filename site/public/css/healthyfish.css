@@ -1,3 +1,18 @@
+* {
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    background-image: linear-gradient(to bottom, #F2978B, #F05053);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3DA673;
+}
+
 body {
     width: 100%;
     margin: 0;
@@ -9,12 +24,15 @@ body {
 
 .navbar-container {
     display: flex;
-    width: 95%;
+    width: 100%;
+    padding: 20px 0px 20px 0px;
     align-items: center;
     justify-content: space-around;
     flex-direction: row;
     text-align: center;
-    padding-top: 5px;
+    background: #25252511;
+    backdrop-filter: blur(100px);
+    position: fixed;
 }
 
 .navbar-logo-name {
@@ -39,12 +57,12 @@ body {
 .navbar-links a {
     text-decoration: none;
     font-size: 1.1rem;
-    font-weight: bold;
+    font-weight: 500;
     color: white;
 }
 
 .navbar-links-container {
-    width: 45%;
+    width: 50%;
 }
 
 .navbar-links {
@@ -56,13 +74,24 @@ body {
     align-items: center;
 }
 
-.navbar-links a:hover{
+.navbar-links a:hover {
     color: #3DA673;
+}
+
+.bar {
+    width: 0;
+    height: 2px;
+    transition: .4s ease;
+    background-color: #3DA673;
+}
+
+.navbar-links li a:hover .bar {
+    width: 60%;
 }
 
 .active {
     background-color: #3DA673;
-    padding: 10px 30px 10px 30px;
+    padding: 10px 25px 10px 25px;
     border-radius: 30px;
     border: 0;
     transition: 0.5s ease;
@@ -72,8 +101,8 @@ body {
     font-size: 1.1rem;
 }
 
-.active:hover{
-    transform: scale(1.2);
+.active:hover {
+    transform: scale(1.15);
     color: #fff;
 }
 
@@ -81,7 +110,6 @@ body {
     display: flex;
     width: 100%;
     flex-direction: column;
-    margin-top: 40px;
 }
 
 .home {
@@ -91,13 +119,13 @@ body {
     flex-direction: column;
     width: 100%;
     height: 400px;
+    margin-top: 120px;
 }
 
 .name-project {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50%;
     background-color: #3DA673;
     padding: 0px 30px 0px 30px;
     border-radius: 20px;
@@ -112,9 +140,13 @@ body {
 .name-style {
     font-size: 5rem;
     font-weight: 500;
-    color: #fff;
+    background-image: linear-gradient(to bottom, #fff, #fff, rgba(255, 255, 255, 0.4));
     font-style: italic;
-    text-shadow: 0px 1px 2px black;
+    padding: 0px 15px 0px 15px;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
 }
 
 .text-missao {
@@ -144,6 +176,7 @@ body {
     border-radius: 20px;
     text-align: center;
     width: 20%;
+    margin-top: 45px;
 }
 
 .header-beneficios span {
@@ -192,7 +225,7 @@ body {
 .left-content-beneficio {
     border: 6px solid #3DA673;
     border-radius: 45px;
-    width: 27%;
+    width: 30%;
     padding: 5px;
 }
 
@@ -206,7 +239,7 @@ body {
     color: rgba(255, 255, 255, 0.7);
     font-size: 4.5rem;
     font-weight: 600;
-    line-height: 0px;
+    margin-top: 10px;
 }
 
 .beneficio-text {
@@ -303,6 +336,8 @@ body {
 .simulador-logo {
     width: 100px;
     height: 100px;
+    margin-top: 45px;
+    margin-bottom: 15px;
 }
 
 .simulador-header {
@@ -315,17 +350,22 @@ body {
 
 .text-calculadora {
     color: #fff;
-    width: 40%;
+    width: 50%;
     text-align: center;
     font-size: 1.25rem;
     font-weight: 700;
     text-indent: 25px;
     letter-spacing: 2px;
+    margin-top: 25px;
+}
+
+.text-simulacao {
+    text-indent: 0px;
 }
 
 .btn_simulador {
     background-color: #3DA673;
-    padding: 5px 40px 5px 40px;
+    padding: 10px 45px 10px 45px;
     border-radius: 25px;
     color: #fff;
     text-decoration: none;
@@ -334,6 +374,11 @@ body {
     margin-top: 20px;
     border: 0;
     cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.btn_simulador:hover {
+    transform: scale(1.2);
 }
 
 footer {

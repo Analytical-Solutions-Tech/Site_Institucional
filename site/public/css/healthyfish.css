@@ -351,14 +351,20 @@ body {
     text-decoration: none;
     font-weight: 700;
     font-size: 1.25rem;
-    margin-top: 20px;
-    border: 0;
+    border: 1px solid transparent;
     cursor: pointer;
-    transition: 0.5s ease;
+    transition: 0.4s ease-in-out;
 }
 
 .btn_simulador:hover {
-    transform: scale(1.2);
+    transform: scale(1.15);
+    color: #3DA673;
+    background-color: rgba(255, 255, 255,0.85);
+    border: 1px solid #3DA673;
+}
+
+.simulador-financeiro a{
+    margin-top: 20px;
 }
 
 footer {

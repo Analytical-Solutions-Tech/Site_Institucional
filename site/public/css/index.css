@@ -30,7 +30,7 @@ body {
 /* HEADER */
 .navbar {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
     position: fixed;
     width: 100%;
@@ -57,11 +57,11 @@ body {
 
 .lista_nav {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     font-size: 1.6rem;
     font-weight: 400;
-    width: 50rem;
+    width: 40%;
     }
 
 .lista_nav ul {

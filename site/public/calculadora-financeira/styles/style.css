@@ -1,89 +1,119 @@
+* {
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    background-image: linear-gradient(to bottom, #F2978B, #F05053);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3DA673;
+}
+
 body {
     width: 100%;
     margin: 0;
     padding: 0;
-    height: auto;
+    background-image: linear-gradient(to bottom, #F2978B, #F05053);
     font-family: 'Poppins', sans-serif;
-    background-image: linear-gradient(to bottom, #f05053 , #f2978b );
+    overflow-x: hidden;
+}
+
+
+.navbar-container {
+    display: flex;
+    width: 100%;
+    padding: 15px 0px 15px 0px;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    background: #25252511;
+    backdrop-filter: blur(100px);
+    position: fixed;
+}
+
+
+.navbar-logo-name a {
+    text-decoration: none;
+    text-align: center;
+}
+
+.logo-navbar {
+    width: 60%;
+    height: 60%;
+}
+
+.navbar-links a {
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: white;
+}
+
+.navbar-links-container {
+    width: 50%;
+}
+
+.navbar-links {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style: none;
+    align-items: center;
+}
+
+.navbar-links a:hover {
+    color: #3DA673;
+}
+
+.bar {
+    width: 0;
+    height: 2px;
+    transition: .4s ease;
+    background-color: #3DA673;
+}
+
+.navbar-links li a:hover .bar {
+    width: 60%;
+}
+
+.active {
+    background-color: #3DA673;
+    padding: 10px 25px 10px 25px;
+    border-radius: 30px;
+    border: 0;
+    transition: 0.5s ease;
+    cursor: pointer;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.active:hover {
+    transform: scale(1.15);
+    color: #fff;
 }
 
 main {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    margin-bottom: 100px;
-    position: relative;
-}
-
-.navBar_container {
-    background: linear-gradient(45deg, #3da673, #3da67390 );   
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
-    height: 85px;
-    margin-left: 60px;
-    margin-right: 60px;
-    margin-top: 20px;
-    font-family: 'Poppins', sans-serif;
-    border: 2px;
-    border-radius: 20px;
-    padding: 10px;
-}
-
-.logo-name {
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-start;
-}
-
-.logo-name>p {
-    color: white;
-    font-size: 0.7rem;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 20px;
-    margin-left: 10px;
-}
-
-.logo {
-    height: 70px;
-}
-
-.links-btns {
-    display: flex;
-    justify-content: space-between;
-}
-
-.links-btns>a {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 1.3rem;
-    line-height: 54px;
-    color: white;
-    text-decoration: none;
-    margin-right: 20px;
-    padding-right: 10px;
-    padding-left: 10px;
-}
-
-.link-navbar-active {
-    border: 5px;
-    border-radius: 10px;
-    background-color:  #3da673;
+    padding-top: 25px;
+    margin-bottom: 35px;
 }
 
 .calculadora_left_content_container {
-    background-color:antiquewhite;
+    background-color: antiquewhite;
     width: 50%;
     padding: 30px;
     box-shadow: 5px 5px 2px 1px rgba(0, 0, 0, 0.2);
     border: 1px solid #000;
     border-radius: 15px;
     margin-top: 100px;
-    
 }
 
 .calculadora-title {
@@ -157,17 +187,41 @@ main {
     transition: 0.35s ease-in;
 }
 
+.invalid_input {
+    outline: none;
+    border: 1px solid red;
+    transition: 0.35s ease-in;
+}
+
+input:invalid:required:focus {
+    outline: none;
+    border: 1px solid red;
+    transition: 0.35s ease-in;
+}
+
 .calculadora_right_content_container {
     display: none;
     justify-content: space-around;
-    background-color:antiquewhite;
+    background-color: antiquewhite;
     width: 35%;
-    padding: 30px;
+    padding: 15px;
     box-shadow: 5px 5px 2px 1px rgba(0, 0, 0, 0.2);
     border: 1px solid #000;
-    border-radius: 10px;
     border-radius: 15px;
     margin-top: 100px;
+    animation: showing 2s;
+}
+
+@keyframes showing {
+    0% {
+        opacity: 0;
+        transform: translateX(400px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
 }
 
 .icon-right-content {
@@ -200,7 +254,7 @@ main {
 
 .porcentagem_lucro {
     font-weight: bold;
-    color: rgb(25, 255, 25);
+    color: rgb(0, 200, 0);
 }
 
 .informacao_perda,
@@ -214,7 +268,7 @@ main {
 }
 
 .informacao_lucro {
-    color: rgb(25, 255, 25);
+    color: rgb(0, 200, 0);
 }
 
 .vertical-break {
@@ -229,7 +283,7 @@ main {
     align-items: center;
 }
 
-.div_input_container button:active{
+.div_input_container button:active {
     transition: 1.2s ease;
 }
 

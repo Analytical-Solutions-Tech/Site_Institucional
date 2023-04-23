@@ -1,3 +1,18 @@
+* {
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    background-image: linear-gradient(to bottom, #F2978B, #F05053);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3DA673;
+}
+
 body {
     width: 100%;
     margin: 0;
@@ -9,31 +24,25 @@ body {
 
 .navbar-container {
     display: flex;
-    width: 95%;
+    width: 100%;
+    padding: 15px 0px 15px 0px;
     align-items: center;
     justify-content: space-around;
-    flex-direction: row;
     text-align: center;
-    padding-top: 5px;
+    background: #25252511;
+    backdrop-filter: blur(100px);
+    position: fixed;
 }
 
-.navbar-logo-name {
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
+
+.navbar-logo-name a {
+    text-decoration: none;
+    text-align: center;
 }
 
 .logo-navbar {
-    width: 20%;
-    height: 20%;
-}
-
-.ast_name {
-    font-size: 0.8rem;
-    color: white;
-    font-weight: 900;
-    margin-left: 15px;
-    margin-bottom: 5px;
+    width: 60%;
+    height: 60%;
 }
 
 .navbar-links a {
@@ -44,7 +53,7 @@ body {
 }
 
 .navbar-links-container {
-    width: 45%;
+    width: 50%;
 }
 
 .navbar-links {
@@ -58,6 +67,17 @@ body {
 
 .navbar-links a:hover {
     color: #3DA673;
+}
+
+.bar {
+    width: 0;
+    height: 2px;
+    transition: .4s ease;
+    background-color: #3DA673;
+}
+
+.navbar-links li a:hover .bar {
+    width: 60%;
 }
 
 .active {
@@ -81,7 +101,6 @@ body {
     display: flex;
     width: 100%;
     flex-direction: column;
-    margin-top: 40px;
 }
 
 .home {
@@ -91,9 +110,11 @@ body {
     flex-direction: column;
     width: 100%;
     height: 400px;
+    padding-top: 125px;
 }
 
-.name-project {
+.name-project,
+.header-beneficios {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -111,12 +132,12 @@ body {
 .name-style {
     font-size: 5rem;
     font-weight: 500;
-    background-image: linear-gradient(to bottom, #fff, #fff, rgba(255,255,255, 0.4));
+    background-image: linear-gradient(to bottom, #fff, #fff, rgba(255, 255, 255, 0.4));
     font-style: italic;
     padding: 0px 15px 0px 15px;
     -webkit-background-clip: text;
     -moz-background-clip: text;
-    -webkit-text-fill-color: transparent; 
+    -webkit-text-fill-color: transparent;
     -moz-text-fill-color: transparent;
 }
 
@@ -138,24 +159,11 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin-top: 80px;
-}
-
-.header-beneficios {
-    background-color: #3DA673;
-    padding: 0px 30px 0px 30px;
-    border-radius: 20px;
-    text-align: center;
-    width: 20%;
-    margin-top: 45px;
+    padding-top: 120px;
 }
 
 .header-beneficios span {
-    color: #fff;
-    font-style: italic;
-    font-weight: 500;
     font-size: 2.8rem;
-    text-shadow: 0px 1px 2px black;
 }
 
 .beneficios-container {
@@ -196,7 +204,7 @@ body {
 .left-content-beneficio {
     border: 6px solid #3DA673;
     border-radius: 45px;
-    width: 27%;
+    width: 30%;
     padding: 5px;
 }
 
@@ -210,7 +218,7 @@ body {
     color: rgba(255, 255, 255, 0.7);
     font-size: 4.5rem;
     font-weight: 600;
-    line-height: 0px;
+    margin-top: 10px;
 }
 
 .beneficio-text {
@@ -267,11 +275,6 @@ body {
     margin-left: 20px;
 }
 
-.beneficio-logo-02 {
-    margin-left: -100px;
-    margin-right: 50px;
-}
-
 .background-square-04 {
     position: absolute;
     z-index: -1;
@@ -282,6 +285,11 @@ body {
     border-radius: 30px;
     background-color: #3DA673;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.beneficio-logo-02 {
+    margin-left: -100px;
+    margin-right: 50px;
 }
 
 .beneficio-num-logo-container-04 {
@@ -298,6 +306,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-top: 60px;
 }
 
 .simulador-financeiro hr {
@@ -308,6 +317,7 @@ body {
     width: 100px;
     height: 100px;
     margin-top: 45px;
+    margin-bottom: 15px;
 }
 
 .simulador-header {
@@ -320,12 +330,17 @@ body {
 
 .text-calculadora {
     color: #fff;
-    width: 40%;
+    width: 50%;
     text-align: center;
     font-size: 1.25rem;
     font-weight: 700;
     text-indent: 25px;
     letter-spacing: 2px;
+    margin-top: 25px;
+}
+
+.text-simulacao {
+    text-indent: 0px;
 }
 
 .btn_simulador {
@@ -336,14 +351,20 @@ body {
     text-decoration: none;
     font-weight: 700;
     font-size: 1.25rem;
-    margin-top: 20px;
-    border: 0;
+    border: 1px solid transparent;
     cursor: pointer;
-    transition: 0.5s ease;
+    transition: 0.4s ease-in-out;
 }
 
 .btn_simulador:hover {
-    transform: scale(1.2);
+    transform: scale(1.15);
+    color: #3DA673;
+    background-color: rgba(255, 255, 255,0.85);
+    border: 1px solid #3DA673;
+}
+
+.simulador-financeiro a{
+    margin-top: 20px;
 }
 
 footer {
@@ -368,4 +389,9 @@ footer hr {
 .rede-social-icon {
     width: 40px;
     height: 40px;
+    transition: 500ms;
+}
+
+.rede-social-icon:hover {
+    transform: scale(1.2);
 }

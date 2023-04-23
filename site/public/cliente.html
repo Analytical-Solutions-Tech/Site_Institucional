@@ -1,76 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="css/pgCliente.css">
     <title>Document</title>
-    <link rel="stylesheet" href="css/cliente.css">
-    <link rel="shortcut icon" href="assets2/pagina_inicial/logo.png" type="image/x-icon">
 </head>
-
 <body>
-    <main>
-        <header>
-            <nav class="navbar">
-                <figure class="logo">
-                    <img src="assets2/pagina_inicial/Logo_mais_texto.png" alt="">
-                </figure>
-                <ul class="lista">
-                    <!-- Lembrar de linkar o <a> na lista -->
-                    <li>
-                        Home
-                    </li>
-                    <li>
-                        Contato
-                    </li>
-                    <li>
-                        Sobre nós
-                    </li>
-                    <li>
-                        <a href="">
-                            <button class="botao">
-                                Área do cliente
-                            </button>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-        <section class="section1">
-            <article class="cadastro">
-                <div class="title1">
-                    Cadastre-se  <br>
-                    <input  type="text" placeholder="CPF" > <br>
-                    <input type="text" placeholder="Nome"> <br>
-                    <input type="text" placeholder="Contato"> <br>
-                    <input type="text" placeholder="Email"> <br>
-                    <input type="text" placeholder="Senha"> <br>
-                    <input type="checkbox" name="sugestao" id="sugestao"> <span class="sugerirSenha">Sugerir senha forte</span>
-                </div> <br>
-            </article class="login">
-            <!-- <div class="title2">
-                Login <br>
-                <input type="text" placeholder="Email"> <br>
-                <input placeholder="Senha"> <br>
-                <input type="checkbox" name="fixar" id="">Lembrar-me sempre
-            </div> <br> -->
-            <article class="rodapé">
-                <footer class="redeSocial">
-                    <figure class="contato">
+    <header>
+        <nav class="navbar">
+            <figure class="logo">
+                <img src="assets2/pagina_inicial/Logo_mais_texto.png" alt="">
+            </figure>
+            <ul class="lista">
+                <!-- Lembrar de linkar o <a> na lista -->
+                <li>
+                    Home
+                </li>
+                <li>
+                    Contato
+                </li>
+                <li>
+                    Sobre nós
+                </li>
+                <li>
+                    <a href="">
+                        <button class="botao">
+                            Área do cliente
+                        </button>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
-                    </figure>
+    <div class="container">
+        <div class="box">
+            <div class="container-box">
+                <div class="row-title">
+                    <span class="material-symbols-outlined">person_add</span>
+                    <span class="title">Cadastre-se</span>
+                </div>
+                <input type="text" placeholder="CPF" class="input-form">
+                <input type="text" placeholder="Nome" class="input-form">
+                <input type="text" placeholder="Celular" class="input-form">
+                <input type="text" placeholder="Email" class="input-form">
+                <input type="password" placeholder="Senha" class="input-form">
+                <div class="row-text-login">
+                    <div class="remember-passwd">
+                        <span class="material-symbols-outlined">check_box</span>
+                        <span>Sugerir senha forte</span>
+                    </div>
+                    <span class="span-row-text-login" onclick="moveImageLeft()">Já tem conta? Faça login</span>
+                </div>
+                <button class="btn btn-enviar">Enviar</button>
+            </div>
+        </div>
 
+        <div class="box">
+            <div class="container-box">
+                <div class="row-title">
+                    <span class="material-symbols-outlined">person</span>
+                    <span class="title">Login</span>
+                </div>
+                <input type="text" placeholder="Email" class="input-form">
+                <input type="password" placeholder="Senha" class="input-form">
+                <div class="row-text-login">
+                    <div class="remember-passwd">
+                        <span class="material-symbols-outlined">check_box</span>
+                        <span>Lembrar senha</span>
+                    </div>
+                    <span class="span-row-text-login">Esqueci senha</span>
+                </div>
+                <span class="span-cad" onclick="moveImageRigth()">Cadastre-se</span>
+                <button class="btn">Entrar</button>
+            </div>
+        </div>
+    </div>
 
-                </footer>
-
-            </article>
-
-
-        </section>
-
-    </main>
+    <div class="image-area" id="image-area">
+        <img src="assets2/pagina_inicial/logoEmpresa.png">
+    </div>
+    
+    <div class="footer">
+        <span class="endereco">
+            Rua Haddock Lobo, 595 - Cerqueira César, São Paulo - SP, 01414-001
+        </span>
+       <div class="social-area">
+        <i class="fa-brands fa-whatsapp"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-linkedin"></i>
+       </div>
+    </div>
+    
 </body>
-
 </html>
+
+<script>
+    var divImage = document.getElementById("image-area");
+    
+    function moveImageRigth() {
+        divImage.style.width = '100%';
+        setTimeout(function() {
+            divImage.classList.add("right-value");
+            divImage.classList.remove("left-value");
+            divImage.style.width = '50%';
+        }, 500);
+    }
+
+    function moveImageLeft() {
+        divImage.style.width = '100%';
+        setTimeout(function() {
+            divImage.classList.add("left-value");
+            divImage.classList.remove("right-value");
+            divImage.style.width = '50%';
+        }, 500);
+    }
+</script>

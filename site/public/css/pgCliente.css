@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Rubik:ital@1&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+    margin: 0;
+    height: 0;
+    background: #051B36;
+}
+
+.navbar{
+    display: flex;
+    height: 80px;
+}
+
+.logo{
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: space-around;
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+.lista{
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    justify-content: space-around;
+    width: 80%;
+    text-align: center;
+    list-style: none;
+}
+
+.lista li{
+    font-size: 25px;
+    color: white;
+}
+
+.botao{
+    border: none;
+    border-radius: 50px;
+    height: 45px;
+    width: 250px;
+    text-align: center;
+    font-size:25px;
+    background-color: #40CBC3;
+    color: #FFFFFF;
+}
+
+.title1{
+    margin-left:260px;
+    margin-top:150px;    
+}
+
+.title1 input{
+    border: none;
+    background: transparent;
+    border-bottom:1px solid #ffffff9e;
+    justify-content: center;
+    display: flex;
+    padding: 5px;
+    width: 30%;
+}
+
+.title1 input::placeholder{
+    color: #ffffff9e;
+}
+
+
+
+
+span {
+    color: white;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    position: relative;
+}
+
+.box {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.container-box {
+    width: 65%;
+    height: auto;
+}
+
+.row-title {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.material-symbols-outlined {
+    font-size: 40px;
+    margin-right: 15px;
+}
+
+.title {
+    font-size: 30px;
+}
+
+.input-form {
+    width: 100%;
+    height: 40px;
+    border: 0;
+    border-bottom: 1px solid #FFFFFF;
+    margin-bottom: 16px;
+    background: transparent;
+    font-size: 16px;
+    transition: 0.4s;
+    color: white;
+}
+
+.input-form:focus {
+    outline: none;
+    border-bottom: 1px solid #81c8ff;
+}
+
+.row-text-login {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    margin-top: 14px;
+    font-size: 16px;
+}
+
+.remember-passwd {
+    display: flex;
+    align-items: center;
+}
+
+.remember-passwd .material-symbols-outlined {
+    font-size: 25px;
+    margin-right: 10px;
+}
+
+.span-cad {
+    width: 100%;
+    margin-bottom: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.span-cad:hover {
+    color: #5FA9E0;
+}
+
+.span-row-text-login {
+    display: flex;
+    align-items: center;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.span-row-text-login:hover {
+    color: #5FA9E0;
+    
+}
+
+.btn {
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    background: #5FA9E0;
+    font-size: 16px;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.btn-enviar {
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background: #237ba1;
+}
+
+.image-area {
+    width: 50%;
+    height: 100vh;
+    position: absolute;
+    top: 80px;
+    display: flex;
+    transition: 0.5s;
+    background-image: linear-gradient(180deg, #051B36, #13678A);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.social-area {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.footer i {
+    color: white;
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+
+.endereco {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 350px;
+}
+
+.image-area img {
+    width: 180px;
+}
+
+.right-value {
+    right: 0px;
+}
+
+.left-value {
+    left: 0px;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #FFFFFF;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #FFFFFF;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #FFFFFF;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #FFFFFF;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color:    #FFFFFF;
+}
+::placeholder { /* Most modern browsers support this now. */
+   color:    #FFFFFF;
+}

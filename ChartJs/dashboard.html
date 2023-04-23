@@ -9,22 +9,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Prosto+One&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="assets/logo_ast.png" type="image/x-icon">
     <link rel="stylesheet" href="dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <title>Dashboard - AST</title>
 </head>
 <body>
-  <main>
-    <header>
-      <div class="header" id="header">
-                <button onclick="mostrarSideBar()" class="button_icon_header">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor" class="bi bi-justify" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
-                  </svg>
-                </button>
-            <span class="name-health">HEALTHY</span>
-            <img src="assets/logo_project.png" alt="HealthyFish" class="logo-project-home">
-            <span class="name-fish">FISH</span><br>
-            <span class="name-dashboard">Dashboard</span>
-          </div>
+  <header>
+    <div class="header" id="header">
+      <button onclick="mostrarSideBar()" class="button_icon_header">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor" class="bi bi-justify" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+        </svg>
+      </button>
+      <span class="name-health">HEALTHY</span>
+      <img src="assets/logo_project.png" alt="HealthyFish" class="logo-project-home">
+      <span class="name-fish">FISH</span><br>
+      <span class="name-dashboard">Dashboard</span>
+    </div>
+
 
         <div class="navigation_header">
          <button onclick="mostrarSideBar()" class="button_icon_header_x">
@@ -32,36 +33,48 @@
              <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
            </svg>
           </button>
-             <img src="assets/logo_ast.png" alt="logo AST" class="logo-navigation-header" ><br>
-             <span class="nome-AST">Analytical Solutions Tech</span>
-           <a href="#" class="link_home">Home</a>
-           <a href="#" class="link_contato">Contato</a>
-           <a href="#" class="link_sobre">Sobre nós</a>
-           <button class="active">Área do Cliente</button>
-         </div>     
-    </header>
+          <img src="assets/logo_project.png" alt="logo AST" class="logo-navigation-header" ><br>
+          <span class="nome-projeto">Healthy Fish</span>
+          <hr style="color:aliceblue;">
+          <a href="#" class="link_home">Home</a>
+          <a href="#" class="link_contato">Contato</a>
+          <a href="#" class="link_sobre">Sobre nós</a>
+          <button class="active">Área do Cliente</button>
+        </div>     
+      </header>
     
+      <div class="container">
+        <!-- Dashboars Linha -->
+        <div class="dashboard_linha">
+          <span class="titulo_linha">Variação de temperatura por dia</span>
+          <hr>
+          <canvas  id="chart_linha"></canvas>
+        </div>
     
-    <!-- Dashboars Linha -->
-    <div>
-      <canvas class="dashboard_linha" id="chart_linha"></canvas>
-    </div>
-
-    <!--KPi dashboard linha -->
-      <div>
-      <canvas class="kpi_dashboard_linha" id="kpi_linha"></canvas>
-      </div>
+        <!-- Dashboard donnut -->
+        <div class="dashboard_donnut">
+          <span class="titulo_donnut"> Sensores Ativos e Inativos</span>
+          <hr>
+          <canvas  id="chart_donnut"></canvas>
+        </div>
       
-      <!-- Kpi dashboard donnut -->
-      <div>
-        <canvas class="dashboard_donnut" id="chart_donnut"></canvas>
-      </div>
 
-      <!-- Dashboard donnut -->
-      <div>
-        <canvas class="kpi_dashboard_donnut" id="kpi_donnut"></canvas>
+
+      <div class="kpis">
+          <!--KPi dashboard linha -->
+            <div class="kpi_dashboard_linha">
+              <span class="titulo_kpi_linha">Classificação das temperaturas</span>
+              <hr>
+            <canvas  id="kpi_linha"></canvas>
+            </div>
+            
+            <!-- Kpi Dashboard donnut -->
+            <div class="kpi_dashboard_donnut">
+              <canvas id="kpi_donnut"></canvas>
+            </div>
+        </div>
       </div>
-    </main>
+    <script src="dashboard.js"></script>
 </body>
 </html>
 <script>
@@ -80,5 +93,3 @@
   }
   
 </script>
-<script src='./node_modules/chart.js/dist/Chart.js'></script>
-<script src="dashboard.js"></script>

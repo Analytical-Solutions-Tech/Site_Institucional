@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Prosto+One&display=swap"
         rel="stylesheet">
-    <script src="scripts.js"></script>
     <link rel="stylesheet" href="styles/style.css">
     <link rel="shortcut icon" href="../assets2/pagina_inicial/fish.ico" type="image/x-icon">
     <title>Calculadora Financeira</title>
@@ -64,17 +63,22 @@
                 perdas e
                 analisar quanto a <span class="marked-text">AST (Analytical Solutions Tech)</span> pode economizar por
                 você! </p>
-            <div class="div_input_container">
-                <label for="input_peso" class="label_input">Peso Transportado por Mês</label>
-                <input type="number" name="input_peso" id="input_peso" class="input_peso" placeholder="Em KG">
-                <label for="input_preco" class="label_input">Valor por KG</label>
-                <input type="number" name="input_preco" id="input_preco" class="input_preco" placeholder="Em R$">
-                <label for="input_perda" class="label_input">Quantidade perdida em KG por Mês</label>
-                <input type="number" name="input_perda" id="input_perda" class="input_perda" placeholder="Em KG">
-                <button onclick="calcular_prejuizo()" class="btn_calculo">
-                    CALCULAR
-                </button>
-            </div>
+            <form onsubmit="return calcular_prejuizo()">
+                <div class="div_input_container">
+                    <label for="input_peso" class="label_input">Peso Transportado por Mês</label>
+                    <input type="number" name="input_peso" id="input_peso" class="input_peso" placeholder="Em KG"
+                        required>
+                    <label for="input_preco" class="label_input">Valor por KG</label>
+                    <input type="number" name="input_preco" id="input_preco" class="input_preco" placeholder="Em R$"
+                        required>
+                    <label for="input_perda" class="label_input">Quantidade perdida em KG por Mês</label>
+                    <input type="number" name="input_perda" id="input_perda" class="input_perda" placeholder="Em KG"
+                        required>
+                    <button class="btn_calculo" type="submit">
+                        CALCULAR
+                    </button>
+            </form>
+        </div>
         </div>
         <div class="calculadora_right_content_container" id="div_resultados">
             <div class="topic_prejuizos">
@@ -149,5 +153,6 @@
         info_qtdLucroDinheiro.innerHTML = `${brlFormatMoney.format(valorLucro25)} - ${brlFormatMoney.format(valorLucro50)}`;
         info_qtdLucroPesoAno.innerHTML = `${pesoLucro25Ano.toFixed(2)}KG - ${pesoLucro50Ano.toFixed(2)}KG`;
         info_qtdLucroDinheiroAno.innerHTML = `${brlFormatMoney.format(valorLucro25Ano)} - ${brlFormatMoney.format(valorLucro50Ano)}`;
+        return false;
     }
 </script>

@@ -44,22 +44,22 @@
     
     <!-- Dashboars Linha -->
     <div>
-      <canvas class="dashboard_linha"></canvas>
+      <canvas class="dashboard_linha" id="chart_linha"></canvas>
     </div>
 
     <!--KPi dashboard linha -->
       <div>
-      <canvas class="kpi_dashboard_linha"></canvas>
+      <canvas class="kpi_dashboard_linha" id="kpi_linha"></canvas>
       </div>
       
       <!-- Kpi dashboard donnut -->
       <div>
-        <canvas class="dashboard_donnut"></canvas>
+        <canvas class="dashboard_donnut" id="chart_donnut"></canvas>
       </div>
 
       <!-- Dashboard donnut -->
       <div>
-        <canvas class="kpi_dashboard_donnut"></canvas>
+        <canvas class="kpi_dashboard_donnut" id="kpi_donnut"></canvas>
       </div>
     </main>
 </body>
@@ -80,3 +80,5 @@
   }
   
 </script>
+<script src='./node_modules/chart.js/dist/Chart.js'></script>
+<script src="dashboard.js"></script>

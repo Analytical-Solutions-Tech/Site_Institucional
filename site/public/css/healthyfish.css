@@ -185,8 +185,16 @@ body {
     margin-top: 60px;
 }
 
+.beneficio01 aside div {
+    height: 20  0px!important;
+}
+
 .beneficio02 {
     margin-top: 240px;
+}
+
+.beneficio02 aside div {
+    height: 180px !important;
 }
 
 .beneficio03 {
@@ -202,9 +210,10 @@ body {
 }
 
 .left-content-beneficio {
-    border: 6px solid #3DA673;
+    border: 11px solid #3DA673;
     border-radius: 45px;
-    width: 30%;
+    width: 40%;
+    height: 310px;
     padding: 5px;
 }
 
@@ -222,6 +231,7 @@ body {
 }
 
 .beneficio-text {
+    font-size: 30px!important;
     color: #fff;
     font-weight: bold;
     font-size: 1rem;
@@ -314,10 +324,11 @@ body {
 }
 
 .simulador-logo {
-    width: 100px;
-    height: 100px;
+    color: #3DA673;
+    width: 150px;
+    height: 150px;
     margin-top: 45px;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
 }
 
 .simulador-header {

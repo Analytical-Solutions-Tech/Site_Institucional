@@ -25,7 +25,9 @@
     <header>
         <nav class="navbar">
             <figure class="logo">
-                <img src="assets2/pagina_inicial/Logo_mais_texto.png" alt="">
+                <a href="./index.html#home">
+                    <img src="assets2/pagina_inicial/Logo_mais_texto.png" alt="">
+                </a>
             </figure>
             <ul class="lista">
                 <a href=""></a>
@@ -67,11 +69,11 @@
                     <span class="material-symbols-outlined">person_add</span>
                     <span class="title">Cadastre-se</span>
                 </div>
-                <input type="text" placeholder="CPF" class="input-form">
-                <input type="text" placeholder="Nome" class="input-form">
-                <input type="text" placeholder="Celular" class="input-form">
-                <input type="text" placeholder="Email" class="input-form">
-                <input type="password" placeholder="Senha" class="input-form">
+                <input type="text" placeholder="CPF" class="input-form" id="input-cpf-cadastro">
+                <input type="text" placeholder="Nome" class="input-form" id="input-nome-cadastro">
+                <input type="text" placeholder="Celular" class="input-form" id="input-celular-cadastro">
+                <input type="text" placeholder="Email" class="input-form" id="input-email-cadastro">
+                <input type="password" placeholder="Senha" class="input-form" id="input-senha-cadastro">
                 <div class="row-text-login">
                     <div class="remember-passwd">
                         <span class="material-symbols-outlined">check_box</span>
@@ -79,7 +81,7 @@
                     </div>
                     <span class="span-row-text-login" onclick="moveImageLeft()">Já tem conta? Faça login</span>
                 </div>
-                <button class="btn btn-enviar">Enviar</button>
+                <button class="btn btn-enviar" onclick="cadastro()">Cadastrar</button>
             </div>
         </div>
 

@@ -1,0 +1,78 @@
+.modal-container {
+    display: none;
+    justify-content: center;
+    width: 100%;
+    height: 900px;
+    transition: 1s;
+    position: fixed;
+    top: 0px;
+    backdrop-filter: blur(25px);
+}
+
+.modal-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 300px;
+    height: 350px;
+    border-radius: 30px;
+    padding: 30px;
+    background-image: linear-gradient(180deg, #051B36 3.63%, rgba(5, 27, 54, 0.925486) 47.38%, rgba(5, 27, 54, 0.920163) 50.5%, rgba(17, 93, 127, 0.989825) 96.86%, #13678A 103.63%);
+    -webkit-box-shadow: 11px 12px 35px 1px rgba(0, 0, 0, 0.65);
+    -moz-box-shadow: 11px 12px 35px 1px rgba(0, 0, 0, 0.65);
+    box-shadow: 11px 12px 35px 1px rgba(0, 0, 0, 0.65);
+    transition: 1s;
+    margin-top: 70px;
+    animation: slow-show 1s;
+}
+
+@keyframes slow-show {
+    0% {
+        transform: scale(0.8);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.modal-img {
+    width: 50%;
+}
+
+.modal-titulo {
+    font-size: 2rem;
+    color: #D40000;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    margin-top: 20px;
+}
+
+.modal-txt {
+    color: white;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.modal-btn {
+    background-color: #FF0000;
+    font-weight: 900;
+    color: white;
+    font-size: 1rem;
+    padding: 15px 40px 15px 40px;
+    border: 0;
+    border-radius: 60px;
+    margin-top: 35px;
+    cursor: pointer;
+}
+
+.modal-btn:hover {
+    transform: scale(1.15);
+    /* transition: 0.8s; */
+    transition: 1s;
+
+}

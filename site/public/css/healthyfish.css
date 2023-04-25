@@ -25,6 +25,7 @@ body {
 .navbar-container {
     display: flex;
     width: 100%;
+    z-index: 2;
     padding: 15px 0px 15px 0px;
     align-items: center;
     justify-content: space-around;
@@ -185,12 +186,17 @@ body {
     margin-top: 60px;
 }
 
-.beneficio01 aside div {
-    height: 20  0px!important;
+.beneficio01{
+    display: flex;
+    justify-content: space-between;
+}
+.beneficio01 .left-content-beneficio{
+    margin-left: 7%;
 }
 
 .beneficio02 {
     margin-top: 240px;
+    margin-left: 3%;
 }
 
 .beneficio02 aside div {
@@ -200,6 +206,11 @@ body {
 .beneficio03 {
     margin-top: 150px;
 }
+
+.beneficio04 .left-content-beneficio{
+    margin-right: -230px;
+}
+
 
 .beneficio04 {
     margin-top: 350px;
@@ -231,12 +242,16 @@ body {
 }
 
 .beneficio-text {
-    font-size: 30px!important;
+    font-size: 1.7rem!important;
     color: #fff;
     font-weight: bold;
     font-size: 1rem;
     text-align: center;
-    margin-top: -0px;
+}
+
+#p1{
+    display: flex;
+    margin-top: 50px;
 }
 
 .right-content-beneficio {
@@ -245,20 +260,30 @@ body {
 }
 
 .img-beneficio-01,
+.img-beneficio-02 {
+    width: 450px;
+    height: 325px;
+    margin-top: -80px;
+}
+
+.img-beneficio-01{
+    position: absolute;
+    justify-content: space-between;
+    right: 14%;
+    margin-top: 10px;
+}
+
 .img-beneficio-03 {
     width: 450px;
     height: 325px;
-}
-
-.img-beneficio-02 {
-    width: 450px;
-    height: 400px;
-    margin-top: -80px;
+    margin-right: 50px;
 }
 
 .img-beneficio-04 {
     width: 500px;
-    height: 350px
+    height: 350px;
+    position: absolute;
+    left: 7%;
 }
 
 .background-square,

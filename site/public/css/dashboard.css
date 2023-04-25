@@ -32,10 +32,9 @@ body {
     position: fixed;
     margin-top: -10%;
     background: #25252511;
-    backdrop-filter: blur(100px);
-    padding: 15px 0px 15px 0px;
+    backdrop-filter: blur(10px);
+    padding: -1px 0px 15px 0px;
     background: #25252511;
-    backdrop-filter: blur(100px);
 }
 
 .logo-project-home {
@@ -165,7 +164,7 @@ body {
 
 
 .navigation_header a {
-    margin-top: 35%;
+    margin-top: 38%;
     text-decoration: none;
     font-size: 2.2rem;
     font-weight: 600;
@@ -183,26 +182,28 @@ body {
 
 }
 
-.link_contato {
-    margin-left: 40px;
+.link_beneficios {
+    margin-left: 79px;
 }
 
-.link_sobre {
-    margin-left: 70px;
+.link_simulador {
+    margin-left: 90px;
+    width: 194px;
 }
+
 
 
 .active {
     background-color: #f2978b;
     color: #fff;
-    padding: 20px;
+    padding: 12px;
     border: none;
-    border-radius: 10px;
-    font-size: 1.7rem;
+    border-radius: 15px;
+    font-size: 30px;
     font-weight: bold;
     transition: 0.5s ease;
-    margin-top: 45%;
-    margin-left: 25%;
+    margin-top: 6%;
+    margin-left: 30%;
     cursor: pointer;
     -webkit-box-shadow: 6px 7px 9px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 6px 7px 9px 0px rgba(0, 0, 0, 0.75);
@@ -210,8 +211,20 @@ body {
 
 }
 
+.active button {
+    background-color: #f2978b;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 15px;
+    font-size: 30px;
+    font-weight: bold;
+    transition: 0.5s ease;
+
+}
+
 .active:hover {
-    transform: scale(1.13);
+    transform: scale(1.10);
     transition: 0.3s ease;
     color: #fff;
 }
@@ -229,10 +242,10 @@ body {
 
 .dashboard_donnut {
     background-color: antiquewhite;
-    margin-left: 65%;
-    margin-top: -29%;
-    width: 27%;
-    border-radius: 5px;
+    margin-left: 73%;
+    margin-top: -27%;
+    width: 25%;
+    border-radius: 0px;
     -webkit-box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
     box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
@@ -240,14 +253,20 @@ body {
 
 .kpi_dashboard_donnut {
     background-color: antiquewhite;
-    width: 40%;
-    margin-left: 58%;
-    margin-top: -14%;
-    border-radius: 50px;
+    width: 46%;
+    margin-left: 47%;
+    margin-top: -31%;
     -webkit-box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
     box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    padding: 7px 27px 3px 34px;
+}
 
+
+.kpi_dashboard_donnut:hover {
+    border-radius: 60px;
+    transform: scale(1.10);
+    transition: .4s ease;
 }
 
 
@@ -262,7 +281,7 @@ body {
     font-size: 25px;
     font-weight: 500;
     background-color: #3DA673;
-    margin-left: 20%;
+    margin-left: 13%;
     font-style: italic;
     -webkit-background-clip: text;
     -moz-background-clip: text;
@@ -273,9 +292,9 @@ body {
 
 .dashboard_linha {
     background-color: antiquewhite;
-    width: 50%;
+    width: 65%;
     margin-top: 10%;
-    margin-left: 3%;
+    margin-left: 4%;
     -webkit-box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
     box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
@@ -288,10 +307,10 @@ body {
 }
 
 .kpi_dashboard_linha {
-    background-color: antiquewhite;
-    width: 50%;
-    margin-left: 3%;
-    margin-top: 8%;
+    background-color: #faebd7;
+    width: 41%;
+    margin-left: 2%;
+    margin-top: 4%;
     margin-bottom: 5%;
     -webkit-box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
@@ -304,12 +323,23 @@ body {
     transition: .4s ease;
 }
 
+.kpi_lucro {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-left: -37%;
+    margin-top: 14%;
+}
+
+.kpi_lucro canvas {
+    height: 250px;
+}
 
 .titulo_linha {
-    font-size: 40px;
+    font-size: 51px;
     font-weight: 500;
     background-color: #3DA673;
-    margin-left: 10%;
+    margin-left: 11%;
     font-style: italic;
     -webkit-background-clip: text;
     -moz-background-clip: text;
@@ -318,10 +348,22 @@ body {
 }
 
 .titulo_kpi_linha {
-    font-size: 40px;
+    font-size: 38px;
     font-weight: 500;
     background-color: #3DA673;
-    margin-left: 10%;
+    margin-left: 5%;
+    font-style: italic;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+
+.titulo_kpi_donnut {
+   font-size: 50px;
+    font-weight: 500;
+    background-color: #3DA673;
+    margin-left: 15%;
     font-style: italic;
     -webkit-background-clip: text;
     -moz-background-clip: text;
@@ -336,5 +378,49 @@ hr {
 }
 
 .container {
-    height: 1200px;
+    height: 1000px;
+}
+
+.icon_earning {
+    width: 30%;
+    margin-top: 58px;
+    margin-left: 69px;
+
+}
+.prejuizos-graficos{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+
+
+.prejuizos {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.prejuizos-title{
+    margin-top: 20px;
+}
+
+.ganhos_texto {
+    width: 107%;
+    margin-top: 6px;
+    margin-left: -25px;
+    font-family: 'Poppins', sans-serif;
+}
+.vertical-break {
+    border-left: 3px solid #3DA673;
+    height: 400px;
+    margin-top: 20px;
+    margin-right: 39%;
+}
+
+.kpis {
+    margin-bottom: 10px;
 }

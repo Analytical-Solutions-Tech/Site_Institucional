@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/pgCliente.css">
     <link rel="stylesheet" href="./css/modal.css">
     <script src="./javascript/cadastro/cliente.js"></script>
-    <title>Login/Cadastro</title>
+    <title>Área do Cliente</title>
     <link rel="shortcut icon" href="assets2/pagina_inicial/logo.png" type="image/x-icon" />
     <script src="https://kit.fontawesome.com/390ed0de69.js" crossorigin="anonymous">
     </script>
@@ -69,10 +69,11 @@
                     <span class="material-symbols-outlined">person_add</span>
                     <span class="title">Cadastre-se</span>
                 </div>
-                <input type="text" placeholder="CPF" class="input-form" id="input-cpf-cadastro">
+                <input type="text" placeholder="CPF" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" class="input-form"
+                    id="input-cpf-cadastro">
                 <input type="text" placeholder="Nome" class="input-form" id="input-nome-cadastro">
                 <input type="text" placeholder="Celular" class="input-form" id="input-celular-cadastro">
-                <input type="text" placeholder="Email" class="input-form" id="input-email-cadastro">
+                <input type="email" placeholder="Email" class="input-form" id="input-email-cadastro">
                 <input type="password" placeholder="Senha" class="input-form" id="input-senha-cadastro">
                 <div class="row-text-login">
                     <div class="remember-passwd">
@@ -130,10 +131,10 @@
     <div class="modal-container" id="modal-container">
         <div class="modal-body">
             <img class="modal-img" src="./assets/avisoerro.png" alt="Alerta">
-            <h1 class="modal-titulo">
+            <h1 class="modal-titulo" id="modal_titulo">
                 Erro ao fazer login
             </h1>
-            <span class="modal-txt">Verfifique se o email e a senha estão corretos e tente novamente</span>
+            <span class="modal-txt" id="modal_txt">Verfifique se o email e a senha estão corretos e tente novamente</span>
             <button class="modal-btn" onclick="disableModal()">
                 OK
             </button>

@@ -17,69 +17,66 @@ function cadastro() {
     var cadastroTelefone = document.getElementById('input-celular-cadastro')
     var cadastroEmail = document.getElementById('input-email-cadastro')
     var cadastroSenha = document.getElementById('input-senha-cadastro')
+    var contadorCamposValidos = 0;
 
-    if (
-        cadastroCPF.value == "" ||
-        cadastroNome.value == "" ||
-        cadastroTelefone.value == "" ||
-        cadastroEmail.value == "" ||
-        cadastroSenha.value == "") {
-
-        modal_titulo.innerHTML = "Erro ao cadastrar"
-        modal_txt.innerHTML = "Verifique se todos os campos estão preenchidos corretamente"
-        modalShow.style.display = "flex"
-
-        if (cadastroCPF.value == "" || cadastroCPF.value.length != 11) {
-            cadastroCPF.style.borderBottomColor = "red"
-            cadastroCPF.style.color = "red"
-        } else {
-            cadastroCPF.style.borderBottomColor = "white"
-            cadastroCPF.style.color = "white"
-        }
-        if (cadastroNome.value == "") {
-            cadastroNome.style.borderBottomColor = "red"
-            cadastroNome.style.color = "red"
-        } else {
-            cadastroNome.style.borderBottomColor = "white"
-            cadastroNome.style.color = "white"
-        }
-        if (cadastroTelefone.value == "" || cadastroTelefone.value.length != 15) {
-            cadastroTelefone.style.borderBottomColor = "red"
-            cadastroTelefone.style.color = "red"
-        } else {
-            cadastroTelefone.style.borderBottomColor = "white"
-            cadastroTelefone.style.color = "white"
-        }
-        if (cadastroEmail.value == "") {
-            cadastroEmail.style.borderBottomColor = "red"
-            cadastroEmail.style.color = "red"
-        } else {
-            cadastroEmail.style.borderBottomColor = "white"
-            cadastroEmail.style.color = "white"
-        }
-        if (cadastroSenha.value == "") {
-            cadastroSenha.style.borderBottomColor = "red"
-            cadastroSenha.style.color = "red"
-        } else {
-            cadastroSenha.style.borderBottomColor = "white"
-            cadastroSenha.style.color = "white"
-        }
+    if (cadastroCPF.value == "" || cadastroCPF.value.length != 11) {
+        cadastroCPF.style.borderBottomColor = "red"
+        cadastroCPF.style.color = "red"
         modal_titulo.innerHTML = "Erro ao cadastrar"
         modal_txt.innerHTML = "Verifique se todos os campos estão preenchidos corretamente"
         modalShow.style.display = "flex"
     } else {
         cadastroCPF.style.borderBottomColor = "white"
         cadastroCPF.style.color = "white"
+        contadorCamposValidos++;
+    }
+    if (cadastroNome.value == "") {
+        cadastroNome.style.borderBottomColor = "red"
+        cadastroNome.style.color = "red"
+        modal_titulo.innerHTML = "Erro ao cadastrar"
+        modal_txt.innerHTML = "Verifique se todos os campos estão preenchidos corretamente"
+        modalShow.style.display = "flex"
+    } else {
         cadastroNome.style.borderBottomColor = "white"
         cadastroNome.style.color = "white"
+        contadorCamposValidos++
+    }
+    if (cadastroTelefone.value == "" || cadastroTelefone.value.length != 15) {
+        cadastroTelefone.style.borderBottomColor = "red"
+        cadastroTelefone.style.color = "red"
+        modal_titulo.innerHTML = "Erro ao cadastrar"
+        modal_txt.innerHTML = "Verifique se todos os campos estão preenchidos corretamente"
+        modalShow.style.display = "flex"
+    } else {
         cadastroTelefone.style.borderBottomColor = "white"
         cadastroTelefone.style.color = "white"
+        contadorCamposValidos++
+    }
+    if (cadastroEmail.value == "") {
+        cadastroEmail.style.borderBottomColor = "red"
+        cadastroEmail.style.color = "red"
+        modal_titulo.innerHTML = "Erro ao cadastrar"
+        modal_txt.innerHTML = "Verifique se todos os campos estão preenchidos corretamente"
+        modalShow.style.display = "flex"
+    } else {
         cadastroEmail.style.borderBottomColor = "white"
         cadastroEmail.style.color = "white"
+        contadorCamposValidos++
+    }
+    if (cadastroSenha.value == "") {
+        cadastroSenha.style.borderBottomColor = "red"
+        cadastroSenha.style.color = "red"
+        modal_titulo.innerHTML = "Erro ao cadastrar"
+        modal_txt.innerHTML = "Verifique se todos os campos estão preenchidos corretamente"
+        modalShow.style.display = "flex"
+    } else {
         cadastroSenha.style.borderBottomColor = "white"
         cadastroSenha.style.color = "white"
+        contadorCamposValidos++
     }
-
+    if (contadorCamposValidos == 5) {
+        window.location.href = "./dashboard.html";
+    }
 }
 
 function disableModal() {

@@ -182,6 +182,54 @@ body {
 
 }
 
+.section_status_temperatura {
+    display: flex;
+    width: 800px;
+    height: 240px;
+    margin-top: 130px;
+    margin-left: 80px;
+    border-radius: 50px;
+    background: #FAEBD7;
+}
+
+.div_status_temperatura h1 {
+    color: #3DA673;
+    font-size: 35px;
+    margin-top: 10px;
+    margin-left: 25px;
+}
+
+.mensagem_temperatura {
+    color: #3DA673;
+    font-size: 35px;
+    font-weight: bold;
+    margin-left: 500px;
+    margin-top: -150px;
+}
+
+.hora_temp {
+    display: flex;
+    border-radius: 50px;
+    background: #3DA673;
+    width: 420px;
+    height: 140px;
+    margin-top: 20px;
+    margin-left: 30px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.hora_temp p {
+    color: #fff;
+    font-size: 37px;
+    font
+}
+
+.temperatura {
+    width: 71px;
+    height: 80px;
+}
+
 .link_beneficios {
     margin-left: 79px;
 }
@@ -190,8 +238,6 @@ body {
     margin-left: 90px;
     width: 194px;
 }
-
-
 
 .active {
     background-color: #f2978b;

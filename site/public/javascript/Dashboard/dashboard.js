@@ -14,7 +14,12 @@ const grafico_linha = document.getElementById('chart_linha');
         label: 'Temperatura acima do limite',
         data: [-15, -17, -20, -21, -24,-20, -18,, -15, -25],
         borderWidth: 5,
-    }]
+    }, 
+  {
+    label: 'Temperaturas no limite',
+        data: [-15, -15, -15, -15, -15, -15, -15, -15],
+        borderWidth: 5,
+  }]
     },
     options: { 
         plugins: {
@@ -93,13 +98,13 @@ const grafico_linha = document.getElementById('chart_linha');
       },
     {
         label: 'No Limite',
-        data: [1],
+        data: [5],
         borderWidth: 5,
         backgroundColor: [
-            '#3DA673',
+            '#ffa500',
           ],
           borderColor: [
-            '#3DA673',
+            '#ffa500',
           ],
     },
 {

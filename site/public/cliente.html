@@ -68,7 +68,8 @@
                     <span class="material-symbols-outlined">person_add</span>
                     <span class="title">Cadastre-se</span>
                 </div>
-                <input type="text" placeholder="CPF" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" class="input-form"
+                <input type="text" placeholder="CNPJ da empresa" class="input-form" id="input-cnpj-cadastro">
+                <input type="text" placeholder="CPF" class="input-form"
                     id="input-cpf-cadastro">
                 <input type="text" placeholder="Nome" class="input-form" id="input-nome-cadastro">
                 <input type="text" placeholder="Celular" class="input-form" id="input-celular-cadastro">
@@ -133,7 +134,8 @@
             <h1 class="modal-titulo" id="modal_titulo">
                 Erro ao fazer login
             </h1>
-            <span class="modal-txt" id="modal_txt">Verfifique se o email e a senha estão corretos e tente novamente</span>
+            <span class="modal-txt" id="modal_txt">Verfifique se o email e a senha estão corretos e tente
+                novamente</span>
             <button class="modal-btn" onclick="disableModal()">
                 OK
             </button>

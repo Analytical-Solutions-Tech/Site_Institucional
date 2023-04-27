@@ -17,6 +17,7 @@ function cadastro() {
     var cadastroTelefone = document.getElementById('input-celular-cadastro')
     var cadastroEmail = document.getElementById('input-email-cadastro')
     var cadastroSenha = document.getElementById('input-senha-cadastro')
+    var cadastroCNPJ = document.getElementById('input-cnpj-cadastro')
     var contadorCamposValidos = 0;
 
     if (cadastroCPF.value == "" || cadastroCPF.value.length != 11) {
@@ -41,7 +42,7 @@ function cadastro() {
         cadastroNome.style.color = "white"
         contadorCamposValidos++
     }
-    if (cadastroTelefone.value == "" || cadastroTelefone.value.length != 15) {
+    if (cadastroTelefone.value == "" || cadastroTelefone.value.length != 13) {
         cadastroTelefone.style.borderBottomColor = "red"
         cadastroTelefone.style.color = "red"
         modal_titulo.innerHTML = "Erro ao cadastrar"
@@ -74,7 +75,18 @@ function cadastro() {
         cadastroSenha.style.color = "white"
         contadorCamposValidos++
     }
-    if (contadorCamposValidos == 5) {
+    if (cadastroCNPJ.value == "" || cadastroCNPJ.value.length != 14) {
+        cadastroCNPJ.style.borderBottomColor = "red"
+        cadastroCNPJ.style.color = "red"
+        modal_titulo.innerHTML = "Erro ao cadastrar"
+        modal_txt.innerHTML = "Verifique se todos os campos estão preenchidos corretamente"
+        modalShow.style.display = "flex"
+    } else {
+        cadastroCNPJ.style.borderBottomColor = "white"
+        cadastroCNPJ.style.color = "white"
+        contadorCamposValidos++
+    }
+    if (contadorCamposValidos == 6) {
         window.location.href = "./dashboard.html";
     }
 }

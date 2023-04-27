@@ -33,7 +33,7 @@ body {
     margin-top: -10%;
     background: #25252511;
     backdrop-filter: blur(10px);
-    padding: 50px 0px 0px 0px;
+    padding: 50px 0px 0px 30px;
     background: #25252511;
 }
 
@@ -190,6 +190,9 @@ body {
     margin-left: 80px;
     border-radius: 50px;
     background: #FAEBD7;
+    -webkit-box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .div_status_temperatura h1 {

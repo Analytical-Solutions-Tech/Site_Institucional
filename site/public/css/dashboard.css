@@ -141,7 +141,7 @@ body {
     background: #3DA673;
     backdrop-filter: blur(100px);
     border-radius: 5px;
-    height: 1692px;
+    height: 2160px;
     width: 30vw;
     margin-left: -120vw;
     margin-top: -7.5%;
@@ -172,14 +172,12 @@ body {
 
 }
 
-
 .navigation_header a:hover {
     border: 2px solid;
     border-radius: 10px;
-    padding: 10px;
     color: #f2978b;
     transition: .3s ease;
-
+    padding: 5px 30px 5px 30px;
 }
 
 .section_status_temperatura {
@@ -232,6 +230,80 @@ body {
     height: 80px;
 }
 
+.section_alertas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.alertas_container {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    text-align: center;
+    margin-top: 80px;
+    padding: 50px 0px 50px 0px;
+    border-radius: 25px;
+    background-color: rgb(250, 235, 215);
+    -webkit-box-shadow: 15px 10px 25px 5px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 15px 10px 25px 5px rgba(0, 0, 0, 0.4);
+    box-shadow: 15px 10px 25px 5px rgba(0, 0, 0, 0.4);
+}
+
+.alertas_container h1 {
+    font-size: 35px;
+    font-weight: bold;
+    color: #3DA673;
+}
+
+.possiveis_alertas {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.alerta {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 200px;
+    width: 15%;
+    padding: 10px 5px 20px 5px;
+    border: 1px solid #2323;
+}
+
+.alerta_ideal {
+    background-color: #3DA673;
+}
+
+.alerta_incorreta {
+    background-color: #F0CC18;
+}
+
+.alerta_preocupante {
+    background-color: #F3950C;
+}
+
+.alerta_critica {
+    background-color: #F03C31;
+}
+
+.alerta_titulo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.alerta_texto {
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+
 .link_beneficios {
     margin-left: 79px;
 }
@@ -243,16 +315,13 @@ body {
 
 .active {
     background-color: #f2978b;
-    color: #fff;
-    padding: 12px;
+    padding: 5px 35px 5px 35px;
     border: none;
     border-radius: 15px;
-    font-size: 30px;
     font-weight: bold;
     transition: 0.5s ease;
     margin-top: 6%;
     margin-left: 30%;
-    cursor: pointer;
     -webkit-box-shadow: 6px 7px 9px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 6px 7px 9px 0px rgba(0, 0, 0, 0.75);
     box-shadow: 6px 7px 9px 0px rgba(0, 0, 0, 0.75);
@@ -262,9 +331,8 @@ body {
 .active button {
     background-color: #f2978b;
     color: #fff;
-    padding: 12px;
+    padding: 15px;
     border: none;
-    border-radius: 15px;
     font-size: 30px;
     font-weight: bold;
     transition: 0.5s ease;
@@ -272,9 +340,11 @@ body {
 }
 
 .active:hover {
-    transform: scale(1.10);
+    transform: scale(1.20);
     transition: 0.3s ease;
     color: #fff;
+    padding: 10px 30px 10px 30px;
+
 }
 
 @keyframes showSideBar {
@@ -340,8 +410,8 @@ body {
 
 .dashboard_linha {
     background-color: antiquewhite;
-    width: 65%;
-    margin-top: 8%;
+    width: 50%;
+    margin-top: 7%;
     margin-left: 4%;
     -webkit-box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
@@ -384,11 +454,12 @@ body {
 }
 
 .titulo_linha {
-    font-size: 51px;
+    font-size: 40px;
     font-weight: 500;
     background-color: #3DA673;
-    margin-left: 11%;
+    margin-left: 10%;
     font-style: italic;
+    padding: 50px;
     -webkit-background-clip: text;
     -moz-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -408,7 +479,7 @@ body {
 }
 
 .titulo_kpi_donnut {
-   font-size: 50px;
+    font-size: 50px;
     font-weight: 500;
     background-color: #3DA673;
     margin-left: 15%;
@@ -435,7 +506,8 @@ hr {
     margin-left: 69px;
 
 }
-.prejuizos-graficos{
+
+.prejuizos-graficos {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
@@ -452,7 +524,7 @@ hr {
     font-weight: 600;
 }
 
-.prejuizos-title{
+.prejuizos-title {
     margin-top: 20px;
 }
 
@@ -462,6 +534,7 @@ hr {
     margin-left: -25px;
     font-family: 'Poppins', sans-serif;
 }
+
 .vertical-break {
     border-left: 3px solid #3DA673;
     height: 400px;
@@ -470,5 +543,5 @@ hr {
 }
 
 .kpis {
-    margin-bottom: 10px;
+    padding-bottom: 80px;
 }

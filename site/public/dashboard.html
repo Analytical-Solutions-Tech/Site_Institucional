@@ -46,7 +46,7 @@
       <a href="healthyfishPage.html" class="link_home">Home</a>
       <a href="healthyfishPage.html#beneficios" class="link_beneficios">Benefícios</a>
       <a href="healthyfishPage.html#simulador-financeiro" class="link_simulador">Projeção Financeira</a>
-      <a href="./cliente.html" class="active"><button>Área do Cliente</button></a>
+      <a href="./cliente.html" class="active"><button>Sair</button></a>
     </div>
   </header>
 
@@ -62,21 +62,36 @@
         <p class="mensagem_temperatura">Temperatura<br> está ideal !</p>
       </div>
     </section>
+    <!-- Legenda de Possiveis alertas -->
+    <section class="section_alertas">
+      <div class="alertas_container">
+        <h1>Possiveis Alertas</h1>
+        <div class="possiveis_alertas">
+          <div class="alerta_ideal alerta">
+            <p class="alerta_titulo">IDEAL</p>
+            <p class="alerta_texto">-18°C até -25°C</p>
+          </div>
+          <div class="alerta_incorreta alerta">
+            <p class="alerta_titulo">INCORRETA</p>
+            <p class="alerta_texto">Acima de -17.99 ou abaixo de -26.99</p>
+          </div>
+          <div class="alerta_preocupante alerta">
+            <p class="alerta_titulo">PREOCUPANTE</p>
+            <p class="alerta_texto">Acima de -16.99 ou abaixo de -27.99</p>
+          </div>
+          <div class="alerta_critica alerta">
+            <p class="alerta_titulo">CRÍTICA</p>
+            <p class="alerta_texto">Acima de -15.99 ou abaixo de -28.99</p>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- Dashboars Linha -->
     <div class="dashboard_linha">
       <span class="titulo_linha">Variação de temperatura por dia</span>
       <hr style="width: 93%;">
       <canvas id="chart_linha"></canvas>
     </div>
-
-    <!-- Dashboard donnut -->
-    <div class="dashboard_donnut">
-      <span class="titulo_donnut"> Sensores Ativos e Inativos</span>
-      <hr style="width: 82%;">
-      <canvas id="chart_donnut"></canvas>
-    </div>
-
-
 
     <div class="kpis">
       <!--KPi dashboard linha -->

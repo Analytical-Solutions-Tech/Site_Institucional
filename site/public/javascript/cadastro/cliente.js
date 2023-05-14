@@ -3,6 +3,9 @@ function login() {
     var senhaLogin = document.querySelector('#input-senha-login').value;
     var modalShow = document.getElementById('modal-container')
 
+    modal_titulo.innerHTML = "Erro ao fazer login"
+    modal_txt.innerHTML = "Verfifique se o email e a senha estão corretos e tente novamente"
+
     if (senhaLogin == "123" && emailLogin == "healthyfish@sptech.com") {
         window.location.href = "./dashboard.html";
     } else {

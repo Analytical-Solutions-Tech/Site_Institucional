@@ -176,7 +176,7 @@ body {
     padding: 5px 30px 5px 30px;
 }
 
-.logo-navigation{
+.logo-navigation {
     width: 100%;
     display: flex;
     align-items: center;
@@ -184,7 +184,7 @@ body {
     justify-content: space-evenly;
 }
 
-.link-navigation{
+.link-navigation {
     height: 200vh;
     width: 100%;
     display: flex;
@@ -440,12 +440,12 @@ body {
     border-radius: 50px;
 }
 
-.titulo-dashboard{
+.titulo-dashboard {
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 90px;
-    font-weight: 500;   
+    font-weight: 500;
     font-style: italic;
     background-image: linear-gradient(to bottom, #fff, #fff, rgba(255, 255, 255, 0));
     -webkit-background-clip: text;
@@ -454,12 +454,7 @@ body {
     -moz-text-fill-color: transparent;
 }
 
-.hr-titulo{
-    width: 50%;
-    border: 1px solid antiquewhite;
-    margin-left: 415px;
-    margin-top: -60px;
-}
+
 
 .dashboard_linha {
     background-color: antiquewhite;
@@ -499,7 +494,7 @@ body {
 
 .kpi_lucro {
     margin-left: 11%;
-    
+
 }
 
 .kpi_lucro canvas {
@@ -507,12 +502,12 @@ body {
 }
 
 .titulo_linha {
-    font-size: 40px;
-    font-weight: 500;
+    display: flex;
+    justify-content: center;
     background-color: #3DA673;
-    margin-left: 10%;
+    font-size: 40px;
     font-style: italic;
-    padding: 50px;
+    font-weight: 500;
     -webkit-background-clip: text;
     -moz-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -544,10 +539,10 @@ body {
     -moz-text-fill-color: transparent;
 }
 
-hr {
-    color: #3DA673;
-    width: 87%;
-    margin-left: 40px;
+
+.hr-titulo {
+    width: 56%;
+    margin-left: 160px;
 }
 
 .container {
@@ -622,7 +617,7 @@ hr {
     box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
-.imagem-lucros:hover{
+.imagem-lucros:hover {
     border-radius: 10px;
     transition: .4s ease;
     opacity: 90%;

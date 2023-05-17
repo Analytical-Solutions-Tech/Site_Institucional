@@ -3,10 +3,10 @@ const grafico_linha = document.getElementById('chart_linha');
 new Chart(grafico_linha, {
   type: 'line',
   data: {
-    labels: ['5', '10', '15', '20', '25', '30'],
+    labels: ['12:30:00', '12:35:00', '12:40:00', '12:45:00', '12:50:00', '12:55:00'],
     datasets: [{
-      label: 'Temperaturas Atuais',
-      data: [-15, -10, -11, -5, -6, -10, -14, , -15, -13],
+      label: 'Sensor LM35 - New Fish',
+      data: [-18, -19, -19.55,-17.99, -18, -27.98, -16.21, -17.99, -28.99],
       borderWidth: 5
     },
     ]
@@ -23,7 +23,7 @@ new Chart(grafico_linha, {
       },
       title: {
         display: true,
-        text: 'Atualização a cada 5 minutos',
+        text: 'Horário',
         position: 'bottom',
         font: {
           size: 20,
@@ -46,36 +46,47 @@ new Chart(kpi_linha, {
   data: {
     labels: [''],
     datasets: [{
-      label: 'Abaixo do limite',
-      data: [5],
+      label: 'Ideal',
+      data: [3],
       borderWidth: 5,
       backgroundColor: [
-        'rgba(54, 162, 235)',
+        '#3DA673',
       ],
       borderColor: [
-        'rgba(54, 162, 235)',
+        '#3DA673',
       ],
     },
     {
-      label: 'No Limite',
-      data: [5],
+      label: 'Incorreta',
+      data: [2],
       borderWidth: 5,
       backgroundColor: [
-        '#ffa500',
+        '#F0CC18',
       ],
       borderColor: [
-        '#ffa500',
+        '#F0CC18',
       ],
     },
     {
-      label: 'Acima do Limite',
-      data: [5],
+      label: 'Preocupante',
+      data: [2],
       borderWidth: 5,
       backgroundColor: [
-        '#F2978B',
+        '#F3950C',
       ],
       borderColor: [
-        '#F2978B',
+        '#F3950C',
+      ],
+    },
+    {
+      label: 'Crítica',
+      data: [1],
+      borderWidth: 5,
+      backgroundColor: [
+        '#F03C31',
+      ],
+      borderColor: [
+        '#F03C31',
       ],
     }]
   },

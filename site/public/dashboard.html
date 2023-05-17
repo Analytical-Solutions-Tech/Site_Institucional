@@ -16,7 +16,6 @@
 </head>
 
 <body>
-  <header>
     <div class="header" id="header">
       <button onclick="mostrarSideBar()" class="button_icon_header">
         <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor" class="bi bi-justify"
@@ -40,19 +39,22 @@
             d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
         </svg>
       </button>
-      <img src="assets/logo_project.png" alt="logo AST" class="logo-navigation-header"><br>
-      <span class="nome-projeto">Healthy Fish</span>
-      <hr style="color:aliceblue;">
-      <a href="healthyfishPage.html" class="link_home">Home</a>
-      <a href="healthyfishPage.html#beneficios" class="link_beneficios">Benefícios</a>
-      <a href="healthyfishPage.html#simulador-financeiro" class="link_simulador">Projeção Financeira</a>
-      <a href="./cliente.html" class="active"><button>Sair</button></a>
-    </div>
-  </header>
+      <div class="logo-navigation">
+        <img src="assets/logo_project.png" alt="logo AST" class="logo-navigation-header"><br>
+        <span class="nome-projeto">Healthy Fish</span>
+        <hr style="color:aliceblue;">
+      </div>
 
-  <div class="container">
-    <!-- Status da temperatura atual -->
-    <section class="section_status_temperatura">
+      <div class="link-navigation">
+        <a href="healthyfishPage.html" class="link_home">Home</a>
+        <a href="healthyfishPage.html#beneficios" class="link_beneficios">Benefícios</a>
+        <a href="healthyfishPage.html#simulador-financeiro" class="link_simulador">Projeção Financeira</a>
+        <a href="./cliente.html" class="active"><button>Sair</button></a>
+      </div>
+  </div>
+
+    <div class="container">
+      <!-- Status da temperatura atual -->
       <div class="div_status_temperatura">
         <h1>Status da Temperatura</h1>
         <div class="hora_temp">
@@ -61,69 +63,75 @@
         </div>
         <p class="mensagem_temperatura">Temperatura<br> está ideal !</p>
       </div>
-    </section>
-    <!-- Legenda de Possiveis alertas -->
-    <section class="section_alertas">
-      <div class="alertas_container">
-        <h1>Possiveis Alertas</h1>
-        <div class="possiveis_alertas">
-          <div class="alerta_ideal alerta">
-            <p class="alerta_titulo">IDEAL</p>
-            <p class="alerta_texto">De -18°C até -25°C</p>
-          </div>
-          <div class="alerta_incorreta alerta">
-            <p class="alerta_titulo">INCORRETA</p>
-            <p class="alerta_texto">A partir de -17.99°C até -26.99°C</p>
-          </div>
-          <div class="alerta_preocupante alerta">
-            <p class="alerta_titulo">PREOCUPANTE</p>
-            <p class="alerta_texto">A partir de -16.99°C ou menor de -27.99°C</p>
-          </div>
-          <div class="alerta_critica alerta">
-            <p class="alerta_titulo">CRÍTICA</p>
-            <p class="alerta_texto">A partir de -15.99°C ou menor de -28.99°C</p>
+        <!-- Alertas -->
+        <div class="alertas_container">
+          <h1>Possiveis Alertas</h1>
+          <div class="possiveis_alertas">
+            <div class="alerta_ideal alerta">
+              <p class="alerta_titulo">IDEAL</p>
+              <p class="alerta_texto">De -18°C até -25°C</p>
+            </div>
+            <div class="alerta_incorreta alerta">
+              <p class="alerta_titulo">INCORRETA</p>
+              <p class="alerta_texto">A partir de -17.99°C até -26.99°C</p>
+            </div>
+            <div class="alerta_preocupante alerta">
+              <p class="alerta_titulo">PREOCUPANTE</p>
+              <p class="alerta_texto">A partir de -16.99°C ou menor de -27.99°C</p>
+            </div>
+            <div class="alerta_critica alerta">
+              <p class="alerta_titulo">CRÍTICA</p>
+              <p class="alerta_texto">A partir de -15.99°C ou menor de -28.99°C</p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-    <!-- Dashboars Linha -->
-    <div class="dashboard_linha">
-      <span class="titulo_linha">Variação de temperatura por dia</span>
-      <hr style="width: 93%;">
-      <canvas id="chart_linha"></canvas>
-    </div>
+  </div>
 
-    <div class="kpis">
-      <!--KPi dashboard linha -->
+  <!-- Dashboars Linha -->
+  <div class="dashboards">
+    
+    <span class="titulo-dashboard">Dashboards</span>
+    <hr class="hr-titulo">
+    <div class="dashboard-primarios">
+      <div class="dashboard_linha">
+        <span class="titulo_linha">Variação de temperatura por dia</span>
+        <canvas id="chart_linha"></canvas>
+      </div>
+      <!-- Classificação das temperaturas -->
       <div class="kpi_dashboard_linha">
         <span class="titulo_kpi_linha">Classificação das temperaturas</span>
-        <hr>
         <canvas id="kpi_linha"></canvas>
       </div>
+    </div>
 
-      <!-- Kpi Dashboard donnut -->
-      <div class="kpi_dashboard_donnut">
+    <!-- Dashboards da parte de baixo -->
+  <div class="graficos-secundarios">
+    <div class="imagem-lucros">
+      <div class="prejuizos">
+        <img src="assets/earning.png" alt="prejuizos" class="icon_earning">
+        <span class="prejuizos-title"></span>
+        <p class="ganhos_texto">
+          Com o uso dos nossos sensores de temperatura, será possível<span style="color:#F05053;"> minimizar as
+            perdas</span> dos peixes danificados pela <span style="color:#F05053;">falta de monitoramento do
+            temperatura</span>. Tendo um lucro de <span style="color:#F05053;">25%</span> à <span
+            style="color:#F05053;">50%</span>
+        </p>
+      </div>
+    </div>
+    <div class="kpi_dashboard_donnut">
         <span class="titulo_kpi_donnut">Economia do Produto</span>
         <hr>
         <div class="prejuizos-graficos">
-          <div class="prejuizos">
-            <img src="assets/earning.png" alt="prejuizos" class="icon_earning">
-            <span class="prejuizos-title"></span>
-            <p class="ganhos_texto">
-              Com o uso dos nossos sensores de temperatura, será possível<span style="color:#F05053;"> minimizar as
-                perdas</span> dos peixes danificados pela <span style="color:#F05053;">falta de monitoramento do
-                temperatura</span>. Tendo um lucro de <span style="color:#F05053;">25%</span> à <span
-                style="color:#F05053;">50%</span>
-            </p>
-          </div>
-          <div class="vertical-break"></div>
           <div class="kpi_lucro">
             <canvas id="kpi_donnut"></canvas>
           </div>
         </div>
       </div>
-    </div>
-    <script src="javascript/Dashboard/dashboard.js"></script>
+  </div>
+  </div>
+  
+  
+  <script src="javascript/Dashboard/dashboard.js"></script>
 </body>
 
 </html>

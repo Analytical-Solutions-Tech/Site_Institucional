@@ -27,7 +27,7 @@ function listar(req, res) {
 function entrar(req, res) {
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
-
+    console.log(email, senha);
     if (email == undefined) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
@@ -65,18 +65,27 @@ function cadastrar(req, res) {
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
+    var celular = req.body.celularServer;
+    var cnpj = req.body.cnpjServer;
+    var cpf = req.body.cpfServer;
 
     // Faça as validações dos valores
     if (nome == undefined) {
-        res.status(400).send("Seu nome está undefined!");
+        res.status(400).send("Seu nome está indefinida!");
     } else if (email == undefined) {
-        res.status(400).send("Seu email está undefined!");
+        res.status(400).send("Seu email está indefinida!");
     } else if (senha == undefined) {
-        res.status(400).send("Sua senha está undefined!");
+        res.status(400).send("Sua senha está indefinida!");
+    } else if (celular == undefined) {
+        res.status(400).send("Seu celular está indefinida!");
+    } else if (cnpj == undefined) {
+        res.status(400).send("Seu CNPJ está indefinida!");
+    } else if (cpf == undefined) {
+        res.status(400).send("Seu CPF está indefinida!");
     } else {
         
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, senha)
+        usuarioModel.cadastrar(nome, email, senha, celular, cnpj, cpf)
             .then(
                 function (resultado) {
                     res.json(resultado);

@@ -1,13 +1,13 @@
 var database = require("../database/config");
 
-function pesquisarMedidas(idTransporte, fkCliente) {
+function pesquisarMedidas(idTransporte) {
 
     instrucaoSql = ''
 
      if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql = `
         SELECT * FROM temperatura_por_transporte
-            WHERE fkCliente = ${fkCliente} and idTransporte = ${idTransporte} 
+            WHERE idTransporte = ${idTransporte} 
         `;
 
     } else {

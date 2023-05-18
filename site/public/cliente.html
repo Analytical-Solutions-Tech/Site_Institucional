@@ -69,8 +69,7 @@
                     <span class="title">Cadastre-se</span>
                 </div>
                 <input type="text" placeholder="CNPJ da empresa" class="input-form" id="input-cnpj-cadastro">
-                <input type="text" placeholder="CPF" class="input-form"
-                    id="input-cpf-cadastro">
+                <input type="text" placeholder="CPF" class="input-form" id="input-cpf-cadastro">
                 <input type="text" placeholder="Nome" class="input-form" id="input-nome-cadastro">
                 <input type="text" placeholder="Celular" class="input-form" id="input-celular-cadastro">
                 <input type="email" placeholder="Email" class="input-form" id="input-email-cadastro">
@@ -161,14 +160,14 @@
 
 <script>
 
-function entrar() {
+    function entrar() {
 
         var emailVar = input_email_login.value;
         var senhaVar = input_senha_login.value;
 
         if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            modal_titulo.innerHTML = "Erro ao fazer login"
+            modal_txt.innerHTML = "Verfifique se o email e a senha estão corretos e tente novamente"
             return false;
         }
         else {
@@ -187,7 +186,7 @@ function entrar() {
                 emailServer: emailVar,
                 senhaServer: senhaVar
             })
-           
+
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO entrar()!")
 
@@ -212,8 +211,12 @@ function entrar() {
 
                 console.log("Houve um erro ao tentar realizar o login!");
 
+
+                modal_titulo.innerHTML = "Erro ao fazer login"
+                modal_txt.innerHTML = "Verfifique se o email e a senha estão corretos e tente novamente"
                 resposta.text().then(texto => {
                     console.error(texto);
+
                 });
             }
 

@@ -95,6 +95,6 @@ function cadastro() {
 }
 
 function disableModal() {
-    var modalShow = document.getElementById('modal-container')
+    var modalShow = document.getElementById('modal_container')
     modalShow.style.display = "none"
 }

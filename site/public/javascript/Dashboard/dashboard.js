@@ -12,7 +12,7 @@ let proximaAtualizacao;
 window.onload = obterDadosGraficos();
 
 function obterDadosGraficos() {
-  obterDadosGrafico(7)
+  obterDadosGrafico(4)
 }
 
 // O gráfico é construído com três funções:
@@ -31,15 +31,12 @@ function obterDadosGrafico(idTransporte) {
   if (proximaAtualizacao != undefined) {
     clearTimeout(proximaAtualizacao);
   }
-console.log("bananinhaxpto", idTransporte);
 
   fetch(`/medidas/ultimas/${idTransporte}`).then(function (response) {
     if (response.ok) {
       response.json().then(function (resposta) {
         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
         resposta.reverse();
-        console.log("SOS1");
-
         plotarGrafico(resposta, idTransporte)
 
       });
@@ -82,10 +79,9 @@ function plotarGrafico(resposta, idTransporte) {
   // Inserindo valores recebidos em estrutura para plotar o gráfico
   for (i = 0; i < resposta.length; i++) {
     var registro = resposta[i];
-    labels.push("aaaa");
-
     console.log(registro);
     dados.datasets[0].data.push(registro.registro_sensor);
+    labels.push(registro.data_hora)
   }
 
   console.log('----------------------------------------------')
@@ -107,7 +103,6 @@ function plotarGrafico(resposta, idTransporte) {
     document.getElementById(`chart_linha`),
     config
   );
-  console.log("SOS2");
   setTimeout(() => atualizarGrafico(idTransporte, dados, myChart), 2000);
 }
 
@@ -118,39 +113,37 @@ function plotarGrafico(resposta, idTransporte) {
 //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
 //     Para ajustar o "select", ajuste o comando sql em src/models
 function atualizarGrafico(idTransporte, dados, myChart) {
-  console.log('aaaaaaaaaaaaaaa');
 
   fetch(`/medidas/tempo-real/${idTransporte}`, { cache: 'no-store' }).then(function (response) {
     if (response.ok) {
       response.json().then(function (novoRegistro) {
+        console.log(novoRegistro);
 
         console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
         console.log(`Dados atuais do gráfico:`);
         console.log(dados);
 
-        let avisoCaptura = document.getElementById(`avisoCaptura${idTransporte}`)
+        let avisoCaptura = document.getElementById(`hora_temp_aviso`)
         avisoCaptura.innerHTML = ""
+        let tempAviso = document.getElementById(`temp_aviso`)
 
-
-        if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
+        if (novoRegistro[0].data_hora == dados.labels[dados.labels.length - 1]) {
           console.log("---------------------------------------------------------------")
           console.log("Como não há dados novos para captura, o gráfico não atualizará.")
-          avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
+          avisoCaptura.innerHTML = `${novoRegistro[0].data_hora}`
+          tempAviso.innerHTML = `${novoRegistro[0].registro_sensor}`
           console.log("Horário do novo dado capturado:")
-          console.log(novoRegistro[0].momento_grafico)
+          console.log(novoRegistro[0].data_hora)
           console.log("Horário do último dado capturado:")
           console.log(dados.labels[dados.labels.length - 1])
           console.log("---------------------------------------------------------------")
         } else {
           // tirando e colocando valores no gráfico
           dados.labels.shift(); // apagar o primeiro
-          dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
+          dados.labels.push(novoRegistro[0].data_hora); // incluir um novo momento
 
           dados.datasets[0].data.shift();  // apagar o primeiro de umidade
-          dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
-
-          dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
-          dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
+          dados.datasets[0].data.push(novoRegistro[0].registro_sensor); // incluir uma nova medida de umidade
 
           myChart.update();
         }

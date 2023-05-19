@@ -7,7 +7,7 @@ function pesquisarMedidas(idTransporte) {
     if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql = `
             select * from temperatura_por_transporte JOIN historicoLeitura
-            on historicoLeitura.idLeitura = temperatura_por_transporte.fkLeitura
+            on historicoLeitura.fkTemperaturaTransporte = temperatura_por_transporte.idTransporte
             WHERE idTransporte = ${idTransporte} 
         `;
 
@@ -26,16 +26,17 @@ function pesquisarMedidasTempoReal(idTransporte) {
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
         instrucaoSql = `
-            SELECT fkCliente as cliente_id, fkLeitura as leitura_id, fkSensor as sensor_id from temperatura_por_transporte
-            WHERE idTransporte = ${idTransporte}
-            order by idTransporte desc 
+            select * from temperatura_por_transporte JOIN historicoLeitura
+            on historicoLeitura.fkTemperaturaTransporte = temperatura_por_transporte.idTransporte
+            WHERE idTransporte = ${idTransporte} 
             `;
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql = ` 
-            SELECT fkCliente as cliente_id, fkLeitura as leitura_id, fkSensor as sensor_id from temperatura_por_transporte
-            WHERE idTransporte = ${idTransporte}
-            order by idTransporte desc
+            select * from temperatura_por_transporte JOIN historicoLeitura
+            on historicoLeitura.fkTemperaturaTransporte = temperatura_por_transporte.idTransporte
+            WHERE idTransporte = ${idTransporte} 
+            order by data_hora desc
             `;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");

@@ -1,4 +1,4 @@
-.modal-container {
+.modal_container {
     display: none;
     justify-content: center;
     width: 100%;
@@ -9,7 +9,7 @@
     backdrop-filter: blur(25px);
 }
 
-.modal-body {
+.modal_body {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,11 +37,11 @@
     }
 }
 
-.modal-img {
+.modal_img {
     width: 50%;
 }
 
-.modal-titulo {
+.modal_titulo {
     font-size: 2rem;
     color: #D40000;
     font-weight: bold;
@@ -50,7 +50,7 @@
     margin-top: 20px;
 }
 
-.modal-txt {
+.modal_txt {
     color: white;
     font-weight: 600;
     font-family: 'Poppins', sans-serif;
@@ -58,7 +58,7 @@
     text-align: center;
 }
 
-.modal-btn {
+.modal_btn {
     background-color: #FF0000;
     font-weight: 900;
     color: white;
@@ -70,7 +70,7 @@
     cursor: pointer;
 }
 
-.modal-btn:hover {
+.modal_btn:hover {
     transform: scale(1.15);
     /* transition: 0.8s; */
     transition: 1s;

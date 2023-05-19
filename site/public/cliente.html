@@ -116,15 +116,15 @@
             </a>
         </div>
     </footer>
-    <div class="modal-container" id="modal-container">
-        <div class="modal-body">
-            <img class="modal-img" src="./assets/avisoerro.png" alt="Alerta">
-            <h1 class="modal-titulo" id="modal_titulo">
+    <div class="modal_container" id="modal_container">
+        <div class="modal_body">
+            <img class="modal_img" src="./assets/avisoerro.png" alt="Alerta">
+            <h1 class="modal_titulo" id="modal_titulo">
                 Erro ao fazer login
             </h1>
-            <span class="modal-txt" id="modal_txt">Verfifique se o email e a senha estão corretos e tente
+            <span class="modal_txt" id="modal_txt">Verfifique se o email e a senha estão corretos e tente
                 novamente</span>
-            <button class="modal-btn" onclick="disableModal()">
+            <button class="modal_btn" onclick="disableModal()">
                 OK
             </button>
         </div>
@@ -166,6 +166,7 @@
         var senhaVar = input_senha_login.value;
 
         if (emailVar == "" || senhaVar == "") {
+            modal_container.style.display = "flex";
             modal_titulo.innerHTML = "Erro ao fazer login"
             modal_txt.innerHTML = "Verfifique se o email e a senha estão corretos e tente novamente"
             return false;
@@ -210,13 +211,16 @@
             } else {
 
                 console.log("Houve um erro ao tentar realizar o login!");
+console.log(modal_container);
+console.log(modal_titulo);
+console.log(modal_txt);
 
-
+                modal_container.style.display = "flex";
                 modal_titulo.innerHTML = "Erro ao fazer login"
                 modal_txt.innerHTML = "Verfifique se o email e a senha estão corretos e tente novamente"
+
                 resposta.text().then(texto => {
                     console.error(texto);
-
                 });
             }
 

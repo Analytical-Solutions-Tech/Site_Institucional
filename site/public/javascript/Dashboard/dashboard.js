@@ -130,7 +130,9 @@ function atualizarGrafico(idTransporte, dados, myChart) {
         if (novoRegistro[0].data_hora == dados.labels[dados.labels.length - 1]) {
           console.log("---------------------------------------------------------------")
           console.log("Como não há dados novos para captura, o gráfico não atualizará.")
-          avisoCaptura.innerHTML = `${novoRegistro[0].data_hora}`
+          var data_hora = new Date(novoRegistro[0].data_hora)
+          console.log(data_hora);
+          avisoCaptura.innerHTML = `${data_hora.getHours()}:${data_hora.getMinutes()}`
           tempAviso.innerHTML = `${novoRegistro[0].registro_sensor}`
           console.log("Horário do novo dado capturado:")
           console.log(novoRegistro[0].data_hora)
@@ -166,3 +168,4 @@ function atualizarGrafico(idTransporte, dados, myChart) {
 
 
 
+ 

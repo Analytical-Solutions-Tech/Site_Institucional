@@ -40,7 +40,7 @@ body {
     z-index: 1;
 }
 
-.bar{
+.bar {
     width: 0;
     height: 2px;
     background: #40CBC3;
@@ -62,7 +62,7 @@ body {
     font-size: 1.6rem;
     font-weight: 400;
     width: 40%;
-    }
+}
 
 .lista_nav ul {
     list-style: none;
@@ -108,6 +108,28 @@ body {
 
 .container_home {
     transform: translateY(100px);
+}
+
+.help_desk {
+    display: flex;
+    position: fixed;
+    padding-top: 740px;
+    font-size:80px;
+    right: 25px;
+    bottom: 42px;
+}
+
+.help_desk i {
+color: #00a6ae;
+background-color: rgb(255, 255, 255);
+border-radius: 80px;
+padding: 10px;
+}
+
+.help_desk i:hover{
+    transform: scale(1.10);
+    transition: .4s ease-in-out;
+    opacity: 50%;
 }
 
 .PNG_1 img {
@@ -314,20 +336,20 @@ body {
     height: 50px;
 }
 
-.social a{
+.social a {
     text-decoration: none;
     color: #f1f1f1;
 }
 
 #zap:hover {
-    transition: .5s ;
+    transition: .5s;
     transform: scale(1.1);
     color: #bebb0e;
     cursor: pointer;
 }
 
 #insta:hover {
-    transition: .5s ;
+    transition: .5s;
     transform: scale(1.1);
     color: #f20356;
     cursor: pointer;
@@ -335,7 +357,7 @@ body {
 }
 
 #link:hover {
-    transition: .5s ;
+    transition: .5s;
     transform: scale(1.1);
     color: #026fab;
     cursor: pointer;

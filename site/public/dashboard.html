@@ -12,10 +12,13 @@
   <link rel="shortcut icon" href="assets/logo_ast.png" type="image/x-icon">
   <link rel="stylesheet" href="css/dashboard.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>"https://fontawesome.com/icons/headset?f=classic&s=light"</script>
+  <script src="https://kit.fontawesome.com/390ed0de69.js" crossorigin="anonymous"></script>
   <title>Dashboard - AST</title>
 </head>
 
 <body>
+ 
     <div class="header" id="header">
       <button onclick="mostrarSideBar()" class="button_icon_header">
         <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor" class="bi bi-justify"
@@ -29,8 +32,12 @@
       <span class="name-fish">FISH</span><br>
       <span class="name-dashboard">Dashboard</span>
     </div>
-
-
+    <div class="help_desk" id="helpDesk">
+      <a href="mailto: support@analyticalsolutionstech.zohodesk.com">
+        <i class="fa-brands fa-teamspeak"></i>
+      </a>
+    </div>
+    
     <div class="navigation_header">
       <button onclick="mostrarSideBar()" class="button_icon_header_x">
         <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="button_x"
@@ -52,8 +59,16 @@
         <a href="./cliente.html" class="active"><button>Sair</button></a>
       </div>
   </div>
-
     <div class="container">
+      
+      <div>
+        <!-- botoes para selecionar os sensores pelo id -->
+        <input type="checkbox" id="id_sensores_por_empresa1" value="1">
+        <input type="checkbox" id="id_sensores_por_empresa2" value="2">
+        <input type="checkbox" id="id_sensores_por_empresa3" value="3">
+        <input type="checkbox" id="id_sensores_por_empresa4" value="4">
+
+      </div>
       <!-- Status da temperatura atual -->
       <div class="div_status_temperatura">
         <h1>Status da Temperatura</h1>
@@ -148,5 +163,6 @@
       navigationHeader.style.marginLeft = '-120vw';
     }
   }
+  
 
 </script>

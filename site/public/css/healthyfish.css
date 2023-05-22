@@ -22,6 +22,29 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+.help_desk {
+    display: flex;
+    position: fixed;
+    padding-top: 720px;
+    font-size:80px;
+    right: 25px;
+    bottom: 20px;
+}
+
+.help_desk i {
+color:  #3DA673;
+background-color: rgb(255, 255, 255);
+border-radius: 80px;
+padding: 10px;
+}
+
+.help_desk i:hover{
+    transform: scale(1.10);
+    transition: .4s ease-in-out;
+    opacity: 50%;
+}
+
+
 .navbar-container {
     display: flex;
     width: 100%;

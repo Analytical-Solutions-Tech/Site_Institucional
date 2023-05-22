@@ -2,7 +2,8 @@
 
 // GRÁFICO DE TEMPERATURA
 
-
+var check = document.getElementById('id_sensores_por_empresa1').value
+console.log(check);
 // PEGAR DADOS DO BANCO DE DADOS
 
 const grafico_linha = document.getElementById('chart_linha');

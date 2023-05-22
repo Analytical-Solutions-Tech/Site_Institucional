@@ -68,12 +68,12 @@
                     <span class="material-symbols-outlined">person_add</span>
                     <span class="title">Cadastre-se</span>
                 </div>
-                <input type="text" placeholder="CNPJ da empresa" class="input-form" id="input_cnpj_cadastro">
-                <input type="text" placeholder="CPF" class="input-form" id="input_cpf_cadastro">
-                <input type="text" placeholder="Nome" class="input-form" id="input_nome_cadastro">
-                <input type="text" placeholder="Celular" class="input-form" id="input_celular_cadastro">
-                <input type="email" placeholder="Email" class="input-form" id="input_email_cadastro">
-                <input type="password" placeholder="Senha" class="input-form" id="input_senha_cadastro">
+                <input maxlength="14" type="text" placeholder="CNPJ da empresa" class="input-form" id="input_cnpj_cadastro">
+                <input maxlength="11" type="text" placeholder="CPF" class="input-form" id="input_cpf_cadastro">
+                <input maxlength="45" type="text" placeholder="Nome" class="input-form" id="input_nome_cadastro">
+                <input maxlength="13" type="text" placeholder="Celular" class="input-form" id="input_celular_cadastro">
+                <input maxlength="80" type="email" placeholder="Email" class="input-form" id="input_email_cadastro">
+                <input maxlength="120" type="password" placeholder="Senha" class="input-form" id="input_senha_cadastro">
                 <div class="row-text-login">
                     <span class="span-row-text-login" onclick="moveImageLeft()">Já tem conta? Faça login</span>
                 </div>
@@ -248,9 +248,10 @@
         var var_nome = input_nome_cadastro.value ;
         var var_celular = input_celular_cadastro.value ;
         var var_email = input_email_cadastro.value ;
-        var var_senha = forge.var_senha.sha256.create();
-        var_senha.update(`${input_senha_login.value}`);
-        console.log(var_senha.digest().toHex());
+
+        var senha_cript = forge.md.sha256.create();
+        senha_cript.update(`${input_senha_cadastro.value}`);
+        var var_senha = senha_cript.digest().toHex();
 
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
@@ -298,7 +299,6 @@
             }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
         });
 
         return false;

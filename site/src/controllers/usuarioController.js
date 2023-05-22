@@ -28,30 +28,6 @@ function listar(req, res) {
 function entrar(req, res) {
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
-    
-    var cript_senha = forge.hmac.create();
-    cript_senha.start('sha256', `${senha}`);
-    cript_senha.update('what do ya want for nothing?');
-
-    console.log(cript_senha.digest().toHex());
-
-    var md = forge.md.sha256.create();
-    md.update('The quick brown fox jumps over the lazy dog');
-    console.log(md.digest().toHex());
-    console.log(md.encode().toHex());
-    
-
-    var decrypt = '';
-    decrypt += decrypt.update(md);
-    console.log(decrypt.digest().toString());
-
-    var md = forge.md.sha256.create();
-    md.update('The quick brown fox jumps over the lazy dog');
-    console.log(md.digest().toHex());
-
-
-    var decript_senha = forge.hmac.decode
-        console.log(cript_senha.output);
 
     console.log(email, senha);
     if (email == undefined) {
@@ -92,7 +68,6 @@ function cadastrar(req, res) {
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
     var celular = req.body.celularServer;
-    var cnpj = req.body.cnpjServer;
     var cpf = req.body.cpfServer;
 
     // Faça as validações dos valores
@@ -104,14 +79,12 @@ function cadastrar(req, res) {
         res.status(400).send("Sua senha está indefinida!");
     } else if (celular == undefined) {
         res.status(400).send("Seu celular está indefinida!");
-    } else if (cnpj == undefined) {
-        res.status(400).send("Seu CNPJ está indefinida!");
     } else if (cpf == undefined) {
         res.status(400).send("Seu CPF está indefinida!");
     } else {
         
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, senha, celular, cnpj, cpf)
+        usuarioModel.cadastrar(cpf, nome, celular, email, senha)
             .then(
                 function (resultado) {
                     res.json(resultado);

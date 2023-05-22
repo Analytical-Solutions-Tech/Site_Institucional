@@ -6,6 +6,7 @@ function pesquisarMedidas(req, res) {
 
     medidaModel.pesquisarMedidas(idTransporte).then(function (resultado) {
         if (resultado.length > 0) {
+            console.log(resultado);
             res.status(200).json(resultado);
         } else {
             res.status(204).send("Nenhum resultado encontrado!")

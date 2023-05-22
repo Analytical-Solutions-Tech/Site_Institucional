@@ -267,7 +267,17 @@ padding: 10px;
 
 .hora_temp p {
     color: #fff;
-    font-size: 37px;
+    font-size: 32px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    margin-left: 50px;
+}
+
+.hora_temp span{
+    color: #fff;
+    font-weight: bold;
+    font-size: 30px;
+    margin-right: -25px;
 }
 
 .temperatura {

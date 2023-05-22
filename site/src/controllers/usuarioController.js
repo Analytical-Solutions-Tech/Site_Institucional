@@ -1,4 +1,5 @@
 var usuarioModel = require("../models/usuarioModel");
+var forge = require('node-forge');
 
 var sessoes = [];
 
@@ -27,6 +28,31 @@ function listar(req, res) {
 function entrar(req, res) {
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
+    
+    var cript_senha = forge.hmac.create();
+    cript_senha.start('sha256', `${senha}`);
+    cript_senha.update('what do ya want for nothing?');
+
+    console.log(cript_senha.digest().toHex());
+
+    var md = forge.md.sha256.create();
+    md.update('The quick brown fox jumps over the lazy dog');
+    console.log(md.digest().toHex());
+    console.log(md.encode().toHex());
+    
+
+    var decrypt = '';
+    decrypt += decrypt.update(md);
+    console.log(decrypt.digest().toString());
+
+    var md = forge.md.sha256.create();
+    md.update('The quick brown fox jumps over the lazy dog');
+    console.log(md.digest().toHex());
+
+
+    var decript_senha = forge.hmac.decode
+        console.log(cript_senha.output);
+
     console.log(email, senha);
     if (email == undefined) {
         res.status(400).send("Seu email está undefined!");

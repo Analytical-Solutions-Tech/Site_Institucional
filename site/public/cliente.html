@@ -12,11 +12,11 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="css/pgCliente.css">
     <link rel="stylesheet" href="./css/modal.css">
-    <!-- <script src="./javascript/cadastro/cliente.js"></script> -->
+    <script src="./javascript/cadastro/cliente.js"></script> 
     <title>Área do Cliente</title>
     <link rel="shortcut icon" href="assets2/pagina_inicial/logo.png" type="image/x-icon" />
-    <script src="https://kit.fontawesome.com/390ed0de69.js" crossorigin="anonymous">
-    </script>
+    <script src="https://kit.fontawesome.com/390ed0de69.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/node-forge@1.0.0/dist/forge.min.js"></script>
 
 </head>
 </head>
@@ -163,14 +163,20 @@
     function entrar() {
 
         var emailVar = input_email_login.value;
-        var senhaVar = input_senha_login.value;
+
+        var senhaCript = forge.md.sha256.create();
+        senhaCript.update(`${input_senha_login.value}`);
+        //console.log(senhaVar.digest().toHex());
+        var senhaVar = senhaCript.digest().toHex();
 
         if (emailVar == "" || senhaVar == "") {
             modal_container.style.display = "flex";
             modal_titulo.innerHTML = "Erro ao fazer login"
             modal_txt.innerHTML = "Verfifique se o email e a senha estão corretos e tente novamente"
             return false;
+            
         }
+        
         else {
             setInterval(sumirMensagem, 5000)
         }
@@ -242,7 +248,10 @@
         var var_nome = input_nome_cadastro.value ;
         var var_celular = input_celular_cadastro.value ;
         var var_email = input_email_cadastro.value ;
-        var var_senha = input_senha_cadastro.value ;
+        var var_senha = forge.var_senha.sha256.create();
+        var_senha.update(`${input_senha_login.value}`);
+        console.log(var_senha.digest().toHex());
+
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
         

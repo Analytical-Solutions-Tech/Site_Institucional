@@ -1,12 +1,16 @@
 // GRÁFICOS DA DASHBOARD
 
 // GRÁFICO DE TEMPERATURA
+var EMAIL_USUARIO = sessionStorage.getItem('EMAIL_USUARIO');
+var NOME_USUARIO = sessionStorage.getItem('NOME_USUARIO');
+var ID_USUARIO = sessionStorage.getItem('ID_USUARIO');
 
-var check = document.getElementById('id_sensores_por_empresa1').value
-console.log(check);
+var check = document.getElementById('id_sensores_por_empresa1').value;
+
 // PEGAR DADOS DO BANCO DE DADOS
 
 const grafico_linha = document.getElementById('chart_linha');
+const grafico_kpi_linha = document.getElementById('kpi_linha');
 
 let proximaAtualizacao;
 
@@ -39,7 +43,6 @@ function obterDadosGrafico(idTransporte) {
         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
         resposta.reverse();
         plotarGrafico(resposta, idTransporte)
-
       });
     } else {
       console.error('Nenhum dado encontrado ou erro na API');
@@ -54,8 +57,6 @@ function obterDadosGrafico(idTransporte) {
 // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
 // A função *plotarGrafico* também invoca a função *atualizarGrafico*
 function plotarGrafico(resposta, idTransporte) {
-
-  console.log('iniciando plotagem do gráfico...');
 
   // Criando estrutura para plotar gráfico - labels
   let labels = [];
@@ -73,25 +74,14 @@ function plotarGrafico(resposta, idTransporte) {
       }]
   };
 
-  console.log('----------------------------------------------')
-  console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-  console.log(resposta)
-
   // Inserindo valores recebidos em estrutura para plotar o gráfico
   for (i = 0; i < resposta.length; i++) {
     var registro = resposta[i];
-    console.log(registro);
+    var data_hora = new Date(registro.data_hora);
+    var data_hora_formatada = `${data_hora.getDay()}/${data_hora.getMonth()}/${data_hora.getFullYear()} ${data_hora.getHours()}:${data_hora.getMinutes()}`
     dados.datasets[0].data.push(registro.registro_sensor);
-    labels.push(registro.data_hora)
+    labels.push(data_hora_formatada)
   }
-
-  console.log('----------------------------------------------')
-  console.log('O gráfico será plotado com os respectivos valores:')
-  console.log('Labels:')
-  console.log(labels)
-  console.log('Dados:')
-  console.log(dados.datasets)
-  console.log('----------------------------------------------')
 
   // Criando estrutura para plotar gráfico - config
   const config = {
@@ -114,36 +104,26 @@ function plotarGrafico(resposta, idTransporte) {
 //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
 //     Para ajustar o "select", ajuste o comando sql em src/models
 function atualizarGrafico(idTransporte, dados, myChart) {
-
   fetch(`/medidas/tempo-real/${idTransporte}`, { cache: 'no-store' }).then(function (response) {
     if (response.ok) {
       response.json().then(function (novoRegistro) {
-        console.log(novoRegistro);
-
         console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-        console.log(`Dados atuais do gráfico:`);
-        console.log(dados);
 
-        let avisoCaptura = document.getElementById(`hora_temp_aviso`)
+        let avisoCaptura = document.getElementById(`hora_temp_aviso`);
         avisoCaptura.innerHTML = ""
-        let tempAviso = document.getElementById(`temp_aviso`)
+        let tempAviso = document.getElementById(`temp_aviso`);
+
+        var data_hora = new Date(novoRegistro[0].data_hora);
+        var hora_formatada = `${data_hora.getHours()}:${data_hora.getMinutes()}`;
+        var data_hora_formatada = `${data_hora.getDay()}/${data_hora.getMonth()}/${data_hora.getFullYear()} ${data_hora.getHours()}:${data_hora.getMinutes()}`
 
         if (novoRegistro[0].data_hora == dados.labels[dados.labels.length - 1]) {
-          console.log("---------------------------------------------------------------")
-          console.log("Como não há dados novos para captura, o gráfico não atualizará.")
-          var data_hora = new Date(novoRegistro[0].data_hora)
-          console.log(data_hora);
-          avisoCaptura.innerHTML = `${data_hora.getHours()}:${data_hora.getMinutes()}`
+          avisoCaptura.innerHTML = `${hora_formatada}`
           tempAviso.innerHTML = `${novoRegistro[0].registro_sensor}`
-          console.log("Horário do novo dado capturado:")
-          console.log(novoRegistro[0].data_hora)
-          console.log("Horário do último dado capturado:")
-          console.log(dados.labels[dados.labels.length - 1])
-          console.log("---------------------------------------------------------------")
         } else {
           // tirando e colocando valores no gráfico
           dados.labels.shift(); // apagar o primeiro
-          dados.labels.push(novoRegistro[0].data_hora); // incluir um novo momento
+          dados.labels.push(data_hora_formatada); // incluir um novo momento
 
           dados.datasets[0].data.shift();  // apagar o primeiro de umidade
           dados.datasets[0].data.push(novoRegistro[0].registro_sensor); // incluir uma nova medida de umidade
@@ -161,12 +141,7 @@ function atualizarGrafico(idTransporte, dados, myChart) {
     }
   })
     .catch(function (error) {
-      console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+      console.error(`Erro na obtenção dos dados p / gráfico: ${error.message}`);
     });
 
 }
-
-
-
-
- 

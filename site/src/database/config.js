@@ -22,14 +22,8 @@ var mySqlConfig = {
     host: "10.18.32.87",
     database: "ast",
     user: "dba",
-    password: "cimento12345",
+    password: "dba",
 };
-
-// REMOTO
-// host: "10.18.32.87",
-// database: "ast",
-// user: "dba",
-// password: "dba",
 
 function executar(instrucao) {
     // VERIFICA A VARIÁVEL DE AMBIENTE SETADA EM app.js

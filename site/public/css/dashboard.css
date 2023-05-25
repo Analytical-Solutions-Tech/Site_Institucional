@@ -28,7 +28,7 @@ body {
     justify-content: flex-end;
     position: fixed;
     width: 98%;
-    padding-top: 525px;
+    padding-top: 700px;
     font-size: 80px;
 }
 
@@ -45,15 +45,12 @@ body {
     opacity: 50%;
 }
 
-.header {
-    width: 100%;
+.header {  
     text-align: center;
     align-items: center;
     display: flex;
     justify-content: space-evenly;
-    margin-top: -32px;
     backdrop-filter: blur(10px);
-    padding: 50px 0px 0px 30px;
     background: #245953;
     opacity: 90%;
 }
@@ -130,7 +127,7 @@ body {
 }
 
 .button_icon_header:hover {
-    background-color: #E49393;
+    background-color:  #408E91;
     transition: .4s ease;
     -webkit-box-shadow: 6px 7px 9px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 6px 7px 9px 0px rgba(0, 0, 0, 0.75);
@@ -147,7 +144,7 @@ body {
 }
 
 .button_icon_header_x:hover {
-    color: #E49393;
+    color: #408E91;
     transition: 0.3s ease;
     transform: scale(1.20);
 
@@ -163,7 +160,7 @@ body {
     background: #245953;
     backdrop-filter: blur(100px);
     border-radius: 5px;
-    width: 30vw;
+    width: 29vw;
     height: auto;
     top: 0;
     margin-left: -120vw;
@@ -192,7 +189,7 @@ body {
 .navigation_header a:hover {
     border: 2px solid;
     border-radius: 10px;
-    color: #E49393;
+    color: #408E91;
     transition: .3s ease;
     padding: 5px 30px 5px 30px;
 }
@@ -202,22 +199,22 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: space-evenly;
+}
+
+.logo-navigation hr{
+    width: 99%;
 }
 
 .link-navigation {
-    height: 200vh;
-    width: 100%;
+    height: 160vh;
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 
 
 
-
-/*  */
 .div_status_temperatura {
     width: 760px;
     height: 240px;
@@ -233,9 +230,9 @@ body {
 .div_status_temperatura:hover {
     transition: 0.5s ease-in-out;
     opacity: 90%;
-    -webkit-box-shadow: 13px 10px 5px 0px #E49393;
-    -moz-box-shadow: 13px 10px 5px 0px #E49393;
-    box-shadow: 13px 10px 5px 0px #E49393;
+    -webkit-box-shadow: 13px 10px 5px 0px #408E91;
+    -moz-box-shadow: 13px 10px 5px 0px #408E91;
+    box-shadow: 13px 10px 5px 0px #408E91;
 }
 
 .div_status_temperatura h1 {
@@ -306,9 +303,9 @@ body {
 .alertas_container:hover {
     transition: .2s ease-in-out;
     opacity: 90%;
-    -webkit-box-shadow: 13px 10px 5px 0px #E49393;
-    -moz-box-shadow: 13px 10px 5px 0px #E49393;
-    box-shadow: 13px 10px 5px 0px #E49393;
+    -webkit-box-shadow: 13px 10px 5px 0px #408E91;
+    -moz-box-shadow: 13px 10px 5px 0px #408E91;
+    box-shadow: 13px 10px 5px 0px #408E91;
 }
 
 .alertas_container h1 {
@@ -374,7 +371,7 @@ body {
 }
 
 .active {
-    background-color: #E49393;
+    background-color: #408E91;
     padding: 5px 35px 5px 35px;
     border: none;
     border-radius: 15px;
@@ -389,7 +386,7 @@ body {
 }
 
 .active button {
-    background-color: #E49393;
+    background-color: #408E91;
     color: #fff;
     padding: 15px;
     border: none;
@@ -419,7 +416,7 @@ body {
 }
 
 
-.kpi_dashboard_donnut {
+.kpi_economia {
     background-color: antiquewhite;
     width: 40%;
     -webkit-box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
@@ -428,27 +425,7 @@ body {
 }
 
 
-.kpi_dashboard_donnut:hover {
-    border-radius: 10px;
-    transition: .4s ease;
-    opacity: 90%;
-    -webkit-box-shadow: 13px 10px 5px 0px #E49393;
-    -moz-box-shadow: 13px 10px 5px 0px #E49393;
-    box-shadow: 13px 10px 5px 0px #E49393;
-}
-
-
-.dashboard_donnut:hover {
-    border-radius: 60px;
-    opacity: 90%;
-    -webkit-box-shadow: 13px 10px 5px 0px #E49393;
-    -moz-box-shadow: 13px 10px 5px 0px #E49393;
-    box-shadow: 13px 10px 5px 0px #E49393;
-    transition: .4s ease;
-
-}
-
-.titulo_donnut {
+.titulo_economia {
     font-size: 25px;
     font-weight: 500;
     background-color: #245953;
@@ -557,7 +534,7 @@ body {
     -moz-text-fill-color: transparent;
 }
 
-.titulo_kpi_donnut {
+.titulo_kpi_economia {
     display: flex;
     justify-content: center;
     font-size: 50px;
@@ -646,13 +623,4 @@ body {
     -webkit-box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
     box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
-}
-
-.imagem-lucros:hover {
-    border-radius: 10px;
-    transition: .4s ease;
-    opacity: 90%;
-    -webkit-box-shadow: 13px 10px 5px 0px #E49393;
-    -moz-box-shadow: 13px 10px 5px 0px #E49393;
-    box-shadow: 13px 10px 5px 0px #E49393;
 }

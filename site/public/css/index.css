@@ -120,8 +120,8 @@ body {
 }
 
 .help_desk i {
-color: #00a6ae;
-background-color: rgb(255, 255, 255);
+    color: #245953;
+   background-color: #FAEBD7;
 border-radius: 80px;
 padding: 10px;
 }

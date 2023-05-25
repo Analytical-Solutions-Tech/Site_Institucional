@@ -6,11 +6,11 @@
 
 ::-webkit-scrollbar {
     width: 8px;
-    background-image: linear-gradient(to bottom, #F2978B, #F05053);
+    background: linear-gradient(0.25turn, #245953, #408E91);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #3DA673;
+    background: #245953;
 }
 
 body {
@@ -18,7 +18,7 @@ body {
     margin: 0;
     padding: 0;
     height: auto;
-    background-image: linear-gradient(to bottom, #F2978B, #F05053);
+    background: linear-gradient(0.25turn, #245953, #408E91);
     font-family: 'Poppins', sans-serif;
 }
 
@@ -32,8 +32,8 @@ body {
 }
 
 .help_desk i {
-color:  #3DA673;
-background-color: rgb(255, 255, 255);
+    color: #245953;
+    background-color: #FAEBD7;
 border-radius: 80px;
 padding: 10px;
 }
@@ -53,7 +53,8 @@ padding: 10px;
     align-items: center;
     justify-content: space-around;
     text-align: center;
-    background: #25252511;
+    background: #245953;
+
     backdrop-filter: blur(100px);
     position: fixed;
 }
@@ -90,14 +91,14 @@ padding: 10px;
 }
 
 .navbar-links a:hover {
-    color: #3DA673;
+    color: #FAEBD7;
 }
 
 .bar {
     width: 0;
     height: 2px;
     transition: .4s ease;
-    background-color: #3DA673;
+    background-color: #FAEBD7;
 }
 
 .navbar-links li a:hover .bar {
@@ -105,20 +106,20 @@ padding: 10px;
 }
 
 .active {
-    background-color: #3DA673;
+    background-color: #FAEBD7;
     padding: 10px 25px 10px 25px;
     border-radius: 30px;
     border: 0;
     transition: 0.5s ease;
     cursor: pointer;
-    color: #fff;
+    color: #245953;
     font-weight: bold;
     font-size: 1.1rem;
 }
 
 .active:hover {
     transform: scale(1.15);
-    color: #fff;
+    color: #245953;
 }
 
 .container {
@@ -142,7 +143,7 @@ padding: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #3DA673;
+    background: #245953;
     padding: 0px 30px 0px 30px;
     border-radius: 20px;
 }
@@ -151,12 +152,13 @@ padding: 10px;
     width: 135px;
     margin-left: -25px;
     margin-right: 25px;
+
 }
 
 .name-style {
     font-size: 5rem;
     font-weight: 500;
-    background-image: linear-gradient(to bottom, #fff, #fff, rgba(255, 255, 255, 0.4));
+    background-image: linear-gradient(to bottom, #FAEBD7, #FAEBD7, rgba(255, 255, 255, 0.4));
     font-style: italic;
     padding: 0px 15px 0px 15px;
     -webkit-background-clip: text;
@@ -167,7 +169,7 @@ padding: 10px;
 
 .text-missao {
     width: 50%;
-    color: #fff;
+    color: #FAEBD7;
     font-size: 2rem;
     font-weight: 900;
     text-align: left;
@@ -244,7 +246,7 @@ padding: 10px;
 }
 
 .left-content-beneficio {
-    border: 11px solid #3DA673;
+    border: 11px solid #FAEBD7;
     border-radius: 45px;
     width: 40%;
     height: 310px;
@@ -318,7 +320,7 @@ padding: 10px;
     width: 400px;
     height: 320px;
     border-radius: 30px;
-    background-color: #3DA673;
+    background-color: #FAEBD7;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -341,7 +343,7 @@ padding: 10px;
     width: 455px;
     height: 325px;
     border-radius: 30px;
-    background-color: #3DA673;
+    background-color: #245953;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -372,7 +374,7 @@ padding: 10px;
 }
 
 .simulador-logo {
-    color: #3DA673;
+    color: #FAEBD7;
     width: 150px;
     height: 150px;
     margin-top: 45px;
@@ -380,7 +382,7 @@ padding: 10px;
 }
 
 .simulador-header {
-    color: #fff;
+    color: #FAEBD7;
     width: 30%;
     font-weight: 900;
     font-size: 2.5rem;
@@ -388,7 +390,7 @@ padding: 10px;
 }
 
 .text-calculadora {
-    color: #fff;
+    color: #FAEBD7;
     width: 50%;
     text-align: center;
     font-size: 1.25rem;
@@ -403,10 +405,10 @@ padding: 10px;
 }
 
 .btn_simulador {
-    background-color: #3DA673;
+    background-color: #245953;
     padding: 10px 45px 10px 45px;
     border-radius: 25px;
-    color: #fff;
+    color: #FAEBD7;
     text-decoration: none;
     font-weight: 700;
     font-size: 1.25rem;
@@ -417,9 +419,9 @@ padding: 10px;
 
 .btn_simulador:hover {
     transform: scale(1.15);
-    color: #3DA673;
+    color: #245953;
     background-color: rgba(255, 255, 255,0.85);
-    border: 1px solid #3DA673;
+    border: 1px solid #245953;
 }
 
 .simulador-financeiro a{

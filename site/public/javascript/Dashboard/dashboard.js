@@ -5,19 +5,18 @@ var EMAIL_USUARIO = sessionStorage.getItem('EMAIL_USUARIO');
 var NOME_USUARIO = sessionStorage.getItem('NOME_USUARIO');
 var ID_USUARIO = sessionStorage.getItem('ID_USUARIO');
 
-var check = document.getElementById('id_sensores_por_empresa1').value;
-
 // PEGAR DADOS DO BANCO DE DADOS
 
-const grafico_linha = document.getElementById('chart_linha');
-const grafico_kpi_linha = document.getElementById('kpi_linha');
+var proximaAtualizacao;
 
-let proximaAtualizacao;
+var tempColor = document.getElementById('hora_temp');
+var tempAviso = document.getElementById('temp_aviso');
+var horaTempAviso = document.getElementById('hora_temp_aviso');
 
 window.onload = obterDadosGraficos();
 
 function obterDadosGraficos() {
-  obterDadosGrafico(4)
+  obterDadosGrafico(4);
 }
 
 // O gráfico é construído com três funções:
@@ -42,7 +41,7 @@ function obterDadosGrafico(idTransporte) {
       response.json().then(function (resposta) {
         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
         resposta.reverse();
-        plotarGrafico(resposta, idTransporte)
+        plotarGrafico(resposta, idTransporte);
       });
     } else {
       console.error('Nenhum dado encontrado ou erro na API');
@@ -75,12 +74,35 @@ function plotarGrafico(resposta, idTransporte) {
   };
 
   // Inserindo valores recebidos em estrutura para plotar o gráfico
-  for (i = 0; i < resposta.length; i++) {
+  for (i = 1; i < resposta.length; i++) {
     var registro = resposta[i];
     var data_hora = new Date(registro.data_hora);
-    var data_hora_formatada = `${data_hora.getDay()}/${data_hora.getMonth()}/${data_hora.getFullYear()} ${data_hora.getHours()}:${data_hora.getMinutes()}`
+
+    var dia = data_hora.getDay();
+    var mes = data_hora.getMonth();
+    var horas = data_hora.getHours();
+    var minutos = data_hora.getMinutes();
+
+    if (dia < 10) {
+      dia = "0" + dia;
+    }
+    if (mes < 10) {
+      mes = "0" + mes;
+    }
+    if (horas < 10) {
+      horas = "0" + horas;
+    }
+    if (minutos < 10) {
+      minutos = "0" + minutos;
+    }
+
+    var horas_minutos = `${horas}:${minutos}`
+
+    var data_hora_formatada = `${dia}/${mes}/${data_hora.getFullYear()} ${horas}:${minutos}`;
     dados.datasets[0].data.push(registro.registro_sensor);
-    labels.push(data_hora_formatada)
+    labels.push(data_hora_formatada);
+
+    alteracoesAlerta(registro.registro_sensor, horas_minutos)
   }
 
   // Criando estrutura para plotar gráfico - config
@@ -109,17 +131,30 @@ function atualizarGrafico(idTransporte, dados, myChart) {
       response.json().then(function (novoRegistro) {
         console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
 
-        let avisoCaptura = document.getElementById(`hora_temp_aviso`);
-        avisoCaptura.innerHTML = ""
-        let tempAviso = document.getElementById(`temp_aviso`);
-
         var data_hora = new Date(novoRegistro[0].data_hora);
-        var hora_formatada = `${data_hora.getHours()}:${data_hora.getMinutes()}`;
-        var data_hora_formatada = `${data_hora.getDay()}/${data_hora.getMonth()}/${data_hora.getFullYear()} ${data_hora.getHours()}:${data_hora.getMinutes()}`
+        var dia = data_hora.getDay();
+        var mes = data_hora.getMonth();
+        var horas = data_hora.getHours();
+        var minutos = data_hora.getMinutes();
+
+        if (dia < 10) {
+          dia = "0" + dia;
+        }
+        if (mes < 10) {
+          mes = "0" + mes;
+        }
+        if (horas < 10) {
+          horas = "0" + horas;
+        }
+        if (minutos < 10) {
+          minutos = "0" + minutos;
+        }
+
+        var data_hora_formatada = `${dia}/${mes}/${data_hora.getFullYear()} ${horas}:${minutos}`;
+        var horas_minutos = `${horas}:${minutos}`;
 
         if (novoRegistro[0].data_hora == dados.labels[dados.labels.length - 1]) {
-          avisoCaptura.innerHTML = `${hora_formatada}`
-          tempAviso.innerHTML = `${novoRegistro[0].registro_sensor}`
+          alteracoesAlerta(novoRegistro[0].registro_sensor, horas_minutos)
         } else {
           // tirando e colocando valores no gráfico
           dados.labels.shift(); // apagar o primeiro
@@ -127,6 +162,11 @@ function atualizarGrafico(idTransporte, dados, myChart) {
 
           dados.datasets[0].data.shift();  // apagar o primeiro de umidade
           dados.datasets[0].data.push(novoRegistro[0].registro_sensor); // incluir uma nova medida de umidade
+
+
+
+          //ALTERANDO STATUS DA TEMPERATURA
+          alteracoesAlerta(novoRegistro[0].registro_sensor, horas_minutos)
 
           myChart.update();
         }
@@ -144,4 +184,20 @@ function atualizarGrafico(idTransporte, dados, myChart) {
       console.error(`Erro na obtenção dos dados p / gráfico: ${error.message}`);
     });
 
+}
+
+function alteracoesAlerta(temperatura, horas) {
+  //ALTERANDO STATUS DA TEMPERATURA
+  if (temperatura <= -28.99 || temperatura >= -15.99) {
+    tempColor.style.backgroundColor = "#F03C31"
+  } else if (temperatura <= -27.99) {
+    tempColor.style.backgroundColor = "#F3950C"
+  } else if (temperatura <= -25) {
+    tempColor.style.backgroundColor = "#F0CC18"
+  } else {
+    tempColor.style.backgroundColor = "#245953"
+  }
+
+  horaTempAviso.innerHTML = `${horas}`;
+  tempAviso.innerHTML = `${temperatura}`
 }

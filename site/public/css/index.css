@@ -238,7 +238,7 @@ padding: 10px;
 .botao_saiba button:hover {
     transform: scale(1.1);
     color: var(--branco);
-    background: #F2978B;
+    background: #408E91;
 }
 
 .article_4 {

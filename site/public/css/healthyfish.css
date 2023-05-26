@@ -138,26 +138,24 @@ padding: 10px;
     padding-top: 125px;
 }
 
-.name-project,
 .header-beneficios {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #245953;
+    background-color: #FAEBD7;
     padding: 0px 30px 0px 30px;
     border-radius: 20px;
 }
 
 .logo-project-home {
-    width: 135px;
-    margin-left: -25px;
-    margin-right: 25px;
-
+    width: 175px;
+    margin-left: -58px;
+    margin-right: -12px;
 }
 
 .name-style {
-    font-size: 5rem;
-    font-weight: 500;
+    font-size: 7rem;
+    font-weight: 1000;
     background-image: linear-gradient(to bottom, #FAEBD7, #FAEBD7, rgba(255, 255, 255, 0.4));
     font-style: italic;
     padding: 0px 15px 0px 15px;
@@ -167,16 +165,26 @@ padding: 10px;
     -moz-text-fill-color: transparent;
 }
 
+.name-beneficios{
+    font-size: 5rem;
+    font-weight: 500;
+    background-color:#245953;
+    font-style: italic;
+    padding: 0px 15px 0px 15px;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+
 .text-missao {
-    width: 50%;
-    color: #FAEBD7;
-    font-size: 2rem;
-    font-weight: 900;
-    text-align: left;
-    text-indent: 25px;
-    align-self: flex-start;
-    margin-left: 125px;
-    letter-spacing: 3px;
+ width: 50%;
+color: #FAEBD7;
+font-size: 2rem;
+font-weight: 900;
+align-self: flex-start;
+margin-left: 125px;
+letter-spacing: 7px;
 }
 
 .beneficios {
@@ -186,6 +194,9 @@ padding: 10px;
     justify-content: center;
     flex-direction: column;
     padding-top: 120px;
+letter-spacing: 7px;
+font-weight: 900;
+
 }
 
 .header-beneficios span {
@@ -204,7 +215,7 @@ padding: 10px;
 .beneficio03,
 .beneficio04 {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-direction: row;
     width: 95%;
     height: 225px;
@@ -221,19 +232,15 @@ padding: 10px;
 
 .beneficio02 {
     margin-top: 240px;
-    margin-left: 3%;
-}
-
-.beneficio02 aside div {
-    height: 180px !important;
 }
 
 .beneficio03 {
     margin-top: 150px;
 }
 
+
 .beneficio04 .left-content-beneficio{
-    margin-right: -230px;
+    margin-right: -400px;
 }
 
 
@@ -260,6 +267,7 @@ padding: 10px;
 }
 
 .beneficio-numero {
+    padding-top: 20px;
     color: rgba(255, 255, 255, 0.7);
     font-size: 4.5rem;
     font-weight: 600;
@@ -267,10 +275,10 @@ padding: 10px;
 }
 
 .beneficio-text {
-    font-size: 1.7rem!important;
+    padding-top: 30px;
+    font-size: 1.6rem!important;
     color: #fff;
     font-weight: bold;
-    font-size: 1rem;
     text-align: center;
 }
 
@@ -312,7 +320,8 @@ padding: 10px;
 }
 
 .background-square,
-.background-square-03 {
+.background-square-03, 
+.background-square-04 {
     position: absolute;
     z-index: -1;
     right: 155px;
@@ -320,7 +329,8 @@ padding: 10px;
     width: 400px;
     height: 320px;
     border-radius: 30px;
-    background-color: #FAEBD7;
+    background-color: #245953;
+    opacity: 50%;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -328,23 +338,23 @@ padding: 10px;
     margin-top: -280px;
 }
 
-.beneficio-logo-01,
-.beneficio-logo-02 {
+.beneficio-logo-01 {
     width: 200px;
     height: 150px;
     margin-left: 20px;
 }
 
+.beneficio-logo-02{
+    width: 200px;
+    height: 150px;
+}
 .background-square-04 {
     position: absolute;
-    z-index: -1;
     left: 75px;
     margin-top: 75px;
     width: 455px;
     height: 325px;
-    border-radius: 30px;
-    background-color: #245953;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;    
 }
 
 .beneficio-logo-02 {
@@ -357,7 +367,7 @@ padding: 10px;
 }
 
 .right-content-beneficio-04 {
-    margin-top: -125px;
+    margin-top: -130px;
 }
 
 .simulador-financeiro {
@@ -367,6 +377,7 @@ padding: 10px;
     justify-content: center;
     align-items: center;
     padding-top: 60px;
+    font-size: 2rem;
 }
 
 .simulador-financeiro hr {
@@ -382,19 +393,21 @@ padding: 10px;
 }
 
 .simulador-header {
+    width: 50%;
     color: #FAEBD7;
-    width: 30%;
-    font-weight: 900;
-    font-size: 2.5rem;
-    text-align: center;
+    font-size: 2rem;
+    font-weight: 1000;
+    align-self: center;
+    margin-left: 395px;
+    letter-spacing: 7px;
 }
 
 .text-calculadora {
     color: #FAEBD7;
     width: 50%;
     text-align: center;
-    font-size: 1.25rem;
-    font-weight: 700;
+    font-size: 1.65rem;
+    font-weight: 900;
     text-indent: 25px;
     letter-spacing: 2px;
     margin-top: 25px;

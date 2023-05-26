@@ -53,6 +53,7 @@ body {
     backdrop-filter: blur(10px);
     background: #245953;
     opacity: 90%;
+    height: 120px;
 }
 
 .logo-project-home {
@@ -159,17 +160,16 @@ body {
     align-items: center;
     background: #245953;
     backdrop-filter: blur(100px);
-    border-radius: 5px;
-    width: 29vw;
-    height: auto;
+    border-radius: 40px;
+    width: 30vw;
+    height: 230vh;
     top: 0;
     margin-left: -120vw;
     z-index: 2;
     -webkit-box-shadow: 6px 7px 9px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 6px 7px 9px 0px rgba(0, 0, 0, 0.75);
     box-shadow: 6px 7px 9px 0px rgba(0, 0, 0, 0.75);
-
-    animation-duration: 1s;
+    animation-duration: 2s;
 }
 
 .navigation_header:hover {
@@ -181,7 +181,7 @@ body {
 .navigation_header a {
     text-decoration: none;
     font-size: 2.2rem;
-    font-weight: 600;
+    font-weight: 900;
     color: white;
 
 }
@@ -206,14 +206,12 @@ body {
 }
 
 .link-navigation {
-    height: 160vh;
+    height: 200vh;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: space-around;
 }
-
-
 
 .div_status_temperatura {
     width: 760px;
@@ -374,15 +372,14 @@ body {
     background-color: #408E91;
     padding: 5px 35px 5px 35px;
     border: none;
-    border-radius: 15px;
+    border-radius: 30px;
     font-weight: bold;
-    transition: 0.5s ease;
+    transition: .1s ease;
     margin-top: 6%;
     margin-left: 30%;
     -webkit-box-shadow: 6px 7px 9px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 6px 7px 9px 0px rgba(0, 0, 0, 0.75);
     box-shadow: 6px 7px 9px 0px rgba(0, 0, 0, 0.75);
-
 }
 
 .active button {
@@ -440,11 +437,11 @@ body {
 
 .dashboards {
     background-color: #245953;
-    height: 1160px;
+    height: 1200px;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    margin-top: 40px;
+    margin-top: 50px;
     border-radius: 50px;
 }
 
@@ -560,8 +557,8 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin-top: 127px;
-    height: 370px;
+    margin-top: 200px;
+    height: 400px;
 }
 
 .icon_earning {

@@ -4,7 +4,7 @@
 var EMAIL_USUARIO = sessionStorage.getItem('EMAIL_USUARIO');
 var NOME_USUARIO = sessionStorage.getItem('NOME_USUARIO');
 var ID_USUARIO = sessionStorage.getItem('ID_USUARIO');
-
+  
 var check = document.getElementById('id_sensores_por_empresa1').value;
 
 // PEGAR DADOS DO BANCO DE DADOS

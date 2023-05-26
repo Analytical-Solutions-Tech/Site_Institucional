@@ -45,7 +45,7 @@ body {
     opacity: 50%;
 }
 
-.header {  
+.header {
     text-align: center;
     align-items: center;
     display: flex;
@@ -128,7 +128,7 @@ body {
 }
 
 .button_icon_header:hover {
-    background-color:  #408E91;
+    background-color: #408E91;
     transition: .4s ease;
     -webkit-box-shadow: 6px 7px 9px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 6px 7px 9px 0px rgba(0, 0, 0, 0.75);
@@ -201,7 +201,7 @@ body {
     flex-direction: column;
 }
 
-.logo-navigation hr{
+.logo-navigation hr {
     width: 99%;
 }
 
@@ -486,6 +486,9 @@ body {
     -webkit-box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
     box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .kpi_dashboard_linha:hover {
@@ -499,11 +502,15 @@ body {
 
 .kpi_lucro {
     margin-left: 11%;
-
 }
 
 .kpi_lucro canvas {
     height: 250px;
+}
+
+#kpi_linha {
+    height: 400px !important;
+    z-index: 5;
 }
 
 .titulo_linha {

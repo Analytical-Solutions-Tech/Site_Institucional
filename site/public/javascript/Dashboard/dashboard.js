@@ -17,6 +17,7 @@ window.onload = obterDadosGraficos();
 
 function obterDadosGraficos() {
   obterDadosGrafico(4);
+  plotarGraficoClassificacoes();
 }
 
 // O gráfico é construído com três funções:
@@ -74,7 +75,7 @@ function plotarGrafico(resposta, idTransporte) {
   };
 
   // Inserindo valores recebidos em estrutura para plotar o gráfico
-  for (i = 1; i < resposta.length; i++) {
+  for (i = 0; i < resposta.length; i++) {
     var registro = resposta[i];
     var data_hora = new Date(registro.data_hora);
 
@@ -130,7 +131,6 @@ function atualizarGrafico(idTransporte, dados, myChart) {
     if (response.ok) {
       response.json().then(function (novoRegistro) {
         console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-
         var data_hora = new Date(novoRegistro[0].data_hora);
         var dia = data_hora.getDay();
         var mes = data_hora.getMonth();
@@ -163,8 +163,6 @@ function atualizarGrafico(idTransporte, dados, myChart) {
           dados.datasets[0].data.shift();  // apagar o primeiro de umidade
           dados.datasets[0].data.push(novoRegistro[0].registro_sensor); // incluir uma nova medida de umidade
 
-
-
           //ALTERANDO STATUS DA TEMPERATURA
           alteracoesAlerta(novoRegistro[0].registro_sensor, horas_minutos)
 
@@ -186,18 +184,69 @@ function atualizarGrafico(idTransporte, dados, myChart) {
 
 }
 
+var qtdTempIdeal = 0;
+var qtdTempIncorreta = 0;
+var qtdTempPreocupante = 0;
+var qtdTempCritica = 0;
+
 function alteracoesAlerta(temperatura, horas) {
   //ALTERANDO STATUS DA TEMPERATURA
   if (temperatura <= -28.99 || temperatura >= -15.99) {
-    tempColor.style.backgroundColor = "#F03C31"
+    tempColor.style.backgroundColor = "#F03C31";
+    qtdTempCritica++;
   } else if (temperatura <= -27.99) {
-    tempColor.style.backgroundColor = "#F3950C"
+    tempColor.style.backgroundColor = "#F3950C";
+    qtdTempPreocupante++;
   } else if (temperatura <= -25) {
-    tempColor.style.backgroundColor = "#F0CC18"
+    tempColor.style.backgroundColor = "#F0CC18";
+    qtdTempIncorreta++;
   } else {
-    tempColor.style.backgroundColor = "#245953"
+    tempColor.style.backgroundColor = "#245953";
+    qtdTempIdeal++;
   }
 
   horaTempAviso.innerHTML = `${horas}`;
   tempAviso.innerHTML = `${temperatura}`
+}
+
+
+function plotarGraficoClassificacoes() {
+
+  // Criando estrutura para plotar gráfico - labels
+  let labels = ['IDEAL', 'INCORRETA', 'PREOCUPANTE', 'CRÍTICA'];
+
+  let dados = {
+    labels: labels,
+    datasets: [
+      {
+        label: 'Quantidade de Temperaturas',
+        data: [],
+        backgroundColor: [
+          '#245953',
+          '#F0CC18',
+          '#F3950C',
+          '#F03C31',
+        ],
+        hoverOffset: 10
+      }]
+  };
+  // Criando estrutura para plotar gráfico - config
+  const config = {
+    type: 'pie',
+    data: dados,
+  };
+
+  // Adicionando gráfico criado em div na tela
+  let myChart = new Chart(
+    document.getElementById(`kpi_linha`),
+    config
+  );
+  setInterval(() => atualizarClassificacoes(myChart, dados, [qtdTempIdeal, qtdTempIncorreta, qtdTempPreocupante, qtdTempCritica]), 2000);
+}
+
+function atualizarClassificacoes(grafico, graficoDatasets, listaClassificacoes) {
+
+  graficoDatasets.datasets[0].data = listaClassificacoes; // incluir uma nova medida de umidade
+
+  grafico.update();
 }

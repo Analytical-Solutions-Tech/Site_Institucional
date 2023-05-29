@@ -3,7 +3,7 @@ var router = express.Router();
 
 var medidaController = require("../controllers/medidaController");
 
-router.get("/ultimas/:idTransporte", function (req, res) {
+router.get("/ultimas/:cliente_sensor_transporte", function (req, res) {
     medidaController.pesquisarMedidas(req, res);
 });
 

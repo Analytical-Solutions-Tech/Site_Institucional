@@ -13,10 +13,19 @@ var tempColor = document.getElementById('hora_temp');
 var tempAviso = document.getElementById('temp_aviso');
 var horaTempAviso = document.getElementById('hora_temp_aviso');
 
+//PUXAR NO LOGIN, FKCLIENTE = FKEMPRESA
+//PUXAR DE UM INPUT DO FRONT-END DA DASHBOARD
+//AINDA NÃO DEFINIDO
+var cliente_sensor_transporte = {
+  fkCliente: 1,
+  fkSensor:  1,
+  idTransporte:  4,
+}
+
 window.onload = obterDadosGraficos();
 
 function obterDadosGraficos() {
-  obterDadosGrafico(4);
+  obterDadosGrafico(cliente_sensor_transporte);
   plotarGraficoClassificacoes();
 }
 
@@ -31,18 +40,19 @@ function obterDadosGraficos() {
 
 //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
 //     Para ajustar o "select", ajuste o comando sql em src/models
-function obterDadosGrafico(idTransporte) {
-
+function obterDadosGrafico(cliente_sensor_transporte) {
+  
   if (proximaAtualizacao != undefined) {
     clearTimeout(proximaAtualizacao);
   }
 
-  fetch(`/medidas/ultimas/${idTransporte}`).then(function (response) {
+  fetch(`/medidas/ultimas/${cliente_sensor_transporte}`).then(function (response) {
+    
     if (response.ok) {
       response.json().then(function (resposta) {
         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
         resposta.reverse();
-        plotarGrafico(resposta, idTransporte);
+        plotarGrafico(resposta, cliente_sensor_transporte);
       });
     } else {
       console.error('Nenhum dado encontrado ou erro na API');
@@ -56,7 +66,7 @@ function obterDadosGrafico(idTransporte) {
 // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
 // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
 // A função *plotarGrafico* também invoca a função *atualizarGrafico*
-function plotarGrafico(resposta, idTransporte) {
+function plotarGrafico(resposta, cliente_sensor_transporte) {
 
   // Criando estrutura para plotar gráfico - labels
   let labels = [];
@@ -117,7 +127,7 @@ function plotarGrafico(resposta, idTransporte) {
     document.getElementById(`chart_linha`),
     config
   );
-  setTimeout(() => atualizarGrafico(idTransporte, dados, myChart), 2000);
+  setTimeout(() => atualizarGrafico(cliente_sensor_transporte, dados, myChart), 2000);
 }
 
 
@@ -126,8 +136,8 @@ function plotarGrafico(resposta, idTransporte) {
 
 //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
 //     Para ajustar o "select", ajuste o comando sql em src/models
-function atualizarGrafico(idTransporte, dados, myChart) {
-  fetch(`/medidas/tempo-real/${idTransporte}`, { cache: 'no-store' }).then(function (response) {
+function atualizarGrafico(cliente_sensor_transporte, dados, myChart) {
+  fetch(`/medidas/tempo-real/${cliente_sensor_transporte}`, { cache: 'no-store' }).then(function (response) {
     if (response.ok) {
       response.json().then(function (novoRegistro) {
         console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
@@ -170,12 +180,12 @@ function atualizarGrafico(idTransporte, dados, myChart) {
         }
 
         // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-        proximaAtualizacao = setTimeout(() => atualizarGrafico(idTransporte, dados, myChart), 2000);
+        proximaAtualizacao = setTimeout(() => atualizarGrafico(cliente_sensor_transporte, dados, myChart), 2000);
       });
     } else {
       console.error('Nenhum dado encontrado ou erro na API');
       // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-      proximaAtualizacao = setTimeout(() => atualizarGrafico(idTransporte, dados, myChart), 2000);
+      proximaAtualizacao = setTimeout(() => atualizarGrafico(cliente_sensor_transporte, dados, myChart), 2000);
     }
   })
     .catch(function (error) {

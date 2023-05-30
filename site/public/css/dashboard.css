@@ -28,7 +28,7 @@ body {
     justify-content: flex-end;
     position: fixed;
     width: 98%;
-    padding-top: 700px;
+    margin-top: 40%;
     font-size: 80px;
 }
 
@@ -45,7 +45,7 @@ body {
     opacity: 50%;
 }
 
-.header {  
+.header {
     text-align: center;
     align-items: center;
     display: flex;
@@ -128,7 +128,7 @@ body {
 }
 
 .button_icon_header:hover {
-    background-color:  #408E91;
+    background-color: #408E91;
     transition: .4s ease;
     -webkit-box-shadow: 6px 7px 9px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 6px 7px 9px 0px rgba(0, 0, 0, 0.75);
@@ -201,7 +201,7 @@ body {
     flex-direction: column;
 }
 
-.logo-navigation hr{
+.logo-navigation hr {
     width: 99%;
 }
 
@@ -459,6 +459,56 @@ body {
     -moz-text-fill-color: transparent;
 }
 
+.selects{
+    display: flex;
+    flex-direction: row;
+}
+
+.select_sensores {
+    color: white;
+    width: 10%;
+    height: 50px;
+    font-size: 27px;
+    border: 4px solid antiquewhite;
+    border-radius: 20px;
+    padding: 5px;
+    background: transparent;
+    background-color: #245953;
+    overflow: hidden;
+    position: absolute;
+    left: 3.3%;
+    margin-top: -15px;
+    transition: 0.4s;
+}
+
+.select_caminhoes{
+    color: white;
+    width: 10%;
+    height: 50px;
+    font-size: 27px;
+    border: 4px solid antiquewhite;
+    border-radius: 20px;
+    padding: 5px;
+    background: transparent;
+    background-color: #245953;
+    overflow: hidden;
+    position: absolute;
+    left: 15%;
+    margin-top: -15px;
+    transition: 0.4s;
+}
+
+.select_sensores select {
+    background: transparent;
+    width: 268px;
+    padding: 5px;
+    font-size: 16px;
+    line-height: 1;
+    border: 0;
+    border-radius: 0;
+    height: 34px;
+    -webkit-appearance: none;
+}
 
 
 .dashboard_linha {
@@ -470,15 +520,6 @@ body {
     box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
-.dashboard_linha:hover {
-    border-radius: 10px;
-    transition: .4s ease;
-    opacity: 90%;
-    -webkit-box-shadow: 13px 10px 5px 0px #E49393;
-    -moz-box-shadow: 13px 10px 5px 0px #E49393;
-    box-shadow: 13px 10px 5px 0px #E49393;
-}
-
 .kpi_dashboard_linha {
     background-color: #faebd7;
     width: 45%;
@@ -486,15 +527,6 @@ body {
     -webkit-box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
     box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
-}
-
-.kpi_dashboard_linha:hover {
-    border-radius: 10px;
-    transition: .4s ease;
-    opacity: 90%;
-    -webkit-box-shadow: 13px 10px 5px 0px #E49393;
-    -moz-box-shadow: 13px 10px 5px 0px #E49393;
-    box-shadow: 13px 10px 5px 0px #E49393;
 }
 
 .kpi_lucro {

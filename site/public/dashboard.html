@@ -94,11 +94,28 @@
       </div>
     </div>
   </div>
-
+  
   <!-- Dashboars Linha -->
   <div class="dashboards">
     <span class="titulo-dashboard">Dashboards</span>
-    <div class="dashboard-primarios">
+    <div class="selects">
+      <!-- Mudanças dos sensores -->
+    <select id="sensores" class="select_sensores">
+      <option value="sensor1" id="sensor1">Caminhão 1</option>
+      <option value="sensor2" id="sensor2">Caminhão 2</option>
+    </select>
+    <!-- Fim das mudanças dos sensores -->
+
+    <!-- Mudanças dos caminhoes -->
+    <div class="caminhoes">
+        <select id="caminhoes" class="select_caminhoes">
+          <option value="sensor1" id="caminhao1">Sensor 1</option>
+          <option value="sensor2" id="caminhao2">Sensor 2</option>
+        </select>
+    </div>
+      <!-- Fim das Mudanças dos caminhões -->
+  </div>
+  <div class="dashboard-primarios">
       <div class="dashboard_linha">
         <span class="titulo_linha">Temperatura</span>
         <canvas id="chart_linha"></canvas>

@@ -2,9 +2,13 @@ var medidaModel = require("../models/medidaModel");
 
 function pesquisarMedidas(req, res) {
 
-    var idTransporte = req.params.idTransporte;
+    console.log("Estou na pesquisarMedidas()")
+    var idTransporte = req.params.cliente_sensor_transporte.idTransporte;
+    var fkCliente = req.params.cliente_sensor_transporte.fkCliente;
+    var fkSensor = req.params.cliente_sensor_transporte.fkSensor;
 
-    medidaModel.pesquisarMedidas(idTransporte).then(function (resultado) {
+
+    medidaModel.pesquisarMedidas(idTransporte, fkCliente, fkSensor).then(function (resultado) {
         if (resultado.length > 0) {
             console.log(resultado);
             res.status(200).json(resultado);
@@ -22,11 +26,14 @@ function pesquisarMedidas(req, res) {
 
 function pesquisarMedidasTempoReal(req, res) {
 
-    var idTransporte = req.params.idTransporte;
+    console.log("Estou na pesquisarMedidasTempoReal()")
+    var idTransporte = req.params.cliente_sensor_transporte.idTransporte;
+    var fkCliente = req.params.cliente_sensor_transporte.fkCliente;
+    var fkSensor = req.params.cliente_sensor_transporte.fkSensor;
 
     console.log(`Recuperando medidas em tempo real`);
 
-    medidaModel.pesquisarMedidasTempoReal(idTransporte).then(function (resultado) {
+    medidaModel.pesquisarMedidasTempoReal(idTransporte, fkCliente, fkSensor).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {

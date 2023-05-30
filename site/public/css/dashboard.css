@@ -527,15 +527,22 @@ body {
     -webkit-box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
     box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .kpi_lucro {
     margin-left: 11%;
-
 }
 
 .kpi_lucro canvas {
     height: 250px;
+}
+
+#kpi_linha {
+    height: 400px !important;
+    z-index: 5;
 }
 
 .titulo_linha {

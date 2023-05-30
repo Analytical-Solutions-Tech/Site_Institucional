@@ -98,3 +98,123 @@ function disableModal() {
     var modalShow = document.getElementById('modal_container')
     modalShow.style.display = "none"
 }
+
+function entrar() {
+
+    var emailVar = input_email_login.value;
+
+    var senhaCript = forge.md.sha256.create();
+    senhaCript.update(`${input_senha_login.value}`);
+    //console.log(senhaVar.digest().toHex());
+    var senhaVar = senhaCript.digest().toHex();
+
+    if (emailVar == "" || senhaVar == "") {
+        modal_container.style.display = "flex";
+        modal_titulo.innerHTML = "Erro ao fazer login"
+        modal_txt.innerHTML = "Verfifique se o email e a senha estão corretos e tente novamente"
+        return false;
+    } else {
+    }
+
+    console.log("FORM LOGIN: ", emailVar);
+    console.log("FORM SENHA: ", senhaVar);
+
+    fetch("/usuarios/autenticar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            emailServer: emailVar,
+            senhaServer: senhaVar
+        })
+
+    }).then(function (resposta) {
+        console.log("ESTOU NO THEN DO entrar()!")
+
+        if (resposta.ok) {
+            resposta.json().then(json => {
+                console.log(JSON.stringify(json));
+
+                sessionStorage.EMAIL_USUAIRO = json.Email;
+                sessionStorage.NOME_USUARIO = json.Nome;
+                sessionStorage.ID_USUARIO = json.idUsuario;
+                sessionStorage.FK_CLIENTE = json.fkEmpresas;
+
+                setTimeout(function () {
+                    window.location = "./dashboard.html";
+                }, 1000); // apenas para exibir o loading
+            });
+        } else {
+            modal_container.style.display = "flex";
+            modal_titulo.innerHTML = "Erro ao fazer login"
+            modal_txt.innerHTML = "Verfifique se o email e a senha estão corretos e tente novamente"
+
+            resposta.text().then(texto => {
+                console.error(texto);
+            });
+        }
+
+    }).catch(function (erro) {
+        console.log(erro);
+    })
+
+    return false;
+}
+
+function cadastrar() {
+    var var_cnpj = input_cnpj_cadastro.value;
+    var var_cpf = input_cpf_cadastro.value;
+    var var_nome = input_nome_cadastro.value;
+    var var_celular = input_celular_cadastro.value;
+    var var_email = input_email_cadastro.value;
+
+    var senha_cript = forge.md.sha256.create();
+    senha_cript.update(`${input_senha_cadastro.value}`);
+    var var_senha = senha_cript.digest().toHex();
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+
+    if (var_nome == "" || var_email == "" || var_senha == "" || var_celular == "" || var_cpf == "" || var_cnpj == "") {
+        return console.log('Verifique se os campos do cadastro não estão vazios');
+    }
+    else {
+    }
+
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            // Agora vá para o arquivo routes/usuario.js
+            nomeServer: var_nome,
+            emailServer: var_email,
+            senhaServer: var_senha,
+            celularServer: var_celular,
+            cnpjServer: var_cnpj,
+            cpfServer: var_cpf,
+        })
+    }).then(function (resposta) {
+
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+            setTimeout(() => {
+                window.location = "./dashboard.html";
+            }, "2000")
+
+            limparFormulario();
+            finalizarAguardar();
+        } else {
+            throw ("Houve um erro ao tentar realizar o cadastro!");
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
+
+    return false;
+}

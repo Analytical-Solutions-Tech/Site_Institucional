@@ -17,11 +17,13 @@ var horaTempAviso = document.getElementById('hora_temp_aviso');
 //PUXAR DE UM INPUT DO FRONT-END DA DASHBOARD
 //AINDA NÃO DEFINIDO
 var cliente_sensor_transporte = {
-  fkCliente: 1,
-  fkSensor:  1,
-  idTransporte:  4,
+  // fkCliente: sessionStorage.getItem('FK_CLIENTE'),
+  fkCliente: 2,
+  fkSensor: 1,
+  idTransporte: 4,
 }
 
+setTimeout(sensores_por_cliente(), 100)
 window.onload = obterDadosGraficos();
 
 function obterDadosGraficos() {
@@ -192,6 +194,30 @@ function atualizarGrafico(cliente_sensor_transporte, dados, myChart) {
       console.error(`Erro na obtenção dos dados p / gráfico: ${error.message}`);
     });
 
+}
+
+function sensores_por_cliente() {
+
+  var fkClienteVar = cliente_sensor_transporte.fkCliente;
+
+  console.log("fk_Cliente: ", cliente_sensor_transporte.fkCliente);
+
+  fetch(`/medidas/cliente/${fkClienteVar}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    },
+  }).then(function (response) {
+
+    if (response.ok) {
+      response.json().then(function (resposta) {
+        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+        resposta.reverse();
+      })
+    }
+  }).catch(function (erro) {
+    console.log(erro);
+  })
 }
 
 var qtdTempIdeal = 0;

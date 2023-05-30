@@ -204,9 +204,27 @@ function alteracoesAlerta(temperatura, horas) {
   if (temperatura <= -28.99 || temperatura >= -15.99) {
     tempColor.style.backgroundColor = "#F03C31";
     qtdTempCritica++;
+    Swal.fire({
+      position: 'top-end',
+      icon: 'warning',
+      title: 'Cuidado! Temperatura Crítica.',
+      background: '#F03C31',
+      color: '#faebd7',
+      showConfirmButton: false,
+      timer: 2000
+    });
   } else if (temperatura <= -27.99) {
     tempColor.style.backgroundColor = "#F3950C";
     qtdTempPreocupante++;
+    Swal.fire({
+      position: 'top-end',
+      icon: 'warning',
+      title: 'Cuidado! Temperatura Preocupante',
+      background: '#F3950C',
+      color: '#faebd7',
+      showConfirmButton: false,
+      timer: 2000
+    });
   } else if (temperatura <= -25) {
     tempColor.style.backgroundColor = "#F0CC18";
     qtdTempIncorreta++;

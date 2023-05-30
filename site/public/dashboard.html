@@ -14,6 +14,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>"https://fontawesome.com/icons/headset?f=classic&s=light"</script>
   <script src="https://kit.fontawesome.com/390ed0de69.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <title>Dashboard - AST</title>
 </head>
 
@@ -96,7 +97,7 @@
   </div>
   
   <!-- Dashboars Linha -->
-  <div class="dashboards">
+  <div class="dashboards">  
     <span class="titulo-dashboard">Dashboards</span>
     <div class="selects">
       <!-- Mudanças dos sensores -->
@@ -115,44 +116,33 @@
     </div>
       <!-- Fim das Mudanças dos caminhões -->
   </div>
-  <div class="dashboard-primarios">
-      <div class="dashboard_linha">
-        <span class="titulo_linha">Temperatura</span>
-        <canvas id="chart_linha"></canvas>
-      </div>
-      <!-- Classificação das temperaturas -->
-      <div class="kpi_dashboard_linha">
-        <span class="titulo_kpi_linha">Classificação das temperaturas</span>
-        <canvas id="kpi_linha"></canvas>
-      </div>
-    </div>
 
-    <!-- Dashboards da parte de baixo -->
-    <div class="graficos-secundarios">
-      <div class="imagem-lucros">
-        <div class="prejuizos">
-          <img src="assets/earning.png" alt="prejuizos" class="icon_earning">
-          <span class="prejuizos-title"></span>
-          <p class="ganhos_texto">
-            Com o uso dos nossos sensores de temperatura, será possível<span style="color:#F05053;"> minimizar as
-              perdas</span> dos peixes danificados pela <span style="color:#F05053;">falta de monitoramento do
-              temperatura</span>. Tendo um lucro de <span style="color:#F05053;">25%</span> à <span
-              style="color:#F05053;">50%</span>
-          </p>
+    <div class="dashboard-primarios">
+        <div class="dashboard_linha">
+          <span class="titulo_linha">Temperatura</span>
+          <canvas id="chart_linha"></canvas>
+        </div>
+        <!-- Classificação das temperaturas -->
+        <div class="kpi_dashboard_linha">
+          <span class="titulo_kpi_linha">Classificação das temperaturas</span>
+          <canvas id="kpi_linha"></canvas>
         </div>
       </div>
-      <div class="kpi_economia">
-        <span class="titulo_kpi_economia">Economia do Produto</span>
-        <hr>
-        <div class="prejuizos-graficos">
-          <div class="kpi_lucro">
-            <canvas id="kpi_economia"></canvas>
+      <!-- Dashboards da parte de baixo -->
+      <div class="graficos-secundarios">
+        <!-- Kpi Bateria -->
+          <div class="kpi_bateria">
+          </div>
+          <!-- Final da kpi Bateria -->
+          <!-- Gráfico Bateria -->
+          <div class="div_graficos">
+            <div class="grafico_bateria">
+              <canvas></canvas>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
   </div>
-
+      <!-- Final do Gráfico Bateria -->
 
   <script src="javascript/Dashboard/dashboard.js"></script>
 </body>
@@ -164,6 +154,7 @@
   var showSidebar = false;
 
   function mostrarSideBar() {
+  
     showSidebar = !showSidebar;
     if (showSidebar) {
       navigationHeader.style.marginLeft = '-10vw';

@@ -27,6 +27,7 @@ body {
     display: flex;
     justify-content: flex-end;
     position: fixed;
+    z-index: 1;
     width: 98%;
     margin-top: 40%;
     font-size: 80px;
@@ -58,17 +59,19 @@ body {
 
 .logo-project-home {
     width: 90px;
-    margin-right: 2px;
-    margin-left: -30px;
+    position: relative;
+    left: 4.5%;
     margin-bottom: 15px;
 }
 
 .name-health {
     font-size: 50px;
-    font-weight: 200;
+    font-weight: 900;
     padding: 5px;
     background-image: linear-gradient(to bottom, #fff, #fff, rgba(255, 255, 255, 0.4));
     font-style: italic;
+    position: relative;
+    left: 7.5%;
     -webkit-background-clip: text;
     -moz-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -77,9 +80,11 @@ body {
 
 .name-fish {
     font-size: 50px;
-    font-weight: 200;
+    font-weight: 900;
     padding: 5px;
     background-image: linear-gradient(to bottom, #fff, #fff, rgba(255, 255, 255, 0.4));
+    position: relative;
+    left: 3%;
     font-style: italic;
     -webkit-background-clip: text;
     -moz-background-clip: text;
@@ -88,10 +93,10 @@ body {
 }
 
 .name-dashboard {
-    font-size: 40px;
-    font-weight: 500;
-    padding-right: 60px;
-    margin-left: 20px;
+    font-size: 30px;
+    font-weight: 900;
+    padding-right: 10px;
+    margin-top: 10px;
     font-style: italic;
     background-image: linear-gradient(to bottom, #fff, #fff, rgba(255, 255, 255, 0));
     -webkit-background-clip: text;
@@ -159,10 +164,8 @@ body {
     display: flex;
     align-items: center;
     background: #245953;
-    backdrop-filter: blur(100px);
     border-radius: 40px;
     width: 30vw;
-    height: 230vh;
     top: 0;
     margin-left: -120vw;
     z-index: 2;
@@ -206,11 +209,11 @@ body {
 }
 
 .link-navigation {
-    height: 200vh;
+    height: 177vh;
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .div_status_temperatura {
@@ -415,7 +418,8 @@ body {
 
 .kpi_economia {
     background-color: antiquewhite;
-    width: 40%;
+    width: 45%;
+    height: 506px;
     -webkit-box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
     box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
@@ -437,7 +441,7 @@ body {
 
 .dashboards {
     background-color: #245953;
-    height: 1200px;
+    height: 1300px;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -459,9 +463,11 @@ body {
     -moz-text-fill-color: transparent;
 }
 
-.selects{
+.selects {
     display: flex;
     flex-direction: row;
+    position: relative;
+    top: -3%;
 }
 
 .select_sensores {
@@ -481,7 +487,7 @@ body {
     transition: 0.4s;
 }
 
-.select_caminhoes{
+.select_caminhoes {
     color: white;
     width: 10%;
     height: 50px;
@@ -532,13 +538,6 @@ body {
     flex-direction: column;
 }
 
-.kpi_lucro {
-    margin-left: 11%;
-}
-
-.kpi_lucro canvas {
-    height: 250px;
-}
 
 #kpi_linha {
     height: 400px !important;
@@ -570,25 +569,6 @@ body {
     -moz-text-fill-color: transparent;
 }
 
-.titulo_kpi_economia {
-    display: flex;
-    justify-content: center;
-    font-size: 50px;
-    font-weight: 500;
-    background-color: #245953;
-    font-style: italic;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
-}
-
-
-.hr-titulo {
-    width: 56%;
-    margin-left: 160px;
-}
-
 .container {
     background-color: #245953;
     border-radius: 50px;
@@ -596,40 +576,11 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin-top: 200px;
+    position: relative;
+    margin-top: 40px;
     height: 400px;
 }
 
-.icon_earning {
-    width: 20%;
-}
-
-.prejuizos-graficos {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-direction: row;
-}
-
-
-.prejuizos {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    font-weight: 600;
-}
-
-.prejuizos-title {
-    margin-top: 20px;
-}
-
-.ganhos_texto {
-    width: 70%;
-    margin-bottom: 20px;
-    font-family: 'Poppins', sans-serif;
-}
 
 .vertical-break {
     border-left: 3px solid #245953;
@@ -643,19 +594,33 @@ body {
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
+    position: relative;
+    top: -3%;
 }
 
 .graficos-secundarios {
     display: flex;
     justify-content: space-evenly;
+    flex-direction: row;
     align-items: center;
-    margin: 40px;
-
+    position: relative;
+    top: -3%;
 }
 
-.imagem-lucros {
-    background-color: #faebd7;
-    width: 34%;
+
+.kpi_bateria{
+    background-color: antiquewhite;
+    width: 45%;
+    height: 506px;
+    -webkit-box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.div_graficos{
+    background-color: antiquewhite;
+    width: 45%;
+    height: 506px;
     -webkit-box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
     box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);

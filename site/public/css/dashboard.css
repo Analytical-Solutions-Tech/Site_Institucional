@@ -525,6 +525,10 @@ body {
     align-items: center;
 
   }
+  #lengendaTitulo{
+    display: flex;
+    justify-content: center;
+  }
 
 .selects {
     display: flex;

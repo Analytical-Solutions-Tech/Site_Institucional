@@ -7,7 +7,6 @@ function pesquisarMedidas(req, res) {
     var fkCliente = req.params.cliente_sensor_transporte.fkCliente;
     var fkSensor = req.params.cliente_sensor_transporte.fkSensor;
 
-
     medidaModel.pesquisarMedidas(idTransporte, fkCliente, fkSensor).then(function (resultado) {
         if (resultado.length > 0) {
             console.log(resultado);

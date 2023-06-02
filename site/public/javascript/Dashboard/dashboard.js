@@ -17,8 +17,7 @@ var horaTempAviso = document.getElementById('hora_temp_aviso');
 //PUXAR DE UM INPUT DO FRONT-END DA DASHBOARD
 //AINDA NÃO DEFINIDO
 var cliente_sensor_transporte = {
-  // fkCliente: sessionStorage.getItem('FK_CLIENTE'),
-  fkCliente: 2,
+  fkCliente: sessionStorage.getItem('FK_CLIENTE'),
   fkSensor: 1,
   idTransporte: 4,
 }

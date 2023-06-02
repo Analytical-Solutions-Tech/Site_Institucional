@@ -1,30 +1,6 @@
 var usuarioModel = require("../models/usuarioModel");
 var forge = require('node-forge');
 
-var sessoes = [];
-
-function testar(req, res) {
-    console.log("ENTRAMOS NA usuarioController");
-    res.json("ESTAMOS FUNCIONANDO!");
-}
-
-function listar(req, res) {
-    usuarioModel.listar()
-        .then(function (resultado) {
-            if (resultado.length > 0) {
-                res.status(200).json(resultado);
-            } else {
-                res.status(204).send("Nenhum resultado encontrado!")
-            }
-        }).catch(
-            function (erro) {
-                console.log(erro);
-                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
-                res.status(500).json(erro.sqlMessage);
-            }
-        );
-}
-
 function entrar(req, res) {
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
@@ -35,7 +11,7 @@ function entrar(req, res) {
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está indefinida!");
     } else {
-        
+
         usuarioModel.entrar(email, senha)
             .then(
                 function (resultado) {
@@ -63,12 +39,15 @@ function entrar(req, res) {
 }
 
 function cadastrar(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
     var celular = req.body.celularServer;
     var cpf = req.body.cpfServer;
+    var cnpj = req.body.cnpjServer;
+
+    console.log(cnpj);
 
     // Faça as validações dos valores
     if (nome == undefined) {
@@ -82,29 +61,47 @@ function cadastrar(req, res) {
     } else if (cpf == undefined) {
         res.status(400).send("Seu CPF está indefinida!");
     } else {
-        
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(cpf, nome, celular, email, senha)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
+        console.log('Esou entrando na pesquisarCNPJ()');
+        console.log(`CNPJ: ${cnpj}`);
+        pesquisarCNPJ(cnpj);
+    }
+    // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+    function pesquisarCNPJ(cnpj_cadastro) {
+        usuarioModel.pesquisarCNPJ(cnpj_cadastro).then(
+            function (resultado) {
+                if (resultado.length >= 1) {
+                    usuarioModel.cadastrar(cpf, nome, celular, email, senha, resultado[0].idCliente).then(
+                        function (resultado) {
+                            console.log(resultado);
+                            res.json(resultado);
+                        }).catch(
+                            function (erro) {
+                                console.log(erro);
+                                console.log(
+                                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                                    erro.sqlMessage
+                                );
+                                res.status(500).json(erro.sqlMessage);
+                            }
+                        )
+                } else {
+                    console.log("cnpj inválido");
+                    res.status(403).send("CNPJ inválido");
                 }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log(
-                        "\nHouve um erro ao realizar o cadastro! Erro: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
+            }
+        ).catch(function (erro) {
+            console.log(erro);
+            console.log(
+                "\nHouve um erro ao realizar o cadastro! Erro: ",
+                erro.sqlMessage
             );
+            res.status(500).json(erro.sqlMessage);
+        }
+        );
     }
 }
 
 module.exports = {
     entrar,
     cadastrar,
-    listar,
-    testar
 }

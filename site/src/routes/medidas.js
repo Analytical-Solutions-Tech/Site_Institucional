@@ -15,4 +15,8 @@ router.get("/cliente/:fkCliente", function (req, res) {
     medidaController.pesquisarFkCliente(req, res);
 });
 
+router.get("/buscar_transporte_e_sensores/:fkCliente", function (req, res) {
+    medidaController.buscar_transporte_e_sensores(req, res);
+});
+
 module.exports = router;

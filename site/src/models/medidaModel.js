@@ -40,6 +40,29 @@ function pesquisarMedidasTempoReal(idTransporte, fkCliente, fkSensor) {
 }
 
 
+
+
+function buscar_transporte_e_sensores(fkCliente) {
+
+    instrucaoSql = ''
+    console.log(fkCliente);
+
+    if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+        instrucaoSql = `
+            select idTransporte, fkSensor from temperatura_por_transporte 
+                where fkCliente = ${fkCliente};
+            `;
+
+    } else {
+        console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
+        return
+    }
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+
 function pesquisarFkCliente(fkCliente) {
 
     instrucaoSql = ''
@@ -63,5 +86,6 @@ function pesquisarFkCliente(fkCliente) {
 module.exports = {
     pesquisarMedidas,
     pesquisarMedidasTempoReal,
-    pesquisarFkCliente
+    pesquisarFkCliente,
+    buscar_transporte_e_sensores
 }

@@ -17,8 +17,7 @@ var horaTempAviso = document.getElementById('hora_temp_aviso');
 //PUXAR DE UM INPUT DO FRONT-END DA DASHBOARD
 //AINDA NÃO DEFINIDO
 var cliente_sensor_transporte = {
-  // fkCliente: sessionStorage.getItem('FK_CLIENTE'),
-  fkCliente: 2,
+  fkCliente: sessionStorage.getItem('FK_CLIENTE'),
   fkSensor: 1,
   idTransporte: 4,
 }
@@ -54,6 +53,9 @@ function obterDadosGrafico(cliente_sensor_transporte) {
       response.json().then(function (resposta) {
         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
         resposta.reverse();
+
+        
+
         plotarGrafico(resposta, cliente_sensor_transporte);
       });
     } else {
@@ -63,6 +65,50 @@ function obterDadosGrafico(cliente_sensor_transporte) {
     .catch(function (error) {
       console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
     });
+}
+
+function buscar_transporte_e_sensores(fkCliente) {
+
+    console.log("id_cliente: ", fkCliente);
+
+    fetch(`/medidas/buscar_transporte_e_sensores/${fkCliente}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(function (resposta) {
+        console.log("ESTOU NO THEN DO entrar()!", resposta)
+
+        if (resposta.ok) {
+            resposta.json().then(json => {
+                console.log(JSON.stringify(json));
+
+                sessionStorage.clear()
+
+                sessionStorage.EMAIL_USUAIRO = json.Email;
+                sessionStorage.NOME_USUARIO = json.Nome;
+                sessionStorage.ID_USUARIO = json.idUsuario;
+                sessionStorage.FK_CLIENTE = json.fkEmpresas;
+
+                setTimeout(function () {
+                    window.location = "./dashboard.html";
+                }, 1000); // apenas para exibir o loading
+            });
+        } else {
+            modal_container.style.display = "flex";
+            modal_titulo.innerHTML = "Erro ao fazer login"
+            modal_txt.innerHTML = "Verfifique se o email e a senha estão corretos e tente novamente"
+
+            resposta.text().then(texto => {
+                console.error(texto);
+            });
+        }
+
+    }).catch(function (erro) {
+        console.log(erro);
+    })
+
+    return false;
 }
 
 // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico

@@ -130,11 +130,13 @@ function entrar() {
         })
 
     }).then(function (resposta) {
-        console.log("ESTOU NO THEN DO entrar()!")
+        console.log("ESTOU NO THEN DO entrar()!", resposta)
 
         if (resposta.ok) {
             resposta.json().then(json => {
                 console.log(JSON.stringify(json));
+
+                sessionStorage.clear()
 
                 sessionStorage.EMAIL_USUAIRO = json.Email;
                 sessionStorage.NOME_USUARIO = json.Nome;
@@ -169,17 +171,15 @@ function cadastrar() {
     var var_celular = input_celular_cadastro.value;
     var var_email = input_email_cadastro.value;
 
+    // CRIPTOGRAFAR A SENHA
     var senha_cript = forge.md.sha256.create();
     senha_cript.update(`${input_senha_cadastro.value}`);
     var var_senha = senha_cript.digest().toHex();
-
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
 
     if (var_nome == "" || var_email == "" || var_senha == "" || var_celular == "" || var_cpf == "" || var_cnpj == "") {
         return console.log('Verifique se os campos do cadastro não estão vazios');
-    }
-    else {
     }
 
     // Enviando o valor da nova input
@@ -195,20 +195,26 @@ function cadastrar() {
             emailServer: var_email,
             senhaServer: var_senha,
             celularServer: var_celular,
-            cnpjServer: var_cnpj,
             cpfServer: var_cpf,
+            cnpjServer: var_cnpj,
         })
     }).then(function (resposta) {
 
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
+
+            sessionStorage.clear()
+
+            sessionStorage.setItem()
+
             setTimeout(() => {
                 window.location = "./dashboard.html";
-            }, "2000")
+            }, 1000)
 
             limparFormulario();
             finalizarAguardar();
+
         } else {
             throw ("Houve um erro ao tentar realizar o cadastro!");
         }

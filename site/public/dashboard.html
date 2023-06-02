@@ -132,6 +132,15 @@
       <div class="graficos-secundarios">
         <!-- Kpi Bateria -->
           <div class="kpi_bateria">
+            <img src="./assets/chargebattery_battery_4821.png" alt="  " width="80px"> <br>
+            <span>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. <br>
+               Maecenas porttitor congue massa. Fusce posuere, magna sed <br>
+               pulvinar ultricies, purus lectus malesuada libero, sit amet <br>
+               commodo magna eros quis urna <br>
+            </span>
+            <img src="./assets/4014667-battery-charge-charger-ios11-iphone-juice_112917.png" alt="" width="70px">
+
           </div>
           <!-- Final da kpi Bateria -->
           <!-- Gráfico Bateria -->
@@ -145,10 +154,10 @@
       data: {
         labels: ['6:00','8:30','12:00','16:30','17:30','18:30','19:00','23:30','00:30' ],
         datasets: [{
-          label: 'Bateria do sensor',
+          label: 'Bateria do Sensor',
           backgroundColor : ['green','green','green','yellow','yellow','orange','orange','red', 'red'],
           color: 'black',
-          data: [100,90,80, 70,60, 50,45, 20 ,5],
+          data: [100,94,86, 72,67, 55,41, 19 ,5],
           borderWidth: 3,
           
         }]
@@ -158,6 +167,7 @@
           y: {
             beginAtZero: true,
             color: "black",
+          
           },
           x:{
             ticks:{
@@ -176,7 +186,24 @@
       }
     });
               </script>
-            </div>
+              </div>
+              <!-- Legenda do grafico de bateria -->
+              <div class=" legenda">
+                <span>Legenda</span> <br> <br>
+                <div class="legend">
+                  <div id="check-green"></div> <p id="text1">Verde: Carga suficiente</p> 
+                </div>
+                <div class="legend">
+                <div id="check-yellow"></div> <p id="text2">Amarelo: Carga moderada</p>
+                </div> 
+                <div class="legend">
+                <div id="check-orange"></div> <p id="text3">Laranja: Baixa Carga</p> 
+                </div>
+                <div class="legend">
+                <div id="check-red"></div> <p id="text4">Vermelho: Carga Crítica</p>
+                </div>
+              </div>
+              <!-- Final da lagenda -->
           </div>
         </div>
   </div>

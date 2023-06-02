@@ -462,6 +462,63 @@ body {
     -webkit-text-fill-color: transparent;
     -moz-text-fill-color: transparent;
 }
+.grafico_bateria{
+    background-color: rgb(223, 223, 213);
+    top: 40px;
+    border-radius: 25px;
+    padding: 15px;
+  }
+
+  #chartBatery{
+    top:40px;
+
+
+  }
+  #check-green{
+    width: 20px;
+    height: 20px;
+    border-color: black;
+    border-radius: 6px;
+    background-color: green;
+    display: flex;
+    flex-direction: row;
+    align-content: space-around;
+  }
+  #check-yellow{
+    width: 20px;
+    height: 20px;
+    border: black;
+    border-radius: 6px;
+    background-color:yellow;
+  }
+  #check-orange{
+    width: 20px;
+    height: 20px;
+    border: black;
+    border-radius: 6px;
+    background-color:orange;
+  }
+  #check-red{
+    width: 20px;
+    height: 20px;
+    border: black;
+    border-radius: 6px;
+    background-color: red;
+  }
+  #text1,#text2,#text3,#text4{
+    margin-left: 10px;
+ 
+  }
+  .legend{
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
+  }
+  .legenda{
+    display: flex;
+    align-items: center;
+
+  }
 
 .selects {
     display: flex;

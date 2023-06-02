@@ -4,7 +4,7 @@ var forge = require('node-forge');
 function entrar(req, res) {
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
-
+    
     console.log(email, senha);
     if (email == undefined) {
         res.status(400).send("Seu email está undefined!");

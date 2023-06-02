@@ -189,6 +189,12 @@ body {
 
 }
 
+.download{
+    position: relative;
+    left: 26%;
+    font-size: 30px;
+}
+
 .navigation_header a:hover {
     border: 2px solid;
     border-radius: 10px;

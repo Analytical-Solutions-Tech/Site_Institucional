@@ -462,11 +462,20 @@ body {
     -webkit-text-fill-color: transparent;
     -moz-text-fill-color: transparent;
 }
+.kpi_bateria{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
 .grafico_bateria{
-    background-color: rgb(223, 223, 213);
+    background-color: rgba(192, 201, 206, 0.466);
     top: 40px;
     border-radius: 25px;
     padding: 15px;
+    margin-top: 30px;
+    width: 90%;
+    height: 190px;
+    margin-left: 15px;
   }
 
   #chartBatery{

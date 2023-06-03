@@ -138,14 +138,14 @@ function entrar() {
 
                 sessionStorage.clear()
 
-                sessionStorage.EMAIL_USUAIRO = json.Email;
+                sessionStorage.FK_CLIENTE = json.fkEmpresa;
                 sessionStorage.NOME_USUARIO = json.Nome;
+                sessionStorage.EMAIL_USUARIO = json.Email;
                 sessionStorage.ID_USUARIO = json.idUsuario;
-                sessionStorage.FK_CLIENTE = json.fkEmpresas;
 
                 setTimeout(function () {
                     window.location = "./dashboard.html";
-                }, 1000); // apenas para exibir o loading
+                }, 1000);
             });
         } else {
             modal_container.style.display = "flex";
@@ -203,18 +203,15 @@ function cadastrar() {
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
+            resposta.json().then(json => {
+                console.log(JSON.stringify(json));
 
-            sessionStorage.clear()
+                setTimeout(function () {
+                    console.log("foi");
+                    window.location = "./cliente.html";
+                }, 1000);
 
-            sessionStorage.setItem()
-
-            setTimeout(() => {
-                window.location = "./dashboard.html";
-            }, 1000)
-
-            limparFormulario();
-            finalizarAguardar();
-
+            });
         } else {
             throw ("Houve um erro ao tentar realizar o cadastro!");
         }

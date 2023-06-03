@@ -4,8 +4,14 @@
 var EMAIL_USUARIO = sessionStorage.getItem('EMAIL_USUARIO');
 var NOME_USUARIO = sessionStorage.getItem('NOME_USUARIO');
 var ID_USUARIO = sessionStorage.getItem('ID_USUARIO');
+var fkEmpresa = sessionStorage.getItem('FK_CLIENTE');
 
-// PEGAR DADOS DO BANCO DE DADOS
+var informacoesUsuario = {
+  idUsuario: ID_USUARIO,
+  email: EMAIL_USUARIO,
+  nome: NOME_USUARIO,
+  idEmpresa: fkEmpresa
+}
 
 var proximaAtualizacao;
 
@@ -13,48 +19,56 @@ var tempColor = document.getElementById('hora_temp');
 var tempAviso = document.getElementById('temp_aviso');
 var horaTempAviso = document.getElementById('hora_temp_aviso');
 
-//PUXAR NO LOGIN, FKCLIENTE = FKEMPRESA
-//PUXAR DE UM INPUT DO FRONT-END DA DASHBOARD
-//AINDA NÃO DEFINIDO
+var chartLinha;
+var chartKpiLinha;
+
 var cliente_sensor_transporte = {
-  fkCliente: sessionStorage.getItem('FK_CLIENTE'),
-  fkSensor: 1,
-  idTransporte: 4,
+  fkCliente: informacoesUsuario.idEmpresa,
+  idTransporte: [],
+  fkSensor: [],
 }
 
-setTimeout(sensores_por_cliente(), 100)
-window.onload = obterDadosGraficos();
+setTimeout(function () {
+  sensores_por_cliente();
+}, 1000)
+
+setTimeout(function () {
+  obterDadosGraficos();
+}, 2000);
+
+
+document.getElementById('sensores').addEventListener("change", function () {
+  setTimeout(() => {
+    console.log(chartLinha);
+    console.log(chartKpiLinha);
+    chartLinha.destroy();
+    chartKpiLinha.destroy();
+    obterDadosGraficos();
+  }, 2000);
+})
 
 function obterDadosGraficos() {
-  obterDadosGrafico(cliente_sensor_transporte);
+  var optionSelectedTransporte = document.getElementById('sensores').value;
+
+  obterDadosGrafico(optionSelectedTransporte);
+
   plotarGraficoClassificacoes();
 }
 
-// O gráfico é construído com três funções:
-// 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
-// 2. plotarGrafico -> Monta o gráfico com os dados trazidos e exibe em tela
-// 3. atualizarGrafico -> Atualiza o gráfico, trazendo novamente dados do Banco
 
-// Esta função *obterDadosGrafico* busca os últimos dados inseridos em tabela de medidas.
-// para, quando carregar o gráfico da primeira vez, já trazer com vários dados.
-// A função *obterDadosGrafico* também invoca a função *plotarGrafico*
 
-//     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-//     Para ajustar o "select", ajuste o comando sql em src/models
 function obterDadosGrafico(cliente_sensor_transporte) {
-  
+
   if (proximaAtualizacao != undefined) {
     clearTimeout(proximaAtualizacao);
   }
 
   fetch(`/medidas/ultimas/${cliente_sensor_transporte}`).then(function (response) {
-    
+
     if (response.ok) {
       response.json().then(function (resposta) {
         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
         resposta.reverse();
-
-        
 
         plotarGrafico(resposta, cliente_sensor_transporte);
       });
@@ -67,53 +81,6 @@ function obterDadosGrafico(cliente_sensor_transporte) {
     });
 }
 
-function buscar_transporte_e_sensores(fkCliente) {
-
-    console.log("id_cliente: ", fkCliente);
-
-    fetch(`/medidas/buscar_transporte_e_sensores/${fkCliente}`, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json"
-        }
-    }).then(function (resposta) {
-        console.log("ESTOU NO THEN DO entrar()!", resposta)
-
-        if (resposta.ok) {
-            resposta.json().then(json => {
-                console.log(JSON.stringify(json));
-
-                sessionStorage.clear()
-
-                sessionStorage.EMAIL_USUAIRO = json.Email;
-                sessionStorage.NOME_USUARIO = json.Nome;
-                sessionStorage.ID_USUARIO = json.idUsuario;
-                sessionStorage.FK_CLIENTE = json.fkEmpresas;
-
-                setTimeout(function () {
-                    window.location = "./dashboard.html";
-                }, 1000); // apenas para exibir o loading
-            });
-        } else {
-            modal_container.style.display = "flex";
-            modal_titulo.innerHTML = "Erro ao fazer login"
-            modal_txt.innerHTML = "Verfifique se o email e a senha estão corretos e tente novamente"
-
-            resposta.text().then(texto => {
-                console.error(texto);
-            });
-        }
-
-    }).catch(function (erro) {
-        console.log(erro);
-    })
-
-    return false;
-}
-
-// Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
-// Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
-// A função *plotarGrafico* também invoca a função *atualizarGrafico*
 function plotarGrafico(resposta, cliente_sensor_transporte) {
 
   // Criando estrutura para plotar gráfico - labels
@@ -141,6 +108,7 @@ function plotarGrafico(resposta, cliente_sensor_transporte) {
     var mes = data_hora.getMonth();
     var horas = data_hora.getHours();
     var minutos = data_hora.getMinutes();
+    var segundos = data_hora.getSeconds()
 
     if (dia < 10) {
       dia = "0" + dia;
@@ -154,14 +122,17 @@ function plotarGrafico(resposta, cliente_sensor_transporte) {
     if (minutos < 10) {
       minutos = "0" + minutos;
     }
+    if (segundos < 10) {
+      segundos = "0" + segundos;
+    }
 
-    var horas_minutos = `${horas}:${minutos}`
+    var horas_minutos_segundos = `${horas}:${minutos}.${segundos}`
 
-    var data_hora_formatada = `${dia}/${mes}/${data_hora.getFullYear()} ${horas}:${minutos}`;
+    var data_hora_formatada = `${dia}/${mes}/${data_hora.getFullYear()} ${horas}:${minutos}.${segundos}`;
     dados.datasets[0].data.push(registro.registro_sensor);
     labels.push(data_hora_formatada);
 
-    alteracoesAlerta(registro.registro_sensor, horas_minutos)
+    alteracoesAlerta(registro.registro_sensor, horas_minutos_segundos)
   }
 
   // Criando estrutura para plotar gráfico - config
@@ -175,15 +146,12 @@ function plotarGrafico(resposta, cliente_sensor_transporte) {
     document.getElementById(`chart_linha`),
     config
   );
+
+  chartLinha = myChart;
+
   setTimeout(() => atualizarGrafico(cliente_sensor_transporte, dados, myChart), 2000);
 }
 
-
-// Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
-// buscando a última medida inserida em tabela contendo as capturas, 
-
-//     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-//     Para ajustar o "select", ajuste o comando sql em src/models
 function atualizarGrafico(cliente_sensor_transporte, dados, myChart) {
   fetch(`/medidas/tempo-real/${cliente_sensor_transporte}`, { cache: 'no-store' }).then(function (response) {
     if (response.ok) {
@@ -194,6 +162,7 @@ function atualizarGrafico(cliente_sensor_transporte, dados, myChart) {
         var mes = data_hora.getMonth();
         var horas = data_hora.getHours();
         var minutos = data_hora.getMinutes();
+        var segundos = data_hora.getSeconds();
 
         if (dia < 10) {
           dia = "0" + dia;
@@ -207,12 +176,15 @@ function atualizarGrafico(cliente_sensor_transporte, dados, myChart) {
         if (minutos < 10) {
           minutos = "0" + minutos;
         }
+        if (segundos < 10) {
+          segundos = "0" + segundos;
+        }
 
-        var data_hora_formatada = `${dia}/${mes}/${data_hora.getFullYear()} ${horas}:${minutos}`;
-        var horas_minutos = `${horas}:${minutos}`;
+        var data_hora_formatada = `${dia}/${mes}/${data_hora.getFullYear()} ${horas}:${minutos}.${segundos}`;
+        var horas_minutos_segundos = `${horas}:${minutos}.${segundos}`;
 
         if (novoRegistro[0].data_hora == dados.labels[dados.labels.length - 1]) {
-          alteracoesAlerta(novoRegistro[0].registro_sensor, horas_minutos)
+          alteracoesAlerta(novoRegistro[0].registro_sensor, horas_minutos_segundos)
         } else {
           // tirando e colocando valores no gráfico
           dados.labels.shift(); // apagar o primeiro
@@ -222,7 +194,7 @@ function atualizarGrafico(cliente_sensor_transporte, dados, myChart) {
           dados.datasets[0].data.push(novoRegistro[0].registro_sensor); // incluir uma nova medida de umidade
 
           //ALTERANDO STATUS DA TEMPERATURA
-          alteracoesAlerta(novoRegistro[0].registro_sensor, horas_minutos)
+          alteracoesAlerta(novoRegistro[0].registro_sensor, horas_minutos_segundos)
 
           myChart.update();
         }
@@ -246,8 +218,6 @@ function sensores_por_cliente() {
 
   var fkClienteVar = cliente_sensor_transporte.fkCliente;
 
-  console.log("fk_Cliente: ", cliente_sensor_transporte.fkCliente);
-
   fetch(`/medidas/cliente/${fkClienteVar}`, {
     method: "GET",
     headers: {
@@ -257,8 +227,18 @@ function sensores_por_cliente() {
 
     if (response.ok) {
       response.json().then(function (resposta) {
-        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-        resposta.reverse();
+
+        for (let i = 0; i < resposta.length; i++) {
+          const idTransporte = resposta[i].idTransporte;
+          cliente_sensor_transporte.idTransporte.push(idTransporte);
+
+          let newOption = new Option('Identificação do transporte: ' + idTransporte, idTransporte);
+
+          const select = document.querySelector('select');
+          select.add(newOption, undefined);
+
+        }
+
       })
     }
   }).catch(function (erro) {
@@ -283,6 +263,7 @@ function alteracoesAlerta(temperatura, horas) {
       background: '#F03C31',
       color: '#faebd7',
       showConfirmButton: false,
+      toast: true,
       timer: 2000
     });
   } else if (temperatura <= -27.99) {
@@ -295,6 +276,7 @@ function alteracoesAlerta(temperatura, horas) {
       background: '#F3950C',
       color: '#faebd7',
       showConfirmButton: false,
+      toast: true,
       timer: 2000
     });
   } else if (temperatura <= -25) {
@@ -342,6 +324,8 @@ function plotarGraficoClassificacoes() {
     config
   );
   setInterval(() => atualizarClassificacoes(myChart, dados, [qtdTempIdeal, qtdTempIncorreta, qtdTempPreocupante, qtdTempCritica]), 2000);
+  chartKpiLinha = myChart;
+  console.log(chartKpiLinha);
 }
 
 function atualizarClassificacoes(grafico, graficoDatasets, listaClassificacoes) {

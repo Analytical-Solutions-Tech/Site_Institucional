@@ -183,8 +183,8 @@ function atualizarGrafico(cliente_sensor_transporte, dados, myChart) {
         var data_hora_formatada = `${dia}/${mes}/${data_hora.getFullYear()} ${horas}:${minutos}.${segundos}`;
         var horas_minutos_segundos = `${horas}:${minutos}.${segundos}`;
 
-        if (novoRegistro[0].data_hora == dados.labels[dados.labels.length - 1]) {
-          alteracoesAlerta(novoRegistro[0].registro_sensor, horas_minutos_segundos)
+        if (data_hora_formatada == dados.labels[dados.labels.length - 1]) {
+          console.log("Sem valor novo!");
         } else {
           // tirando e colocando valores no gráfico
           dados.labels.shift(); // apagar o primeiro

@@ -123,62 +123,28 @@
       <div class="graficos-secundarios">
         <!-- Kpi Bateria -->
           <div class="kpi_bateria">
-            <img src="./assets/chargebattery_battery_4821.png" alt="  " width="80px"> <br>
-            <span>
-                   O gráfico ao lado descreve o nível da bateria em porcentagem ao longo do tempo. Na vertical, temos a porcentagem da bateria. Na horizontal, os horários de medida.<br>
-            De 71 a 100% Bateria Cheia - <span style="color: green;">Cor Verde</span> <br>
-            De 51 a 70%: Bateria Boa      - <span style="color: #FFBF00;">Cor Amarela</span> <br>
-            De 21 a 50%: Bateria Fraca    - <span style="color: orange;">Cor Laranja</span> <br>
-            De 0 a 20%:  Bateria Acabando - <span style="color: red;">Cor Vermelha</span><br>
-            </span>
-            <img src="./assets/4014667-battery-charge-charger-ios11-iphone-juice_112917.png" alt="" width="70px">
+              <span>
+               <div class="texto_bateria">Durante o trajeto de transporte, os sensores são conectados por meio de um cabo a um power bank, que serve como uma fonte de energia portátil.</div><br><br>
 
+               <div class="porcentagem_bateria">
+                 De 71 a 100% Bateria Cheia - <span style="color: rgb(5, 255, 5);">Cor Verde</span> <br>
+                 De 51 a 70%: Bateria Boa      - <span style="color: #ffd966;">Cor Amarela</span> <br>
+                 De 21 a 50%: Bateria Fraca    - <span style="color: orange;">Cor Laranja</span> <br>
+                 De 0 a 20%:  Bateria Acabando - <span style="color: rgb(255, 70, 70);">Cor Vermelha</span><br>
+                </div>
+              </span>
+              <img src="./assets/battery-charging.svg" alt="" width="100px" class="powerbank_img">
           </div>
-          <!-- Final da kpi Bateria -->
+           <!-- Final da kpi Bateria -->
+
+
           <!-- Gráfico Bateria -->
           <div class="div_graficos">
             <div class="grafico_bateria">
               <canvas id="ChartBatery" style="position: relative" height="2" width="5px"></canvas>
-              <script>
-                const ctx = document.getElementById('ChartBatery');
-                new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: ['6:00','8:30','12:00','16:30','17:30','18:30','19:00','23:30','00:30' ],
-        datasets: [{
-          label: 'Bateria do Sensor',
-          backgroundColor : ['green','green','green','yellow','yellow','orange','orange','red', 'red'],
-          color: 'black',
-          data: [100,94,86, 72,67, 55,41, 19 ,5],
-          borderWidth: 3,
-          
-        }]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true,
-            color: "black",
-          
-          },
-          x:{
-            ticks:{
-              color: "black",
-              
-            }
-          }
-        },
-        plugins:{
-          legend:{
-            labels:{
-              color: "blue"
-            }
-          }
-        }
-      }
-    });
-              </script>
-              </div>
+             
+           
+           
               <!-- Legenda do grafico de bateria -->
                <span id="lengendaTitulo">Legenda</span> <br> <br>
               <div class=" legenda">
@@ -189,7 +155,7 @@
                 <div id="check-yellow"></div> <p id="text2">Amarelo: Carga moderada</p>
                 </div> 
                 <div class="legend">
-                <div id="check-orange"></div> <p id="text3">Laranja: Baixa Carga</p> 
+                <div id="check-orange"></div> <p id="text3">Laranja: Carga baixa</p> 
                 </div>
                 <div class="legend">
                 <div id="check-red"></div> <p id="text4">Vermelho: Carga Crítica</p>

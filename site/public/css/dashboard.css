@@ -189,7 +189,7 @@ body {
 
 }
 
-.download{
+.download {
     position: relative;
     left: 26%;
     font-size: 30px;
@@ -468,28 +468,31 @@ body {
     -webkit-text-fill-color: transparent;
     -moz-text-fill-color: transparent;
 }
-.kpi_bateria{
+
+.kpi_bateria {
     display: flex;
     align-items: center;
     flex-direction: column;
 }
-.grafico_bateria{
+
+.grafico_bateria {
     background-color: rgba(192, 201, 206, 0.466);
     top: 40px;
     border-radius: 25px;
     padding: 15px;
-    margin-top: 30px;
-    width: 90%;
-    height: 190px;
-    margin-left: 15px;
-  }
+    width: 85%;
+    position: relative;
+    left: 6%;
+    top: 4%;
+}
 
-  #chartBatery{
-    top:40px;
+#chartBatery {
+    top: 40px;
 
 
-  }
-  #check-green{
+}
+
+#check-green {
     width: 20px;
     height: 20px;
     border-color: black;
@@ -498,46 +501,61 @@ body {
     display: flex;
     flex-direction: row;
     align-content: space-around;
-  }
-  #check-yellow{
+}
+
+#check-yellow {
     width: 20px;
     height: 20px;
     border: black;
     border-radius: 6px;
-    background-color:yellow;
-  }
-  #check-orange{
+    background-color: yellow;
+}
+
+#check-orange {
     width: 20px;
     height: 20px;
     border: black;
     border-radius: 6px;
-    background-color:orange;
-  }
-  #check-red{
+    background-color: orange;
+}
+
+#check-red {
     width: 20px;
     height: 20px;
     border: black;
     border-radius: 6px;
     background-color: red;
-  }
-  #text1,#text2,#text3,#text4{
+}
+
+#text1,
+#text2,
+#text3,
+#text4 {
     margin-left: 10px;
- 
-  }
-  .legend{
+
+}
+
+.legend {
     align-items: center;
     align-content: center;
     flex-direction: row;
-  }
-  .legenda{
-    display: flex;
-    align-items: center;
+}
 
-  }
-  #lengendaTitulo{
+.legenda {
+    display: flex;
+    width: 96%;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+#lengendaTitulo {
     display: flex;
     justify-content: center;
-  }
+    position: absolute;
+    left: 46.5%;
+    font-size: 20px;
+    font-weight: 900;
+}
 
 .selects {
     display: flex;
@@ -684,16 +702,54 @@ body {
 }
 
 
-.kpi_bateria{
+.kpi_bateria {
     background-color: antiquewhite;
     width: 45%;
     height: 506px;
+    justify-content: end;
     -webkit-box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
     box-shadow: 13px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
-.div_graficos{
+.kpi_bateria span {
+    display: inline-table;
+    justify-content: center;
+    font-size: 23px;
+    font-weight: 500;
+}
+
+.texto_bateria {
+    background-color: #245953;
+    color: antiquewhite;
+    padding: 10px;
+    border: 3px solid black;
+    border-radius: 10px;
+    position: relative;
+    left: 4%;
+    width: 90%;
+}
+
+.porcentagem_bateria {
+    flex-direction: row;
+    background-color: #245953;
+    color: antiquewhite;
+    padding: 10px;
+    border: 3px solid black;
+    border-radius: 10px;
+    position: relative;
+    left: 4%;
+    width: 90%;
+
+}
+
+.powerbank_img{
+position: relative;
+left: 30%;
+bottom: 25%;
+}
+
+.div_graficos {
     background-color: antiquewhite;
     width: 45%;
     height: 506px;

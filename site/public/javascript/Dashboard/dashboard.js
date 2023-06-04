@@ -81,6 +81,47 @@ function obterDadosGrafico(cliente_sensor_transporte) {
     });
 }
 
+// Grafico Bateria
+const ctx = document.getElementById('ChartBatery');
+new Chart(ctx, {
+type: 'bar',
+data: {
+    // No labels precisamos definir o tempo de forma dinâmica (pegar mesma forma que está representado no gráfico dos sensores)
+labels: [],
+datasets: [{
+label: 'Porcentagem da bateria',
+backgroundColor : ['green','yellow','orange','red'],
+color: 'black',
+data: [100 ,90 ,80 ,70 ,60 ,50 ,40 ,30 ,20, 10, 0],
+borderWidth: 3,
+
+}]
+},
+options: {
+scales: {
+y: {
+beginAtZero: true,
+color: "black",
+
+},
+x:{
+ticks:{
+color: "black",
+
+}
+}
+},
+plugins:{
+legend:{
+labels:{
+color: "blue"
+}
+}
+}
+}
+});
+
+
 function plotarGrafico(resposta, cliente_sensor_transporte) {
 
   // Criando estrutura para plotar gráfico - labels

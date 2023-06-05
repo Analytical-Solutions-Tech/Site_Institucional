@@ -15,4 +15,8 @@ router.get("/cliente/:fkCliente", function (req, res) {
     medidaController.pesquisarFkCliente(req, res);
 });
 
+router.get("/class_temperatura", function (req, res) {
+    medidaController.classificacaoTemperatura(req, res);
+});
+
 module.exports = router;

@@ -9,7 +9,7 @@ function pesquisarMedidas(idTransporte) {
         select * from temperatura_por_transporte 
         JOIN historicoleitura 
         ON historicoleitura.fkTemperaturaTransporte = temperatura_por_transporte.idTransporte 
-        where idTransporte = ${idTransporte} limit 10;
+        where idTransporte = ${idTransporte} order by data_hora desc limit 10;
         `;
 
     } else {
@@ -40,6 +40,24 @@ function pesquisarMedidasTempoReal(idTransporte) {
     return database.executar(instrucaoSql);
 }
 
+function classificacaoTemperatura(fkTemperaturaTransporte) {
+
+    if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+        instrucaoSql = ` 
+            select count(descricao) qtdDesc, descricao from classificacao_temperatura join historicoLeitura on classificacao_temperatura.fk_historicoLeitura = historicoLeitura.idLeitura
+                where fkTemperaturaTransporte = ${fkTemperaturaTransporte}
+                    group by descricao;
+            `;
+    } else {
+        console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
+        return
+    }
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+
 function pesquisarFkCliente(fkCliente) {
 
     instrucaoSql = ''
@@ -62,5 +80,6 @@ function pesquisarFkCliente(fkCliente) {
 module.exports = {
     pesquisarMedidas,
     pesquisarMedidasTempoReal,
-    pesquisarFkCliente
+    pesquisarFkCliente,
+    classificacaoTemperatura
 }

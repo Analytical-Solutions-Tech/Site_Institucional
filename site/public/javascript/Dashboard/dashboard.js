@@ -1,4 +1,10 @@
-// GRÁFICOS DA DASHBOARD
+document.getElementById('sensores').addEventListener("change", function () {
+  setTimeout(() => {
+    chartLinha.destroy();
+    chartKpiLinha.destroy();
+    obterDadosGraficos();
+  }, 1000);
+})
 
 // GRÁFICO DE TEMPERATURA
 var EMAIL_USUARIO = sessionStorage.getItem('EMAIL_USUARIO');
@@ -12,6 +18,8 @@ var informacoesUsuario = {
   nome: NOME_USUARIO,
   idEmpresa: fkEmpresa
 }
+
+var listaDados = [];
 
 var proximaAtualizacao;
 
@@ -37,16 +45,6 @@ setTimeout(function () {
 }, 2000);
 
 
-document.getElementById('sensores').addEventListener("change", function () {
-  setTimeout(() => {
-    console.log(chartLinha);
-    console.log(chartKpiLinha);
-    chartLinha.destroy();
-    chartKpiLinha.destroy();
-    obterDadosGraficos();
-  }, 2000);
-})
-
 function obterDadosGraficos() {
   var optionSelectedTransporte = document.getElementById('sensores').value;
 
@@ -54,8 +52,6 @@ function obterDadosGraficos() {
 
   plotarGraficoClassificacoes();
 }
-
-
 
 function obterDadosGrafico(cliente_sensor_transporte) {
 
@@ -83,76 +79,71 @@ function obterDadosGrafico(cliente_sensor_transporte) {
 
 // Grafico Bateria
 const ctx = document.getElementById('chartBattery');
-new Chart(ctx, {
-type: 'bar',
-data: {
-labels: [], //Rotulo dos dados
-datasets: [{
-label: 'Porcentagem da bateria',
-data: [], //Valores das porcentagens 
-backgroundColor : ['green','yellow','orange','red'],
-color: 'black',
-borderWidth: 3,
-
-}]
-},
-options: {
-scales: {
-y: {
-beginAtZero: true,
-color: "black",
-max:100 //Valor limite do eixo Y
-
-},
-x:{
-ticks:{
-color: "black",
-
-}
-}
-},
-plugins:{
-legend:{
-labels:{
-color: "blue"
-}
-}
-}
-}
+var chartBattery = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: [], //Rotulo dos dados
+    datasets: [{
+      fill: 'origin',
+      borderWidth: 4,
+      label: 'Porcentagem da bateria',
+      data: [], //Valores das porcentagens 
+      backgroundColor: ['green'],
+      color: 'black',
+      borderWidth: 3,
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true,
+        color: "black",
+        max: 100 //Valor limite do eixo Y
+      },
+      x: {
+        ticks: {
+          color: "black",
+        }
+      }
+    },
+    plugins: {
+      legend: {
+        labels: {
+          color: "blue"
+        }
+      }
+    }
+  }
 });
 
 //Pegando os dados do Arduino e atualização do gráfico de linha
 function obterDadosDoArduino() {
-  // Obtenha os dados e o horário do Arduino
-  const dado = obterDadoDoArduino();
-  const horario = obterHorarioDoArduino();
-
-  // Atualize o gráfico de linha
-  atualizarGraficoDeLinha(dado, horario);
 
   // Atualize o gráfico de coluna da porcentagem da bateria
-  atualizarPorcentagemBateria(dado);
+  atualizarPorcentagemBateria(dados);
 }
 
 // Atualizando a porcentagem
-function atualizarPorcentagemBateria(dado) {
-  const porcentagemAnterior = chartBattery.data.datasets[0].data[0] || 100; // Obtém a porcentagem anterior (ou assume 100% na primeira vez)
-  const novaPorcentagem = porcentagemAnterior - 0.1; // Calcula a nova porcentagem subtraindo 0.1
+var porcentagemAnterior = chartBattery.data.datasets[0].data[0] || 100; // Obtém a porcentagem anterior (ou assume 100% na primeira vez)
 
-  chartBattery.data.labels.unshift(''); // Adiciona um rótulo vazio (opcional)
-  chartBattery.data.datasets[0].data.unshift(novaPorcentagem); // Adiciona o novo valor da porcentagem
+function atualizarPorcentagemBateria(dado, data_horario) {
+  console.log(dado);
+  console.log(porcentagemAnterior);
+
+ porcentagemAnterior -= 5;
+
+  // Calcula a nova porcentagem subtraindo 0.1
+  console.log(chartBattery.data.datasets[0].data);
+  chartBattery.data.labels.push(data_horario); // Adiciona um rótulo vazio (opcional)
+  chartBattery.data.datasets[0].data.push(porcentagemAnterior); // Adiciona o novo valor da porcentagem
   chartBattery.update(); // Atualiza o gráfico
 
-  for (i = 0; i < resposta.length; i++) {
-    // ...
-  
-    var valorAtual = registro.registro_sensor;
-    // ...
-  
-    alteracoesAlerta(registro.registro_sensor, horas_minutos_segundos);
-  
-    atualizarPorcentagemBateria(registro.registro_sensor); // Chama a função para atualizar o gráfico de coluna da porcentagem da bateria
+  for (let i = 0; i < dado.length; i++) {
+    const dadoAtual = dado[i];
+
+    console.log(dadoAtual.registro_sensor) // Chama a função para atualizar o gráfico de coluna da porcentagem da bateria
   }
+
 }
 
 
@@ -231,7 +222,8 @@ function atualizarGrafico(cliente_sensor_transporte, dados, myChart) {
   fetch(`/medidas/tempo-real/${cliente_sensor_transporte}`, { cache: 'no-store' }).then(function (response) {
     if (response.ok) {
       response.json().then(function (novoRegistro) {
-        console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+        // console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+
         var data_hora = new Date(novoRegistro[0].data_hora);
         var dia = data_hora.getDay();
         var mes = data_hora.getMonth();
@@ -257,6 +249,11 @@ function atualizarGrafico(cliente_sensor_transporte, dados, myChart) {
 
         var data_hora_formatada = `${dia}/${mes}/${data_hora.getFullYear()} ${horas}:${minutos}.${segundos}`;
         var horas_minutos_segundos = `${horas}:${minutos}.${segundos}`;
+
+        console.log(novoRegistro);
+        listaDados.push(...novoRegistro);
+        console.log(listaDados);
+        atualizarPorcentagemBateria(listaDados, data_hora_formatada);
 
         if (data_hora_formatada == dados.labels[dados.labels.length - 1]) {
           console.log("Sem valor novo!");

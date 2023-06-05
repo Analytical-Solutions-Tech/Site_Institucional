@@ -82,17 +82,16 @@ function obterDadosGrafico(cliente_sensor_transporte) {
 }
 
 // Grafico Bateria
-const ctx = document.getElementById('ChartBatery');
+const ctx = document.getElementById('chartBattery');
 new Chart(ctx, {
 type: 'bar',
 data: {
-    // No labels precisamos definir o tempo de forma dinâmica (pegar mesma forma que está representado no gráfico dos sensores)
-labels: [],
+labels: [], //Rotulo dos dados
 datasets: [{
 label: 'Porcentagem da bateria',
+data: [], //Valores das porcentagens 
 backgroundColor : ['green','yellow','orange','red'],
 color: 'black',
-data: [100 ,90 ,80 ,70 ,60 ,50 ,40 ,30 ,20, 10, 0],
 borderWidth: 3,
 
 }]
@@ -102,6 +101,7 @@ scales: {
 y: {
 beginAtZero: true,
 color: "black",
+max:100 //Valor limite do eixo Y
 
 },
 x:{
@@ -120,6 +120,40 @@ color: "blue"
 }
 }
 });
+
+//Pegando os dados do Arduino e atualização do gráfico de linha
+function obterDadosDoArduino() {
+  // Obtenha os dados e o horário do Arduino
+  const dado = obterDadoDoArduino();
+  const horario = obterHorarioDoArduino();
+
+  // Atualize o gráfico de linha
+  atualizarGraficoDeLinha(dado, horario);
+
+  // Atualize o gráfico de coluna da porcentagem da bateria
+  atualizarPorcentagemBateria(dado);
+}
+
+// Atualizando a porcentagem
+function atualizarPorcentagemBateria(dado) {
+  const porcentagemAnterior = chartBattery.data.datasets[0].data[0] || 100; // Obtém a porcentagem anterior (ou assume 100% na primeira vez)
+  const novaPorcentagem = porcentagemAnterior - 0.1; // Calcula a nova porcentagem subtraindo 0.1
+
+  chartBattery.data.labels.unshift(''); // Adiciona um rótulo vazio (opcional)
+  chartBattery.data.datasets[0].data.unshift(novaPorcentagem); // Adiciona o novo valor da porcentagem
+  chartBattery.update(); // Atualiza o gráfico
+
+  for (i = 0; i < resposta.length; i++) {
+    // ...
+  
+    var valorAtual = registro.registro_sensor;
+    // ...
+  
+    alteracoesAlerta(registro.registro_sensor, horas_minutos_segundos);
+  
+    atualizarPorcentagemBateria(registro.registro_sensor); // Chama a função para atualizar o gráfico de coluna da porcentagem da bateria
+  }
+}
 
 
 function plotarGrafico(resposta, cliente_sensor_transporte) {

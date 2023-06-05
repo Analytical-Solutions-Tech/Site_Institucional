@@ -49,8 +49,8 @@ function obterDadosGraficos() {
   var optionSelectedTransporte = document.getElementById('sensores').value;
 
   obterDadosGrafico(optionSelectedTransporte);
-
-  plotarGraficoClassificacoes();
+  
+  classificacaoTemperatura(optionSelectedTransporte);
 }
 
 function obterDadosGrafico(cliente_sensor_transporte) {
@@ -128,9 +128,30 @@ var porcentagemAnterior = chartBattery.data.datasets[0].data[0] || 100; // Obté
 
 function atualizarPorcentagemBateria(dado, data_horario) {
   console.log(dado);
-  console.log(porcentagemAnterior);
+  console.log(porcentagemAnterior);  
+ 
+if((porcentagemAnterior - 2.4) <= 0) {
+    return false
+}
+else if(porcentagemAnterior <= 20){
+  chartBattery.data.datasets[0].backgroundColor = 'red'
+  porcentagemAnterior -= 2.4;
+}
 
- porcentagemAnterior -= 5;
+else if(porcentagemAnterior <= 50){
+  chartBattery.data.datasets[0].backgroundColor = 'orange'
+  porcentagemAnterior -= 2.4;
+}
+
+else if(porcentagemAnterior <= 70){
+  chartBattery.data.datasets[0].backgroundColor = 'yellow'
+  porcentagemAnterior -= 2.4;
+}
+
+else {
+  chartBattery.data.datasets[0].backgroundColor = 'green'
+  porcentagemAnterior -= 2.4;
+}
 
   // Calcula a nova porcentagem subtraindo 0.1
   console.log(chartBattery.data.datasets[0].data);
@@ -363,6 +384,25 @@ function alteracoesAlerta(temperatura, horas) {
   tempAviso.innerHTML = `${temperatura}`
 }
 
+function classificacaoTemperatura(fkTemperaturaTransporte) {
+
+  fetch(`/medidas/class_temperatura/${fkTemperaturaTransporte}`).then(function (response) {
+
+    if (response.ok) {
+      response.json().then(function (resposta) {
+        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+        resposta.reverse();
+
+        plotarGraficoClassificacoes(resposta, cliente_sensor_transporte);
+      });
+    } else {
+      console.error('Nenhuma classificacao foi encontrada na API');
+    }
+  })
+    .catch(function (error) {
+      console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    });
+}
 
 function plotarGraficoClassificacoes() {
 

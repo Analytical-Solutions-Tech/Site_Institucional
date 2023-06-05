@@ -41,12 +41,12 @@ function pesquisarMedidasTempoReal(idTransporte) {
 }
 
 function classificacaoTemperatura(fkTemperaturaTransporte) {
-
+    console.log(fkTemperaturaTransporte);
     if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql = ` 
             select count(descricao) qtdDesc, descricao from classificacao_temperatura join historicoLeitura on classificacao_temperatura.fk_historicoLeitura = historicoLeitura.idLeitura
                 where fkTemperaturaTransporte = ${fkTemperaturaTransporte}
-                    group by descricao;
+                    group by descricao desc;
             `;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");

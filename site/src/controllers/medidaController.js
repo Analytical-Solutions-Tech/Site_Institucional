@@ -37,9 +37,9 @@ function pesquisarMedidasTempoReal(req, res) {
 
 function classificacaoTemperatura(req, res) {
 
-    var fkHistoricoLeitura = req.params.fkHistoricoLeitura;
+    var fkTemperaturaTransporte = req.params.fkTemperaturaTransporte;
 
-    medidaModel.classificacaoTemperatura(fkHistoricoLeitura).then(function (resultado) {
+    medidaModel.classificacaoTemperatura(fkTemperaturaTransporte).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
